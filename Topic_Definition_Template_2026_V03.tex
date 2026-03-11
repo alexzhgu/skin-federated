@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{makecell}
+\usepackage{adjustbox}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{xcolor}
+\definecolor{topicpurple}{HTML}{7030A0}
+\definecolor{Purple}{HTML}{7030A0}
+\newcommand{\purple}[1]{\textcolor{topicpurple}{\textit{#1}}}
+
+\newcommand{\field}[1]{\noindent #1\par\vspace{1.2em}}
+\newcommand{\checkbox}{\(\square\)}
+\newcommand{\checked}{\(\checkmark\)}
+
+\title{Topic Definition}
+\date{}
+\begin{document}
+\maketitle
+\subsection*{Administrative details}
+\field{Student name: Alex Gu}
+\field{Student number: 48028903}
+\field{Program enrolment: Bachelor of Computer Science (Honours)}
+\field{Course enrolment: REIT4881}
+\field{Number of units: 8}
+\field{Expected workload for your enrolment: 20 hours/week}
+
+\subsection*{Supervision details}
+\field{Primary Supervisor: Ruihong Qiu}
+\field{Other Supervisors: Helen Huang, Laith Alzubaidi}
+\field{Have you met your supervisor: Yes - in person}
+\field{Do you have a regular meeting scheduled (weekly/biweekly/other (please specify))}
+
+\subsection*{\purple{Project title and topic}}
+\field{Topic title (\(<50\) words)}
+\field{Topic description (100--300 words)}
+
+\subsection*{\purple{Societal relevance and research aim}}
+\field{Why is your research topic important to society? (50--100 words)}
+\field{Describe your research question or aim (100--300 words)}
+
+\subsection*{Referencing tools and style}
+\field{What reference manager are you using: Zotero with Better BibTeX plugin, exporting to BibTeX (.bib) for use with LaTeX}
+\field{What reference style are you going to use: IEEE}
+\field{Why: IEEE is the standard citation style for computer science and engineering research}
+
+\subsection*{Reference list task}
+\purple{Choose 5--15 peer reviewed references and write a paragraph on why the articles are relevant to your thesis topic. Use proper inline citations and insert a properly formatted reference list in your chosen referencing style at the end of this section. Ensure that you use your reference manager for this task. At least 5 references must be from peer reviewed archival sources (journals or peer-reviewed conferences with valid DOIs).}
+
+\vspace{6em}
+
+% Example (BibTeX workflow):
+% \bibliographystyle{ieeetr}
+% \bibliography{references}
+
+\subsection*{Use of AI statement}
+\purple{Read and acknowledge the Use of AI Statement, describe the specific ways that you used AI in the assessment and fill in the AI table below (remove the purple example text from the table first). Keep a record of this information over the year as you will need to update it for your proposal and final thesis report.}
+
+\subsubsection*{}
+\noindent \textit{I acknowledge the use of generative AI tools in completing this assessment. Details of which tools were used and how they were used are provided in the table below, along with appropriate in-text and full references. I take responsibility for critically evaluating and integrating the AI-generated content, and ensuring it adheres to academic integrity standards.}
+
+\subsubsection*{Have you used AI to}
+\begin{itemize}[leftmargin=1.5em]
+  \item Explore your topic? Yes/No. Explain how (or explain why not).
+  \item Define your research question? Explain how (or explain why not).
+  \item Assist with your literature review? Explain how (or explain why not).
+  \item Assist with formatting the answers presented here? (e.g., grammar, spelling, language) Explain how (or explain why not).
+  \item Other aspects of your work? Explain how you used it.
+\end{itemize}
+
+\subsubsection*{}
+
+
+% --- the table ---
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{\parbox{2.5cm}{\vspace*{\fill}\centering AI Model and date\vspace*{0pt}}}
+ & \multicolumn{9}{c|}{\parbox{11cm}{\centering Table 1. AI tool usage (tick all that apply)}} \\ \cline{2-10}
+ & \adjustbox{rotate=90}{Language Translation}
+ & \adjustbox{rotate=90}{Grammar / style / spelling}
+ & \adjustbox{rotate=90}{Topic exploration}
+ & \adjustbox{rotate=90}{Research question}
+ & \adjustbox{rotate=90}{Literature review}
+ & \adjustbox{rotate=90}{Content Creation visual (formatting)}
+ & \adjustbox{rotate=90}{Content Creation (e.g. code, text)}
+ & \adjustbox{rotate=90}{Feedback}
+ & \adjustbox{rotate=90}{Other (provide details)} \\ \hline
+\makecell{Claude Opus\\Week 2-3}
+ & & & \checkmark & \checkmark & & \checkmark & & & \\ \hline
+ & & & & & & & & & \\ \hline
+ & & & & & & & & & \\ \hline
+\end{tabular}
+
+
+\renewcommand{\arraystretch}{1.2}
+\end{document}
