@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{mcmahanCommunicationEfficientLearningDeep2023}
+H.~B. McMahan, E.~Moore, D.~Ramage, S.~Hampson, and B.~A. y~Arcas,
+  ``Communication-{{Efficient Learning}} of {{Deep Networks}} from
+  {{Decentralized Data}},'' Jan. 2023.
+
+\bibitem{liFederatedLearningChallenges2020}
+T.~Li, A.~K. Sahu, A.~Talwalkar, and V.~Smith, ``Federated {{Learning}}:
+  {{Challenges}}, {{Methods}}, and {{Future Directions}},'' {\em IEEE Signal
+  Processing Magazine}, vol.~37, pp.~50--60, May 2020.
+
+\bibitem{liFederatedOptimizationHeterogeneous2020}
+T.~Li, A.~K. Sahu, M.~Zaheer, M.~Sanjabi, A.~Talwalkar, and V.~Smith,
+  ``Federated {{Optimization}} in {{Heterogeneous Networks}},'' Apr. 2020.
+
+\bibitem{kaissisSecurePrivacypreservingFederated2020}
+G.~A. Kaissis, M.~R. Makowski, D.~R{\"u}ckert, and R.~F. Braren, ``Secure,
+  privacy-preserving and federated machine learning in medical imaging,'' {\em
+  Nature Machine Intelligence}, vol.~2, pp.~305--311, June 2020.
+
+\bibitem{bonawitzPracticalSecureAggregation2017}
+K.~Bonawitz, V.~Ivanov, B.~Kreuter, A.~Marcedone, H.~B. McMahan, S.~Patel,
+  D.~Ramage, A.~Segal, and K.~Seth, ``Practical {{Secure Aggregation}} for
+  {{Privacy-Preserving Machine Learning}},'' in {\em Proceedings of the 2017
+  {{ACM SIGSAC Conference}} on {{Computer}} and {{Communications Security}}},
+  {{CCS}} '17, (New York, NY, USA), pp.~1175--1191, Association for Computing
+  Machinery, Oct. 2017.
+
+\end{thebibliography}

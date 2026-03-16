@@ -45,30 +45,31 @@
 \field{Topic title:}
 \field{\indent{Privacy-Preserving Federated Learning for Distributed Skin Disease Classification}}
 \field{Topic description:}
-\indent{Federated learning allows AI models to be trained across separate data sources and samples by sharing model updates rather than raw data. However, prior work has shown that standard federated averaging can struggle with non-identically distributed (non-iid) data, and that shared model updates can still leak sensitive patient information through attacks.
+\indent{Federated learning allows AI models to be trained across separate data sources and samples by sharing model updates rather than raw data. However, prior work has shown that standard federated averaging can struggle with non-identically distributed (non-IID) data, and that shared model updates can still leak sensitive patient information through attacks.
 
-This project investigates federated learning for multi-class skin disease classification. An image dataset covering 30 skin disease classes will be partitioned across multiple nodes, simulating a distributed healthcare environment. This project will implement federated learning methods, specifically FedAvg and FedProx, and compare their performance against a centralised data pipeline. The project will evaluate classification accuracy, communication efficiency, and model behaviour under non-IID data distributions across nodes.}
+This project investigates federated learning for multi-class skin disease classification. An image dataset covering 30 skin disease classes will be partitioned across multiple nodes, simulating a distributed healthcare environment. This project will implement federated learning methods, specifically FedAvg and FedProx, and compare their performance against a centralised data baseline. The project will evaluate classification accuracy, communication efficiency, and model behaviour under non-IID data distributions across nodes.}
 
 \subsection*{Societal relevance and research aim}
 \field{Why is your research topic important to society?}
 \field{\indent{Skin diseases affect millions of people worldwide and AI has shown strong potential in supporting diagnoses through image classification. However, building reliable models requires large, diverse datasets that are often distributed across institutions. Privacy regulations such as HIPAA and GDPR prevent centralised data aggregation, limiting the development of models that generalise across patient populations. Privacy-preserving federated learning enables collaboration without exposing sensitive data, potentially improving accuracy while maintaining patient trust and regulatory compliance.}}
 \field{Describe your research question or aim:}
-\indent{The aim of this project is to evaluate federated learning approaches for multi-class skin classification in a simulated distributed healthcare environment. Training medical image classifiers typically requires aggregating data in a ngle location, which is often infeasible due to privacy regulations.
-}
+\indent{The aim of this project is to evaluate federated learning approaches for multi-class skin classification in a simulated distributed healthcare environment. Training medical image classifiers typically requires aggregating data in a single location, which is often infeasible due to privacy concerns. Federated learning keeps data local and shares only model updates, but standard federated averaging lacks convergence guarantees on non-IID data and may still leak patient information.}\par
+\indent{This project addresses the following questions: How do FedAvg and FedProx compare on a 30-class skin disease task when data is heterogeneously distributed across nodes? How do these approaches compare against a centralised baseline in terms of classification accuracy and communication efficiency? If time permits, improvements such as stronger architectures or communication optimisations may be explored.}
 
 \subsection*{Referencing tools and style}
 \field{What reference manager are you using: Zotero with Better BibTeX plugin, exporting to BibTeX (.bib) for use with LaTeX}
 \field{What reference style are you going to use: IEEE}
-\field{Why: IEEE is the standard citation style for computer science and engineering research. It is also the format used by most papers within this domain}
+\field{Why: IEEE is the standard citation style for computer science and engineering research. It is also the format used by most papers within this domain.}
+
+\newpage
 
 \subsection*{Reference list task}
-\purple{Choose 5--15 peer reviewed references and write a paragraph on why the articles are relevant to your thesis topic. Use proper inline citations and insert a properly formatted reference list in your chosen referencing style at the end of this section. Ensure that you use your reference manager for this task. At least 5 references must be from peer reviewed archival sources (journals or peer-reviewed conferences with valid DOIs).}
+This project investigates federated learning for distributed skin disease classification. McMahan et al \cite{mcmahanCommunicationEfficientLearningDeep2023} introduced Federated Averaging (FedAvg), a foundational algorithm that enables collaborative training across decentralised devices by sharing model updates to a central server rather than raw data. Li et al. \cite{liFederatedLearningChallenges2020} surveyed the challenges surrounding federated learning, identifying key issues such as expensive communication, system heterogeneity, data heterogeneity from non-IID data and potential security risks associated with shared model updates. To address the convergence issue of FedAvg under heterogeneity, Li et al. \cite{liFederatedOptimizationHeterogeneous2020} proposed FedProx, which introduces a proximal term which prevents the decentralised models from deviating too far from the global model. This provides the convergence guarantee which FedAvg lacks. While FedAvg keeps raw data local, Kaissis et al. \cite{kaissisSecurePrivacypreservingFederated2020} highlighted that model updates could still leak patient information through attacks such as model inversion (rebuilding data from model weights) and membership inference (identifying if data is present within a set of training data). They argued that federated learning alone is not sufficient to meet the privacy mechanisms essential for medical imaging under regulations such as HIPAA and GDPR. Bonawitz et al. \cite{bonawitzPracticalSecureAggregation2017} addressed this by designing a protocol that enables the server to calculate the sum of client updates without observing any individual, maintaining privacy even when clients drop out. Together, these works inform the design and evaluation of the federated learning framework proposed in this project.
 
 \vspace{6em}
 
-% Example (BibTeX workflow):
-% \bibliographystyle{ieeetr}
-% \bibliography{references}
+\bibliographystyle{ieeetr}
+\bibliography{references}
 
 \subsection*{Use of AI statement}
 \subsubsection*{}
