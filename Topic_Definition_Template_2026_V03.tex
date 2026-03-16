@@ -40,15 +40,17 @@
 \field{Have you met your supervisor: Yes - in person}
 \field{Do you have a regular meeting scheduled: Weekly}
 
-\subsection*{\purple{Project title and topic}}
+\subsection*{Project title and topic}
 \field{Topic title:\\
 \indent{Privacy-Preserving Federated Learning for Distributed Skin Disease Classification}}
-\field{Topic description:\\\indent{Federated learning allows AI models to be trained across disconnected data sets and samples by sharing model updates instead rather than raw data. However, prior work has shown that standard federated averaging can struggle with non-identically distributed data, and that shared model updates can still leak sensitive patient information through attacks such as model inversion and membership inference.\\
-\\This project investigates federated learning for multi-class skin disease classification. An image dataset covering 35 skin disease classes will be partitioned across multple nodes, simulating a distributed healthcare environment. This project will implement federated}}
+\field{Topic description:\\
+\indent{Federated learning allows AI models to be trained across separate data sources and samples by sharing model updates rather than raw data. However, prior work has shown that standard federated averaging can struggle with non-identically distributed data, and that shared model updates can still leak sensitive patient information through attacks.\\
+\\This project investigates federated learning for multi-class skin disease classification. An image dataset covering 35 skin disease classes will be partitioned across multiple nodes, simulating a distributed healthcare environment. This project will implement federated learning methods, specifically FedAvg and FedProx, and compare their performance against a centralised data pipeline. The project will evaluate classification accuracy, communication efficiency, and model behaviour under non-IID data distributions across nodes.}}
 
-\subsection*{\purple{Societal relevance and research aim}}
-\field{Why is your research topic important to society? (50--100 words)}
-\field{Describe your research question or aim (100--300 words)}
+\subsection*{Societal relevance and research aim}
+\field{Why is your research topic important to society?\\
+\indent{Skin diseases affect millions of people worldwide and AI has shown strong potential in supporting diagnoses through image classification. However, building reliable models requires large, diverse datasets that are often distributed across institutions. Privacy regulations such as HIPAA and GDPR prevent centralised data aggregation, limiting the development of models that generalise across patient populations. Privacy-preserving federated learning enables collaboration without exposing sensitive data, potentially improving accuracy while maintaining patient trust and regulatory compliance.}}
+\field{Describe your research question or aim}
 
 \subsection*{Referencing tools and style}
 \field{What reference manager are you using: Zotero with Better BibTeX plugin, exporting to BibTeX (.bib) for use with LaTeX}
