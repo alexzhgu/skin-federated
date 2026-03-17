@@ -45,7 +45,7 @@
 \field{Topic title:}
 \field{\indent{Privacy-Preserving Federated Learning for Distributed Skin Disease Classification}}
 \field{Topic description:}
-\indent{Federated learning allows AI models to be trained across separate data sources and samples by sharing model updates rather than raw data. However, prior work has shown that standard federated averaging can struggle with non-identically distributed (non-IID) data, and that shared model updates can still leak sensitive patient information through attacks.
+\indent{Federated learning allows AI models to be trained across separate data sources and samples by sharing model updates rather than raw data. However, prior work has shown that standard federated averaging can struggle with non-identically distributed (non-IID) data and that shared model updates can still leak sensitive patient information through attacks.
 
 This project investigates federated learning for multi-class skin disease classification. An image dataset covering 30 skin disease classes will be partitioned across multiple nodes, simulating a distributed healthcare environment. This project will implement federated learning methods, specifically FedAvg and FedProx, and compare their performance against a centralised data baseline. The project will evaluate classification accuracy, communication efficiency, and model behaviour under non-IID data distributions across nodes.}
 
@@ -64,9 +64,7 @@ This project investigates federated learning for multi-class skin disease classi
 \newpage
 
 \subsection*{Reference list task}
-This project investigates federated learning for distributed skin disease classification. McMahan et al \cite{mcmahanCommunicationEfficientLearningDeep2023} introduced Federated Averaging (FedAvg), a foundational algorithm that enables collaborative training across decentralised devices by sharing model updates to a central server rather than raw data. Li et al. \cite{liFederatedLearningChallenges2020} surveyed the challenges surrounding federated learning, identifying key issues such as expensive communication, system heterogeneity, data heterogeneity from non-IID data and potential security risks associated with shared model updates. To address the convergence issue of FedAvg under heterogeneity, Li et al. \cite{liFederatedOptimizationHeterogeneous2020} proposed FedProx, which introduces a proximal term which prevents the decentralised models from deviating too far from the global model. This provides the convergence guarantee which FedAvg lacks. While FedAvg keeps raw data local, Kaissis et al. \cite{kaissisSecurePrivacypreservingFederated2020} highlighted that model updates could still leak patient information through attacks such as model inversion (rebuilding data from model weights) and membership inference (identifying if data is present within a set of training data). They argued that federated learning alone is not sufficient to meet the privacy mechanisms essential for medical imaging under regulations such as HIPAA and GDPR. Bonawitz et al. \cite{bonawitzPracticalSecureAggregation2017} addressed this by designing a protocol that enables the server to calculate the sum of client updates without observing any individual, maintaining privacy even when clients drop out. Together, these works inform the design and evaluation of the federated learning framework proposed in this project.
-
-\vspace{6em}
+This project investigates federated learning for distributed skin disease classification. McMahan et al. \cite{mcmahanCommunicationEfficientLearningDeep2023} introduced Federated Averaging (FedAvg), a foundational algorithm that enables collaborative training across decentralised devices by sharing model updates with a central server rather than raw data. Li et al. \cite{liFederatedLearningChallenges2020} surveyed the challenges surrounding federated learning, identifying key issues such as expensive communication, system heterogeneity, data heterogeneity from non-IID data and potential security risks associated with shared model updates. To address the convergence issue of FedAvg under heterogeneity, Li et al. \cite{liFederatedOptimizationHeterogeneous2020} proposed FedProx, which introduces a proximal term that prevents the decentralised models from deviating too far from the global model. This provides the convergence guarantee that FedAvg lacks. While FedAvg keeps raw data local, Kaissis et al. \cite{kaissisSecurePrivacypreservingFederated2020} highlighted that model updates could still leak patient information through attacks such as model inversion (rebuilding data from model weights) and membership inference (identifying if data is present within a set of training data). They argued that federated learning alone is not sufficient to meet the privacy mechanisms essential for medical imaging under regulations such as HIPAA and GDPR. Bonawitz et al. \cite{bonawitzPracticalSecureAggregation2017} addressed this by designing a protocol that enables the server to calculate the sum of client updates without observing any individual, maintaining privacy even when clients drop out. Together, these works inform the design and evaluation of the federated learning framework proposed in this project.
 
 \bibliographystyle{ieeetr}
 \bibliography{references}
@@ -77,11 +75,11 @@ This project investigates federated learning for distributed skin disease classi
 
 \subsubsection*{Have you used AI to}
 \begin{itemize}[leftmargin=1.5em]
-  \item Explore your topic? Yes/No. Explain how (or explain why not).
-  \item Define your research question? Explain how (or explain why not).
-  \item Assist with your literature review? Explain how (or explain why not).
-  \item Assist with formatting the answers presented here? (e.g., grammar, spelling, language) Explain how (or explain why not).
-  \item Other aspects of your work? Explain how you used it.
+  \item Explore your topic? Yes -- discussed federated learning and privacy concepts with Claude to build understanding.
+  \item Define your research question? No -- research question was defined through meetings with supervisors.
+  \item Assist with your literature review? Yes -- used Claude to generate notes, verified against originals.
+  \item Assist with formatting the answers presented here? Yes -- used Claude for LaTeX troubleshooting
+  \item Other aspects of your work? No
 \end{itemize}
 
 \subsubsection*{}
@@ -102,7 +100,7 @@ This project investigates federated learning for distributed skin disease classi
  & \adjustbox{rotate=90}{Feedback}
  & \adjustbox{rotate=90}{Other (provide details)} \\ \hline
 \makecell{Claude Opus\\Week 2-3}
- & & & \checkmark & \checkmark & & \checkmark & & & \\ \hline
+ & & & \checkmark & & \checkmark & \checkmark & & & \\ \hline
  & & & & & & & & & \\ \hline
  & & & & & & & & & \\ \hline
 \end{tabular}
