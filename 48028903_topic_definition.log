@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.28)  17 MAR 2026 11:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.28)  17 MAR 2026 17:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -354,8 +354,7 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (c:/texlive/2025/texmf-dist/tex/latex-dev/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count313
-)
-No file 48028903_topic_definition.aux.
+) (./48028903_topic_definition.aux)
 \openout1 = `48028903_topic_definition.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
@@ -376,6 +375,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
 LaTeX Font Info:    ... okay on input line 28.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
 LaTeX Font Info:    ... okay on input line 28.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -438,6 +438,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
 Package hyperref Info: Link coloring OFF on input line 28.
+ (./48028903_topic_definition.out) (./48028903_topic_definition.out)
 \@outlinefile=\write3
 \openout3 = `48028903_topic_definition.out'.
 
@@ -499,25 +500,11 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 {c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
 
-[2]
+[2] (./48028903_topic_definition.bbl)
 
-LaTeX Warning: Citation `mcmahanCommunicationEfficientLearningDeep2023' on page 3 undefined on input line 67.
-
-
-LaTeX Warning: Citation `liFederatedLearningChallenges2020' on page 3 undefined on input line 67.
-
-
-LaTeX Warning: Citation `liFederatedOptimizationHeterogeneous2020' on page 3 undefined on input line 67.
-
-
-LaTeX Warning: Citation `kaissisSecurePrivacypreservingFederated2020' on page 3 undefined on input line 67.
-
-
-LaTeX Warning: Citation `bonawitzPracticalSecureAggregation2017' on page 3 undefined on input line 67.
-
-No file 48028903_topic_definition.bbl.
+[3]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 78.
-(c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
+ (c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -528,39 +515,27 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 89.
 
 
-[3{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-
-[4] (./48028903_topic_definition.aux)
+[4{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] (./48028903_topic_definition.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-06-09>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-Package rerunfilecheck Warning: File `48028903_topic_definition.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `48028903_topic_definition.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `48028903_topic_definition.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14174 strings out of 467887
- 222830 string characters out of 5438199
- 673622 words of memory out of 5000000
- 42428 multiletter control sequences out of 15000+600000
- 675862 words of font info for 124 fonts, out of 8000000 for 9000
+ 14217 strings out of 467887
+ 223958 string characters out of 5438199
+ 672922 words of memory out of 5000000
+ 42442 multiletter control sequences out of 15000+600000
+ 682590 words of font info for 133 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 86i,13n,93p,1949b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,13n,93p,2048b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on 48028903_topic_definition.pdf (4 pages, 119484 bytes).
+Output written on 48028903_topic_definition.pdf (4 pages, 127190 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 26625 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 82 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
+ 21 named destinations out of 1000 (max. 500000)
+ 30721 words of extra memory for PDF output out of 35830 (max. 10000000)
 
