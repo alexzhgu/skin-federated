@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.28)  17 MAR 2026 18:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.28)  20 MAR 2026 11:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -514,6 +514,11 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 89.
 
+Overfull \hbox (4.35258pt too wide) in paragraph at lines 89--107
+[] 
+ []
+
+
 
 [4{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] (./48028903_topic_definition.aux)
  ***********
@@ -532,7 +537,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  86i,13n,93p,2050b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on 48028903_topic_definition.pdf (4 pages, 127193 bytes).
+Output written on 48028903_topic_definition.pdf (4 pages, 127203 bytes).
 PDF statistics:
  82 PDF objects out of 1000 (max. 8388607)
  64 compressed objects within 1 object stream
