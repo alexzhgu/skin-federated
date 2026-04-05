@@ -1,0 +1,408 @@
+\documentclass[12pt,openany,a4paper]{book}
+\usepackage{graphics}	% if you want encapsulated PS figures.
+\usepackage{array,makecell,graphicx,pifont,tabularx, amssymb}
+\usepackage{rotating} % satisfies the makecell \rotcell macro
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{adjustbox} % for rotating text
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}
+  {\thechapter.\ }{0pt}{}
+\titlespacing*{\chapter}{0pt}{0pt}{1em}
+
+
+% If you use a macro file called macros.tex :
+% \input{macros}
+% Note: The present document has its macros built in.
+
+% Number subsections but not subsubsections:
+\setcounter{secnumdepth}{2}
+% Show subsections but not subsubsections in table of contents:
+\setcounter{tocdepth}{2}
+
+\pagestyle{headings}		% Chapter on left page, Section on right.
+\raggedbottom
+
+\setlength{\topmargin}		{-5mm}  %  25-5 = 20mm
+\setlength{\oddsidemargin}	{10mm}  % rhs page inner margin = 25+10mm
+\setlength{\evensidemargin}	{0mm}   % lhs page outer margin = 25mm
+\setlength{\textwidth}		{150mm} % 35 + 150 + 25 = 210mm
+\setlength{\textheight}		{240mm} % 
+
+\renewcommand{\baselinestretch}{1.2}	% Looks like 1.5 spacing.
+
+% Stop figure/tables smaller than 3/4 page from appearing alone on a page:
+\renewcommand{\textfraction}{0.25}
+\renewcommand{\topfraction}{0.75}
+\renewcommand{\bottomfraction}{0.75}
+\renewcommand{\floatpagefraction}{0.75}
+
+% THEOREM-LIKE ENVIRONMENTS:
+\newtheorem{defn}	{Definition}	% cf. \dfn for cross-referencing
+\newtheorem{theorem}	{Theorem}	% cf. \thrm for cross-referencing
+\newtheorem{lemma}	{Lemma}		% cf. \lem for cross-referencing
+
+% AIDS TO CROSS-REFERENCING (All take a label as argument):
+\newcommand{\eref}[1] {(\ref{#1})}		% (...)
+\newcommand{\eq}[1]   {Eq.\,(\ref{#1})}		% Eq.~(...)
+\newcommand{\eqs}[2]  {Eqs.~(\ref{#1}) and~(\ref{#2})}
+\newcommand{\dfn}[1]  {Definition~\ref{#1}}	% Definition~...
+\newcommand{\thrm}[1] {Theorem~\ref{#1}}	% Theorem~...
+\newcommand{\lem}[1]  {Lemma~\ref{#1}}		% Lemma~...
+\newcommand{\fig}[1]  {Fig.\,\ref{#1}}		% Fig.~...
+\newcommand{\tab}[1]  {Table~\ref{#1}}		% Table~...
+\newcommand{\chap}[1] {Chapter~\ref{#1}}	% Chapter~...
+\newcommand{\secn}[1] {Section~\ref{#1}}	% Section~...
+\newcommand{\ssec}[1] {Subsection~\ref{#1}}	% Subsection~...
+
+% AIDS TO FORMATTING:
+\newcommand{\teq}[1]	{\mbox{$#1$}}	% in-Text EQuation (unbreakable)
+\newcommand{\qed}	{\hspace*{\fill}$\bullet$}	% end of proof
+
+\newcommand{\cmark}{\ding{51}} % ✓
+
+% MATHEMATICAL TEMPLATES:
+% Text or math mode:
+\newcommand{\half}	{\ensuremath{\frac{1}{2}}}	% one-half
+\newcommand{\halftxt}	{\mbox{$\frac{1}{2}$}}	  	% one-half, small
+% Math mode only:
+% N.B. Parentheses are ROUND; brackets are SQUARE!
+\newcommand{\oneon}[1]	{\frac{1}{#1}}		  % reciprocal
+\newcommand{\pow}[2]	{\left({#1}\right)^{#2}}  % Parenthesized pOWer
+\newcommand{\bow}[2]	{\left[{#1}\right]^{#2}}  % Bracketed pOWer
+\newcommand{\evalat}[2]	{\left.{#1}\right|_{#2}}  % EVALuated AT with bar
+\newcommand{\bevalat}[2]{\left[{#1}\right]_{#2}}  % Bracketed EVALuated AT
+% Total derivatives:
+\newcommand{\sdd}[2]	{\frac{d{#1}}{d{#2}}}		    % Short
+\newcommand{\sqdd}[2]	{\frac{d^2{#1}}{d{#2}^2}}	    % 2nd ("SQuared")
+\newcommand{\ldd}[2]	{\frac{d}{d{#1}}\left({#2}\right)}  % Long paren'ed
+\newcommand{\bdd}[2]	{\frac{d}{d{#2}}\left[{#2}\right]}  % long Bracketed
+% Partial derivatives (same sequence as for total derivatives):
+\newcommand{\sdada}[2]	{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\sqdada}[2]	{\frac{\partial ^{2}{#1}}{\partial {#2}^{2}}}
+\newcommand{\ldada}[2]	{\frac{\partial}{\partial {#1}}\left({#2}\right)}
+\newcommand{\bdada}[2]	{\frac{\partial}{\partial {#1}}\left[{#2}\right]}
+\newcommand{\da}	{\partial}
+
+% ORDINAL NUMBERS:
+\newcommand{\ith}	{\ensuremath{i^{\rm th}}}
+\newcommand{\jth}	{\ensuremath{j^{\rm th}}}
+\newcommand{\kth}	{\ensuremath{k^{\rm th}}}
+\newcommand{\lth}	{\ensuremath{l^{\rm th}}}
+\newcommand{\mth}	{\ensuremath{m^{\rm th}}}
+\newcommand{\nth}	{\ensuremath{n^{\rm th}}}
+
+% SINUSOIDAL TIME AND SPACE-DEPENDENCY FACTORS:
+\newcommand{\ejot}	{\ensuremath{e^{j\omega t}}}
+\newcommand{\emjot}	{\ensuremath{e^{-j\omega t}}}
+
+% UNITS (TEXT OR MATH MODE, WITH LEADING PADDING SPACE IF APPLICABLE):
+% NB: These have not been tested since being modified for LaTeX2e.
+\newcommand{\pack}	{\hspace{-0.08em}}
+\newcommand{\Pack}	{\hspace{-0.12em}}
+\newcommand{\mA}	{\ensuremath{\rm\,m\pack A}}
+\newcommand{\dB}	{\ensuremath{\rm\,d\pack B}}
+\newcommand{\dBm}	{\ensuremath{\rm\,d\pack B\pack m}}
+\newcommand{\dBW}	{\ensuremath{\rm\,d\pack B\Pack W}}
+\newcommand{\uF}	{\ensuremath{\rm\,\mu\pack F}}
+\newcommand{\pF}	{\ensuremath{\rm\,p\pack F}}
+\newcommand{\nF}	{\ensuremath{\rm\,n\pack F}}
+\newcommand{\uH}	{\ensuremath{\rm\,\mu\pack H}}
+\newcommand{\mH}	{\ensuremath{\rm\,m\pack H}}
+\newcommand{\Hz}	{\ensuremath{\rm\,H\pack z}}
+\newcommand{\kHz}	{\ensuremath{\rm\,k\pack H\pack z}}
+\newcommand{\MHz}	{\ensuremath{\rm\,M\pack H\pack z}}
+\newcommand{\GHz}	{\ensuremath{\rm\,G\pack H\pack z}}
+\newcommand{\J}		{\ensuremath{\rm\,J}}
+\newcommand{\kg}	{\ensuremath{\rm\,k\pack g}}
+\newcommand{\K}		{\ensuremath{\rm\,K}}
+\newcommand{\m}		{\ensuremath{\rm\,m}}
+\newcommand{\cm}	{\ensuremath{\rm\,cm}}
+\newcommand{\km}	{\ensuremath{\rm\,k\pack m}}
+\newcommand{\mm}	{\ensuremath{\rm\,m\pack m}}
+\newcommand{\nm}	{\ensuremath{\rm\,n\pack m}}
+\newcommand{\um}	{\ensuremath{\rm\,\mu m}}
+\newcommand{\Np}	{\ensuremath{\rm\,N\pack p}}
+\newcommand{\s}		{\ensuremath{\rm\,s}}
+\newcommand{\ms}	{\ensuremath{\rm\,m\pack s}}
+\newcommand{\us}	{\ensuremath{\rm\,\mu s}}
+\newcommand{\V}		{\ensuremath{\rm\,V}}
+\newcommand{\mV}	{\ensuremath{\rm\,m\Pack V}}
+\newcommand{\W}		{\ensuremath{\rm\,W}}
+\newcommand{\mW}	{\ensuremath{\rm\,m\Pack W}}
+\newcommand{\ohm}	{\ensuremath{\rm\,\Omega}}
+\newcommand{\kohm}	{\ensuremath{\rm\,k\Omega}}
+\newcommand{\Mohm}	{\ensuremath{\rm\,M\Omega}}
+\newcommand{\degs}	{\ensuremath{\rm^{\circ}}}
+
+%%purple template text
+\definecolor{topicpurple}{HTML}{7030A0}
+\definecolor{Purple}{HTML}{7030A0}
+\newcommand{\purple}[1]{\textcolor{topicpurple}{\textit{#1}}}
+
+\newenvironment{purpleblock}{\color{topicpurple}\itshape}{}
+
+% LaTeX run-time type-in command:
+%
+% \typein{Enter \protect\includeonly{...} command (or just type RETURN):}
+%
+% Uncommenting this command makes LaTeX prompt you for the \includeonly
+% list.  At the prompt
+%
+%	\@typein=
+%
+% you type
+%
+%	\includeonly{chap1,chap2}
+%
+% to include the files chap1.tex and chap2.tex and omit any others.
+% To include every \include file, just hit RETURN.
+% If you are running LaTeX from xtexsh, you may need to click the mouse
+% in the LaTeX window to position the cursor at the \@typein prompt.
+
+\begin{document}
+
+\frontmatter
+% By default, frontmatter has Roman page-numbering (i,ii,...).
+
+\begin{titlepage}
+\renewcommand{\baselinestretch}{1.0}
+\begin{center}
+\vspace*{35mm}
+\Huge\bf
+		
+        \includegraphics[width=4.41241in,height=1.15342in]{image1.png} \\
+        \vspace*{25mm}
+        
+        Privacy-Preserving Federated Learning\\
+        for Distributed Skin Disease Classification\\
+\vspace{20mm}
+\large\sl
+		by\\
+		ALEX GU
+		\medskip\\
+
+\large\sl
+		under the supervision of\\
+		RUIHONG QIU
+		\medskip\\
+\rm
+	
+\end{center}
+\end{titlepage}
+
+{\color{topicpurple}\itshape
+
+\chapter*{How to use this template}
+\section*{ }
+\subsection*{Title Page}
+\begin{itemize}
+  \item Replace text enclosed in curly brackets \{ \} with your own content and delete the curly brackets.
+  \item The title should be formatted in sentence case (i.e.\ only the first word and proper nouns should be capitalised).
+  \item Present your name as it appears in your official UQ MySI-net record.
+  \item The UQ logo provided on the Title Page has been approved by UQ for use in theses. Please do not change the size of the logo.
+  \item Please do not add any other content or change the formatting of the Title Page.
+\end{itemize}
+
+\subsection*{Preliminary Pages}
+\begin{itemize}
+  \item Do not modify the wording or format of any headings on the preliminary pages.
+  \item Retain all headings in the order provided in this template.
+  \item Replace text enclosed in curly brackets \{ \} with your own content and delete the curly brackets. 
+  \item Delete or replace any instructional text (displayed in purple) before submitting.
+\end{itemize}
+
+\subsection*{Proposal Content Pages}
+\begin{itemize}
+  \item The remainder of the template starting with `Table of Contents' is offered as guidance only and is not intended to be prescriptive. You may adapt it to suit the specific requirements and conventions of your discipline and your project. The layout in this example is Introduction, Background and Literature Review, Project Plan but this may not suit your project! You can change these sections to whatever you need.
+  \item The content pages that follow the preliminary pages are formatted using Microsoft Styles with embedded auto-numbering for chapters and headings. Page numbers have been incorporated to enable the automatic generation of the Table of Contents, as well as lists of tables and figures.
+  \item If you include blank pages in your work, please mark the page with: ``This page was intentionally left blank.''
+\end{itemize}
+
+}
+
+
+
+
+\chapter{Use of AI Statement}
+\purple{Read and acknowledge the Use of AI Statement, describe the specific ways that you used AI in the assessment and fill in the AI table below (remove the purple example text from the table first). Keep a record of this information over the year as you will need to update it for your proposal and final thesis report.}
+
+\subsubsection*{}
+\noindent \textit{I acknowledge the use of generative AI tools in completing this assessment. Details of which tools were used and how they were used are provided in the table below, along with appropriate in-text and full references. I take responsibility for critically evaluating and integrating the AI-generated content, and ensuring it adheres to academic integrity standards.}
+
+\subsubsection*{Have you used AI to}
+\begin{itemize}[leftmargin=1.5em]
+  \item Explore your topic? Yes or No. Explain how (or explain why not).
+  \item Define your research question? Explain how (or explain why not).
+  \item Assist with your literature review? Explain how (or explain why not).
+  \item Assist with formatting the answers presented here? (e.g., grammar, spelling, language) Explain how (or explain why not).
+  \item Other aspects of your work? Explain how you used it.
+\end{itemize}
+
+\subsubsection*{}
+
+
+% --- the table ---
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{\parbox{2.5cm}{\vspace*{\fill}\centering AI Model and date\vspace*{0pt}}}
+ & \multicolumn{9}{c|}{\parbox{11cm}{\centering Table 1. AI tool usage (tick all that apply)}} \\ \cline{2-10}
+ & \adjustbox{rotate=90}{Language Translation}
+ & \adjustbox{rotate=90}{Grammer / style / spelling}
+ & \adjustbox{rotate=90}{Topic exploration}
+ & \adjustbox{rotate=90}{Research question}
+ & \adjustbox{rotate=90}{Literature review}
+ & \adjustbox{rotate=90}{Content Creation visual (formatting)}
+ & \adjustbox{rotate=90}{Content Creation (e.g. code, text)}
+ & \adjustbox{rotate=90}{Feedback}
+ & \adjustbox{rotate=90}{Other (provide details)} \\ \hline
+\makecell{\textcolor{Purple}{ChatGPT 4o}\\\textcolor{Purple}{Weeks 5-6}} 
+ & & \textcolor{Purple}{\checkmark} & \textcolor{Purple}{\checkmark} & \textcolor{Purple}{\checkmark} & & & & \textcolor{Purple}{\checkmark} & \\ \hline
+\makecell{\textcolor{Purple}{Midjourney}\\\textcolor{Purple}{11/09/24}} 
+ & & & & & & \textcolor{Purple}{\checkmark} & & & \\ \hline
+ & & & & & & & & & \\ \hline
+ & & & & & & & & & \\ \hline
+ & & & & & & & & & \\ \hline
+\end{tabular}
+
+\chapter{Abstract}
+
+% Notice that all \include files are chapters -- a logical division.
+% But not all chapters are \include files; some chapters are short
+% enough to be in-lined in the main file.
+
+Skin disease classification using deep learning has shown strong potential but training accurate models requires large, diverse datasets often distributed across healthcare institutions. Privacy regulations such as the Health Insurance Portability and Accountability Act (HIPAA) and the General Data Protection Regulation (GDPR) prevent centralised data aggregation. Prior work has shown that even sharing model updates rather than raw data can leak sensitive patient information. Federated learning offers a framework for collaborative training across distributed nodes without centralising data, but standard federated averaging lacks convergence guarantees. This project evaluates federated learning approaches for multi-class skin disease classification in a simulated distributed healthcare environment. An dataset of approximately 20,000 images covering 30 skin disease classes will be partitioned across multiple nodes. FedAvg and FedProx will be implemented and compared against a centralised training baseline, evaluating classification accuracy, communication efficiency, and model behaviour under data that is not independently and identically distributed (non-IID).
+
+\tableofcontents
+
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+% If file los.tex begins with ``\chapter{List of Symbols}'':
+% \include{los}
+
+\cleardoublepage
+
+\mainmatter
+% By default, mainmatter has Arabic page-numbering (1,2,...).
+
+
+% Chapters may be \include files, each beginning with a line like
+%
+%	\chapter{Title of chapter}
+%
+% e.g. if two chapter files were called intro.tex and theory.tex,
+% we would say
+%
+%	\include{intro}
+%	\include{theory}
+
+\chapter{Introduction}
+  Skin diseases are among the most common health conditions worldwide, and deep learning has demonstrated strong performance in automated skin disease classification from images. However, training models that generalise well requires large, diverse datasets that capture variation across patient populations, imaging conditions, and disease presentations. In practice, medical image data is distributed across hospitals, clinics, and research institutions, each holding relatively small local datasets. Privacy regulations including HIPAA and GDPR restrict the transfer and centralisation of patient data, creating a fundamental barrier to building robust classifiers through conventional centralised training.\\
+  \\
+  Federated learning addresses this by enabling multiple institutions to collaboratively train a shared model without exchanging raw data. Each participant trains on its local dataset and shares only model updates with a central server, which aggregates them into a global model. McMahan et al. introduced Federated Averaging (FedAvg), which reduces communication costs by performing multiple local training epochs before aggregation \cite{mcmahanCommunicationEfficientLearningDeep2023}. However, FedAvg lacks convergence guarantees when data across participants is non-IID, a condition that is common in healthcare settings where different institutions may see different patient demographics and disease distributions. FedProx extends FedAvg by introducing a proximal term that constrains local model updates, providing convergence guarantees under heterogeneous conditions \cite{liFederatedOptimizationHeterogeneous2020}. Furthermore, federated learning alone does not fully resolve privacy concerns — prior work has shown that shared model updates can leak sensitive information through inference attacks, and additional mechanisms such as secure aggregation and differential privacy may be needed \cite{kaissisSecurePrivacypreservingFederated2020}.\\
+  \\
+  This project evaluates federated learning for multi-class skin disease classification in a simulated distributed healthcare environment. A dataset of approximately 20,000 images covering 30 skin disease classes will be partitioned across multiple nodes. FedAvg and FedProx will be implemented and compared against a centralised training baseline, with evaluation focused on classification accuracy, communication efficiency, and model behaviour under non-IID data distributions.
+  The remainder of this proposal is organised as follows. Chapter 2 provides background on federated learning, the challenges of statistical heterogeneity, and privacy considerations. Chapter 3 outlines the project plan, including methodology, milestones, and timeline.
+
+\chapter{Background and Literature review}
+
+\purple{You will need to review previous work in the field, which may include
+books and papers (``literature''), patents and commercial products
+(``prior art''), and earlier work in your Department.  This
+information is usually (but not always) collected in a single chapter,
+whose title should preferably be more specific and interesting than
+the one above.}
+
+\subsection{Subsections as required}
+\purple{ You may want to use sub-headings here\dots{} you may not!
+Some sub-sections you might consider are:}
+\begin{itemize}
+  \item\purple{\textbf{Background and theory} lay out the well-known theory and concepts (not cutting-edge research, could be found in a textbook) that must be understood to understand the literature review and your project proposal. If there is some nice background/theory that is complementary but not essential, consider pointing the reader to further sources (e.g.\ a textbook or paper) if they want a refresher.}
+  \item \purple{\textbf{Literature Review} outline the state of research, what has been done, and where the limitations are.}
+  \item \purple{\textbf{Literature/Knowledge Gaps} concisely summarize knowledge gaps. How you do this will depend on your project: you might wish to outline a broad gap, then narrow down toward the gap you are addressing in the project; you may wish to highlight several different gaps that need to be addressed and then narrow in on the one you will be addressing in your project.}
+\end{itemize}
+
+\subsection{Subsections as required}
+{\color{topicpurple}\itshape
+Theory sections often contain equations like the equation for the Fourier series of the function \(f(x)\):
+\begin{equation}
+\label{eq:fourier-series}
+f(x)=a_{0}+\sum_{n=1}^{\infty}\left(a_{n}\cos\!\left(\frac{n\pi x}{L}\right)+b_{n}\sin\!\left(\frac{n\pi x}{L}\right)\right)
+\end{equation}
+
+where \(a_{0}\) is the average value of the function, and \(a_{n}\) and \(b_{n}\) are the coefficients for the \(n\)th harmonic \dots{} etc.
+}
+\chapter{Project Plan}
+
+\subsection{Subsection as required}
+{\color{topicpurple}\itshape
+You may want to use sub-headings here\dots{} you may not!
+
+Some sub-sections you might consider are:
+\begin{itemize}
+  \item \textbf{Project Aims} based on the literature gaps from the previous sections, what do you aim to do?
+  \item \textbf{Methodology} What methods are going to be used and why. Are they faster, more efficient, all you have access to?
+  \item \textbf{Milestones and Timelines} outline what will be done when to ultimately meet your aims. Are there any high-risk milestones you should identify which may require you to pivot your project in another direction?
+  \item \textbf{Health and Safety and Risk Assessments}
+  \item \textbf{Ethics statement} if you have human/animal data
+\end{itemize}
+}
+\subsection{Subsection as required}
+\purple{You will definitely need some figures and maybe some tables. As shown in Figure~\ref{fig:example}, \textcolor{topicpurple}{\textit{insert your figure here}}.}
+
+\begin{figure}[htbp]
+  \centering
+  % --- Insert figure here ---
+  \fbox{\parbox[c][5cm][c]{0.85\textwidth}{\centering \textcolor{topicpurple}{\textit{Insert figure here}}}}
+  \caption{\purple{Example figure caption. Replace this caption with a concise description of what the figure shows, including what the axes/labels represent and the key takeaway for the reader.}}
+  \label{fig:example}
+\end{figure}
+
+\purple{ Table~\ref{tab:example-data} provides an example dataset showing how \(f\), \(m\), \(\mu_2\), and \(f_2\) vary across the sampled conditions.}
+
+
+
+\begin{table}[htbp]
+    
+  \centering
+  \caption{\purple{Example table caption. Replace this caption with what the variables represent (including units if applicable) and why this dataset is relevant to your proposal.}}
+  \label{tab:example-data}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabular}{r r r r}
+    \hline
+    $f(\%)$ & $m$ & $\mu_2$ & $f_2(\%)$ \\
+    \hline
+    0.016  & 80.00 & 0.05400  & 4.874 \\
+    0.031  & 56.57 & 0.07732  & 5.438 \\
+    0.062  & 40.00 & 0.11103  & 6.125 \\
+    0.125  & 28.28 & 0.16001  & 6.970 \\
+    0.250  & 20.00 & 0.23175  & 8.020 \\
+    0.500  & 14.14 & 0.33799  & 9.329 \\
+    1.000  & 10.00 & 0.49789  & 10.967 \\
+    2.000  & 7.07  & 0.74444  & 13.008 \\
+    4.000  & 5.00  & 1.13919  & 15.525 \\
+    8.000  & 3.54  & 1.81095  & 18.568 \\
+    \hline
+    19.237 & 2.28  & 3.61958  & 23.174 \\
+    37.180 & 1.64  & 7.28635  & 27.094 \\
+    57.392 & 1.32  & 14.63631 & 29.813 \\
+    74.316 & 1.16  & 29.35160 & 31.453 \\
+    85.734 & 1.08  & 58.79364 & 32.360 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\end{document}

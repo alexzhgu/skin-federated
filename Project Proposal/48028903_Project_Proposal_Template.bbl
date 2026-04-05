@@ -1,0 +1,12 @@
+\begin{thebibliography}{1}
+
+\bibitem{mcmahanCommunicationEfficientLearningDeep2023}
+H.~B. McMahan, E.~Moore, D.~Ramage, S.~Hampson, and B.~A. y~Arcas, ``Communication-{{Efficient Learning}} of {{Deep Networks}} from {{Decentralized Data}},'' Jan. 2023.
+
+\bibitem{liFederatedOptimizationHeterogeneous2020}
+T.~Li, A.~K. Sahu, M.~Zaheer, M.~Sanjabi, A.~Talwalkar, and V.~Smith, ``Federated {{Optimization}} in {{Heterogeneous Networks}},'' Apr. 2020.
+
+\bibitem{kaissisSecurePrivacypreservingFederated2020}
+G.~A. Kaissis, M.~R. Makowski, D.~R{\"u}ckert, and R.~F. Braren, ``Secure, privacy-preserving and federated machine learning in medical imaging,'' {\em Nature Machine Intelligence}, vol.~2, pp.~305--311, June 2020.
+
+\end{thebibliography}
