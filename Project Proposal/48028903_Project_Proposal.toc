@@ -13,7 +13,7 @@
 \contentsline {chapter}{\numberline {3}Project Plan}{7}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Project Aims}{7}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Methodology}{7}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Dataset}{8}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.1}Dataset}{7}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Centralised Baseline}{8}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Federated Learning}{8}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Evaluation}{9}{subsection.3.2.4}%
@@ -21,5 +21,5 @@
 \contentsline {subsection}{\numberline {3.3.1}Semester 1}{10}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Semester 2}{10}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}High-risk Milestones}{10}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Risk Assessment}{11}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Ethics}{13}{section.3.5}%
+\contentsline {section}{\numberline {3.4}Risk Assessment}{10}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Ethics}{12}{section.3.5}%

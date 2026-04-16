@@ -201,21 +201,16 @@
 
 
 \chapter{Use of AI Statement}
-\subsubsection*{}
 \noindent \textit{I acknowledge the use of generative AI tools in completing this assessment. Details of which tools were used and how they were used are provided in the table below, along with appropriate in-text and full references. I take responsibility for critically evaluating and integrating the AI-generated content, and ensuring it adheres to academic integrity standards.}
 
 \subsubsection*{Have you used AI to}
 \begin{itemize}[leftmargin=1.5em]
-  \item Explore your topic? Yes -- discussed federated learning and privacy concepts with Claude to build understanding.
-  \item Define your research question? No -- research question was defined through meetings with supervisors.
-  \item Assist with your literature review? Yes -- used Claude to generate notes, verified against originals.
+  \item Explore your topic? Yes -- discussed federated learning and privacy concepts with Claude to build understanding
+  \item Define your research question? No -- research question was defined through meetings with supervisors
+  \item Assist with your literature review? Yes -- used Claude to generate notes, verified against originals
   \item Assist with formatting the answers presented here? Yes -- used Claude for LaTeX troubleshooting
-  \item Other aspects of your work? No
+  \item Other aspects of your work? Yes - feedback on writing voice and tone
 \end{itemize}
-
-\subsubsection*{}
-
-
 % --- the table ---
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -232,7 +227,8 @@
  & \adjustbox{rotate=90}{Other (provide details)} \\ \hline
 \makecell{Claude Opus 4.6\\09/03/2026-17/03/2026}
  & & & \checkmark & & \checkmark & \checkmark & & & \\ \hline
- & & & & & & & & & \\ \hline
+\makecell{Claude Opus 4.6\\17/03/2026-24/04/2026}
+ & & & & & \checkmark & \checkmark& & \checkmark & \\ \hline
  & & & & & & & & & \\ \hline
 \end{tabular}
 
@@ -334,15 +330,6 @@ Deep learning has proven effective for skin disease classification, but training
 This project addresses the gap by evaluating FedAvg and FedProx on skin disease image datasets totalling over 200,000 images across multiple diagnostic classes, partitioned across nodes to simulate realistic data heterogeneity. By comparing these approaches against a centralised baseline on classification accuracy, communication efficiency, and behaviour under non-IID distributions, this project aims to provide practical insight into the suitability of federated learning for fine-grained medical image classification.
 
 \chapter{Project Plan}
-Some sub-sections you might consider are:
-\begin{itemize}
-  \item \textbf{Project Aims} based on the literature gaps from the previous sections, what do you aim to do?
-  \item \textbf{Methodology} What methods are going to be used and why. Are they faster, more efficient, all you have access to?
-  \item \textbf{Milestones and Timelines} outline what will be done when to ultimately meet your aims. Are there any high-risk milestones you should identify which may require you to pivot your project in another direction?
-  \item \textbf{Health and Safety and Risk Assessments}
-  \item \textbf{Ethics statement} if you have human/animal data
-\end{itemize}
-
 \section{Project Aims}
 Based on the knowledge gaps identified in the preceding chapter, this project has the following aims:
 
@@ -383,6 +370,8 @@ Results from FedAvg and FedProx will be compared against each other and against 
 
 \section{Milestones and Timeline}
 The project follows a structured timeline across both semesters of 2026.
+
+[INSERT FIGURE]
 
 \subsection{Semester 1}
 The first half of the year focuses on laying the research and implementation foundations. The topic definition and proposal occupy the first eight weeks. Following the proposal submission, work shifts to implementing the dataset and preprocessing. This includes designing the data partitioning for IID and non-IID splits, as well as training the centralised baseline. FedAvg and FedProx implementations begin toward the end of Semester 1, carrying into the mid-year break.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  16 APR 2026 15:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  16 APR 2026 15:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -406,15 +406,15 @@ Package pdftex.def Info: image1.png  used on input line 182.
 
 
 {C:/Users/alexz/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./image1.png>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 220.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 215.
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 220.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 215.
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (32.8044pt too wide) in paragraph at lines 220--238
+Overfull \hbox (32.8044pt too wide) in paragraph at lines 215--234
 [] 
  []
 
@@ -450,12 +450,12 @@ Chapter 1.
 ]
 Chapter 2.
 
-Overfull \hbox (17.34839pt too wide) in paragraph at lines 282--282
+Overfull \hbox (17.34839pt too wide) in paragraph at lines 278--278
 |[]\OT1/cmr/bx/n/24.88 Background and Lit-er-a-ture re-view| 
  []
 
 
-Overfull \hbox (0.40424pt too wide) in paragraph at lines 287--288
+Overfull \hbox (0.40424pt too wide) in paragraph at lines 283--284
 []\OT1/cmr/m/n/12 Deep learn-ing, par-tic-u-larly con-vo-lu-tional neu-ral net-works (CNNs), has demon-strated
  []
 
@@ -466,87 +466,87 @@ Chapter 3.
 [7
 
 ]
-<federated_learning.png, id=259, 420.82219pt x 317.68687pt>
+<federated_learning.png, id=261, 420.82219pt x 317.68687pt>
 File: federated_learning.png Graphic file (type png)
 <use federated_learning.png>
-Package pdftex.def Info: federated_learning.png  used on input line 368.
+Package pdftex.def Info: federated_learning.png  used on input line 355.
 (pdftex.def)             Requested size: 420.82115pt x 317.68608pt.
  [8] [9
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.378   \item \textbf
-                     {Communication efficiency}: the number of communication... <./federated_learning.png>] [10]
-Underfull \hbox (badness 4001) in paragraph at lines 410--410
+l.374 [
+       INSERT FIGURE] <./federated_learning.png>]
+Underfull \hbox (badness 4001) in paragraph at lines 399--399
 []|\OT1/cmr/m/n/12 Centralised base-line un-
  []
 
 
-Underfull \hbox (badness 6792) in paragraph at lines 410--410
+Underfull \hbox (badness 6792) in paragraph at lines 399--399
 []|\OT1/cmr/m/n/12 Allocate early time to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--410
+Underfull \hbox (badness 10000) in paragraph at lines 399--399
 \OT1/cmr/m/n/12 ar-chi-tec-ture or dataset
  []
 
 
-Underfull \hbox (badness 2573) in paragraph at lines 410--410
+Underfull \hbox (badness 2573) in paragraph at lines 399--399
 \OT1/cmr/m/n/12 val-ues. Vi-su-alise la-bel
  []
 
 
-Underfull \hbox (badness 3769) in paragraph at lines 410--410
+Underfull \hbox (badness 3769) in paragraph at lines 399--399
 []|\OT1/cmr/m/n/12 Compute lim-i-ta-tions re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--410
+Underfull \hbox (badness 10000) in paragraph at lines 399--399
 []|\OT1/cmr/m/n/12 Hyperparameter tun-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--410
+Underfull \hbox (badness 10000) in paragraph at lines 399--399
 \OT1/cmr/m/n/12 does not yield sta-ble
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 410--410
+Underfull \hbox (badness 1199) in paragraph at lines 399--399
 []|\OT1/cmr/m/n/12 Sweep key hy-per-pa-ram-e-
  []
 
 
-Underfull \hbox (badness 3386) in paragraph at lines 410--410
+Underfull \hbox (badness 3386) in paragraph at lines 399--399
 \OT1/cmr/m/n/12 ters (e.g. learn-ing rate,
  []
 
 
-Underfull \hbox (badness 2401) in paragraph at lines 410--410
+Underfull \hbox (badness 2401) in paragraph at lines 399--399
 []|\OT1/cmr/m/n/12 Perform ini-tial data in-
  []
 
 
-Underfull \hbox (badness 3780) in paragraph at lines 410--410
+Underfull \hbox (badness 3780) in paragraph at lines 399--399
 \OT1/cmr/m/n/12 both datasets as cross-
  []
 
 
-Underfull \hbox (badness 3343) in paragraph at lines 410--410
+Underfull \hbox (badness 3343) in paragraph at lines 399--399
 []|\OT1/cmr/m/n/12 Version con-trol via Git
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--410
+Underfull \hbox (badness 10000) in paragraph at lines 399--399
 \OT1/cmr/m/n/12 with re-mote backup.
  []
 
-[11] [12
+[10] [11
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.414 
-      ] (48028903_Project_Proposal.bbl [13] [14
+l.403 
+      ] (48028903_Project_Proposal.bbl [12] [13
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 105--107
@@ -563,7 +563,7 @@ Overfull \hbox (145.81522pt too wide) in paragraph at lines 109--111
 []\OT1/cmr/m/n/12 ``Massive skin dis-ease bal-anced dataset.'' https://www.kaggle.com/datasets/muhammadabdulsami/massive-
  []
 
-[15]) [16] (48028903_Project_Proposal.aux)
+[14]) [15] (48028903_Project_Proposal.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -572,17 +572,17 @@ Package rerunfilecheck Info: File `48028903_Project_Proposal.out' has not change
 (rerunfilecheck)             Checksum: CF6C60126BE66D7E897A7B512BCBB978;3825.
  ) 
 Here is how much of TeX's memory you used:
- 12677 strings out of 467867
- 199808 string characters out of 5418334
- 627243 words of memory out of 5000000
+ 12676 strings out of 467867
+ 199801 string characters out of 5418334
+ 629243 words of memory out of 5000000
  41284 multiletter control sequences out of 15000+600000
  636568 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,84p,1358b,544s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\alexz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on 48028903_Project_Proposal.pdf (24 pages, 272149 bytes).
+Output written on 48028903_Project_Proposal.pdf (23 pages, 271066 bytes).
 PDF statistics:
- 368 PDF objects out of 1000 (max. 8388607)
- 78 named destinations out of 1000 (max. 500000)
+ 364 PDF objects out of 1000 (max. 8388607)
+ 77 named destinations out of 1000 (max. 500000)
  211 words of extra memory for PDF output out of 10000 (max. 10000000)
 
