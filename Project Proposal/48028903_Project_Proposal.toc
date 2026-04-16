@@ -1,0 +1,25 @@
+\contentsline {chapter}{Use of AI Statement}{ii}{chapter*.1}%
+\contentsline {chapter}{Abstract}{iv}{chapter*.2}%
+\contentsline {chapter}{List of Figures}{vi}{chapter*.4}%
+\contentsline {chapter}{List of Tables}{vii}{chapter*.5}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Background and Literature review}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Skin Disease Classification with Deep Learning}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Federated Learning}{2}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Handling Non-IID Data in Federated Learning}{3}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Privacy in Federated Learning}{4}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Federated Learning in Medical Imaging}{5}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Summary and Knowledge Gap}{5}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Project Plan}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Project Aims}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Methodology}{7}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Dataset}{8}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Centralised Baseline}{8}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Federated Learning}{8}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Evaluation}{9}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Milestones and Timeline}{10}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Semester 1}{10}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Semester 2}{10}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}High-risk Milestones}{10}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Risk Assessment}{11}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Ethics}{13}{section.3.5}%

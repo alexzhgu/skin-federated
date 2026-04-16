@@ -1,0 +1,426 @@
+\documentclass[12pt,openany,a4paper]{book}
+\usepackage{graphics}	% if you want encapsulated PS figures.
+\usepackage{array,makecell,graphicx,pifont,tabularx, amssymb}
+\usepackage{rotating} % satisfies the makecell \rotcell macro
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{adjustbox} % for rotating text
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{float}
+
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}
+  {\thechapter.\ }{0pt}{}
+\titlespacing*{\chapter}{0pt}{0pt}{1em}
+
+
+% If you use a macro file called macros.tex :
+% \input{macros}
+% Note: The present document has its macros built in.
+
+% Number subsections but not subsubsections:
+\setcounter{secnumdepth}{2}
+% Show subsections but not subsubsections in table of contents:
+\setcounter{tocdepth}{2}
+
+\pagestyle{headings}		% Chapter on left page, Section on right.
+\raggedbottom
+
+\setlength{\topmargin}		{-5mm}  %  25-5 = 20mm
+\setlength{\oddsidemargin}	{10mm}  % rhs page inner margin = 25+10mm
+\setlength{\evensidemargin}	{0mm}   % lhs page outer margin = 25mm
+\setlength{\textwidth}		{150mm} % 35 + 150 + 25 = 210mm
+\setlength{\textheight}		{240mm} % 
+
+\renewcommand{\baselinestretch}{1.2}	% Looks like 1.5 spacing.
+
+% Stop figure/tables smaller than 3/4 page from appearing alone on a page:
+\renewcommand{\textfraction}{0.25}
+\renewcommand{\topfraction}{0.75}
+\renewcommand{\bottomfraction}{0.75}
+\renewcommand{\floatpagefraction}{0.75}
+
+% THEOREM-LIKE ENVIRONMENTS:
+\newtheorem{defn}	{Definition}	% cf. \dfn for cross-referencing
+\newtheorem{theorem}	{Theorem}	% cf. \thrm for cross-referencing
+\newtheorem{lemma}	{Lemma}		% cf. \lem for cross-referencing
+
+% AIDS TO CROSS-REFERENCING (All take a label as argument):
+\newcommand{\eref}[1] {(\ref{#1})}		% (...)
+\newcommand{\eq}[1]   {Eq.\,(\ref{#1})}		% Eq.~(...)
+\newcommand{\eqs}[2]  {Eqs.~(\ref{#1}) and~(\ref{#2})}
+\newcommand{\dfn}[1]  {Definition~\ref{#1}}	% Definition~...
+\newcommand{\thrm}[1] {Theorem~\ref{#1}}	% Theorem~...
+\newcommand{\lem}[1]  {Lemma~\ref{#1}}		% Lemma~...
+\newcommand{\fig}[1]  {Fig.\,\ref{#1}}		% Fig.~...
+\newcommand{\tab}[1]  {Table~\ref{#1}}		% Table~...
+\newcommand{\chap}[1] {Chapter~\ref{#1}}	% Chapter~...
+\newcommand{\secn}[1] {Section~\ref{#1}}	% Section~...
+\newcommand{\ssec}[1] {Subsection~\ref{#1}}	% Subsection~...
+
+% AIDS TO FORMATTING:
+\newcommand{\teq}[1]	{\mbox{$#1$}}	% in-Text EQuation (unbreakable)
+\newcommand{\qed}	{\hspace*{\fill}$\bullet$}	% end of proof
+
+\newcommand{\cmark}{\ding{51}} % ✓
+
+% MATHEMATICAL TEMPLATES:
+% Text or math mode:
+\newcommand{\half}	{\ensuremath{\frac{1}{2}}}	% one-half
+\newcommand{\halftxt}	{\mbox{$\frac{1}{2}$}}	  	% one-half, small
+% Math mode only:
+% N.B. Parentheses are ROUND; brackets are SQUARE!
+\newcommand{\oneon}[1]	{\frac{1}{#1}}		  % reciprocal
+\newcommand{\pow}[2]	{\left({#1}\right)^{#2}}  % Parenthesized pOWer
+\newcommand{\bow}[2]	{\left[{#1}\right]^{#2}}  % Bracketed pOWer
+\newcommand{\evalat}[2]	{\left.{#1}\right|_{#2}}  % EVALuated AT with bar
+\newcommand{\bevalat}[2]{\left[{#1}\right]_{#2}}  % Bracketed EVALuated AT
+% Total derivatives:
+\newcommand{\sdd}[2]	{\frac{d{#1}}{d{#2}}}		    % Short
+\newcommand{\sqdd}[2]	{\frac{d^2{#1}}{d{#2}^2}}	    % 2nd ("SQuared")
+\newcommand{\ldd}[2]	{\frac{d}{d{#1}}\left({#2}\right)}  % Long paren'ed
+\newcommand{\bdd}[2]	{\frac{d}{d{#2}}\left[{#2}\right]}  % long Bracketed
+% Partial derivatives (same sequence as for total derivatives):
+\newcommand{\sdada}[2]	{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\sqdada}[2]	{\frac{\partial ^{2}{#1}}{\partial {#2}^{2}}}
+\newcommand{\ldada}[2]	{\frac{\partial}{\partial {#1}}\left({#2}\right)}
+\newcommand{\bdada}[2]	{\frac{\partial}{\partial {#1}}\left[{#2}\right]}
+\newcommand{\da}	{\partial}
+
+% ORDINAL NUMBERS:
+\newcommand{\ith}	{\ensuremath{i^{\rm th}}}
+\newcommand{\jth}	{\ensuremath{j^{\rm th}}}
+\newcommand{\kth}	{\ensuremath{k^{\rm th}}}
+\newcommand{\lth}	{\ensuremath{l^{\rm th}}}
+\newcommand{\mth}	{\ensuremath{m^{\rm th}}}
+\newcommand{\nth}	{\ensuremath{n^{\rm th}}}
+
+% SINUSOIDAL TIME AND SPACE-DEPENDENCY FACTORS:
+\newcommand{\ejot}	{\ensuremath{e^{j\omega t}}}
+\newcommand{\emjot}	{\ensuremath{e^{-j\omega t}}}
+
+% UNITS (TEXT OR MATH MODE, WITH LEADING PADDING SPACE IF APPLICABLE):
+% NB: These have not been tested since being modified for LaTeX2e.
+\newcommand{\pack}	{\hspace{-0.08em}}
+\newcommand{\Pack}	{\hspace{-0.12em}}
+\newcommand{\mA}	{\ensuremath{\rm\,m\pack A}}
+\newcommand{\dB}	{\ensuremath{\rm\,d\pack B}}
+\newcommand{\dBm}	{\ensuremath{\rm\,d\pack B\pack m}}
+\newcommand{\dBW}	{\ensuremath{\rm\,d\pack B\Pack W}}
+\newcommand{\uF}	{\ensuremath{\rm\,\mu\pack F}}
+\newcommand{\pF}	{\ensuremath{\rm\,p\pack F}}
+\newcommand{\nF}	{\ensuremath{\rm\,n\pack F}}
+\newcommand{\uH}	{\ensuremath{\rm\,\mu\pack H}}
+\newcommand{\mH}	{\ensuremath{\rm\,m\pack H}}
+\newcommand{\Hz}	{\ensuremath{\rm\,H\pack z}}
+\newcommand{\kHz}	{\ensuremath{\rm\,k\pack H\pack z}}
+\newcommand{\MHz}	{\ensuremath{\rm\,M\pack H\pack z}}
+\newcommand{\GHz}	{\ensuremath{\rm\,G\pack H\pack z}}
+\newcommand{\J}		{\ensuremath{\rm\,J}}
+\newcommand{\kg}	{\ensuremath{\rm\,k\pack g}}
+\newcommand{\K}		{\ensuremath{\rm\,K}}
+\newcommand{\m}		{\ensuremath{\rm\,m}}
+\newcommand{\cm}	{\ensuremath{\rm\,cm}}
+\newcommand{\km}	{\ensuremath{\rm\,k\pack m}}
+\newcommand{\mm}	{\ensuremath{\rm\,m\pack m}}
+\newcommand{\nm}	{\ensuremath{\rm\,n\pack m}}
+\newcommand{\um}	{\ensuremath{\rm\,\mu m}}
+\newcommand{\Np}	{\ensuremath{\rm\,N\pack p}}
+\newcommand{\s}		{\ensuremath{\rm\,s}}
+\newcommand{\ms}	{\ensuremath{\rm\,m\pack s}}
+\newcommand{\us}	{\ensuremath{\rm\,\mu s}}
+\newcommand{\V}		{\ensuremath{\rm\,V}}
+\newcommand{\mV}	{\ensuremath{\rm\,m\Pack V}}
+\newcommand{\W}		{\ensuremath{\rm\,W}}
+\newcommand{\mW}	{\ensuremath{\rm\,m\Pack W}}
+\newcommand{\ohm}	{\ensuremath{\rm\,\Omega}}
+\newcommand{\kohm}	{\ensuremath{\rm\,k\Omega}}
+\newcommand{\Mohm}	{\ensuremath{\rm\,M\Omega}}
+\newcommand{\degs}	{\ensuremath{\rm^{\circ}}}
+
+%%purple template text
+\definecolor{topicpurple}{HTML}{7030A0}
+\definecolor{Purple}{HTML}{7030A0}
+\newcommand{\purple}[1]{\textcolor{topicpurple}{\textit{#1}}}
+
+\newenvironment{purpleblock}{\color{topicpurple}\itshape}{}
+
+% LaTeX run-time type-in command:
+%
+% \typein{Enter \protect\includeonly{...} command (or just type RETURN):}
+%
+% Uncommenting this command makes LaTeX prompt you for the \includeonly
+% list.  At the prompt
+%
+%	\@typein=
+%
+% you type
+%
+%	\includeonly{chap1,chap2}
+%
+% to include the files chap1.tex and chap2.tex and omit any others.
+% To include every \include file, just hit RETURN.
+% If you are running LaTeX from xtexsh, you may need to click the mouse
+% in the LaTeX window to position the cursor at the \@typein prompt.
+
+\begin{document}
+
+\frontmatter
+% By default, frontmatter has Roman page-numbering (i,ii,...).
+
+\begin{titlepage}
+\renewcommand{\baselinestretch}{1.0}
+\begin{center}
+\vspace*{35mm}
+\Huge\bf
+		
+        \includegraphics[width=4.41241in,height=1.15342in]{image1.png} \\
+        \vspace*{25mm}
+        
+        Privacy-Preserving Federated Learning\\
+        for Distributed Skin Disease Classification\\
+\vspace{20mm}
+\large\sl
+		by\\
+		ALEX GU
+		\medskip\\
+
+\large\sl
+		under the supervision of\\
+		RUIHONG QIU
+		\medskip\\
+\rm
+	
+\end{center}
+\end{titlepage}
+
+
+\chapter{Use of AI Statement}
+\subsubsection*{}
+\noindent \textit{I acknowledge the use of generative AI tools in completing this assessment. Details of which tools were used and how they were used are provided in the table below, along with appropriate in-text and full references. I take responsibility for critically evaluating and integrating the AI-generated content, and ensuring it adheres to academic integrity standards.}
+
+\subsubsection*{Have you used AI to}
+\begin{itemize}[leftmargin=1.5em]
+  \item Explore your topic? Yes -- discussed federated learning and privacy concepts with Claude to build understanding.
+  \item Define your research question? No -- research question was defined through meetings with supervisors.
+  \item Assist with your literature review? Yes -- used Claude to generate notes, verified against originals.
+  \item Assist with formatting the answers presented here? Yes -- used Claude for LaTeX troubleshooting
+  \item Other aspects of your work? No
+\end{itemize}
+
+\subsubsection*{}
+
+
+% --- the table ---
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{\parbox{2.5cm}{\vspace*{\fill}\centering AI Model and date\vspace*{0pt}}}
+ & \multicolumn{9}{c|}{\parbox{11cm}{\centering Table 1. AI tool usage (tick all that apply)}} \\ \cline{2-10}
+ & \adjustbox{rotate=90}{Language Translation}
+ & \adjustbox{rotate=90}{Grammar / style / spelling}
+ & \adjustbox{rotate=90}{Topic exploration}
+ & \adjustbox{rotate=90}{Research question}
+ & \adjustbox{rotate=90}{Literature review}
+ & \adjustbox{rotate=90}{Content Creation visual (formatting)}
+ & \adjustbox{rotate=90}{Content Creation (e.g. code, text)}
+ & \adjustbox{rotate=90}{Feedback}
+ & \adjustbox{rotate=90}{Other (provide details)} \\ \hline
+\makecell{Claude Opus 4.6\\09/03/2026-17/03/2026}
+ & & & \checkmark & & \checkmark & \checkmark & & & \\ \hline
+ & & & & & & & & & \\ \hline
+ & & & & & & & & & \\ \hline
+\end{tabular}
+
+\chapter{Abstract}
+
+% Notice that all \include files are chapters -- a logical division.
+% But not all chapters are \include files; some chapters are short
+% enough to be in-lined in the main file.
+
+Skin disease classification using deep learning has shown strong potential but training accurate models requires large, diverse datasets often distributed across healthcare institutions. Privacy regulations such as the Health Insurance Portability and Accountability Act (HIPAA) and the General Data Protection Regulation (GDPR) prevent centralised data aggregation. Prior work has shown that even sharing model updates rather than raw data can leak sensitive patient information. Federated learning offers a framework for collaborative training across distributed nodes without centralising data, but standard federated averaging lacks convergence guarantees. This project evaluates federated learning approaches for multi-class skin disease classification in a simulated distributed healthcare environment. Skin disease image datasets totalling over 200,000 images across multiple diagnostic classes will be partitioned across multiple nodes. FedAvg and FedProx will be implemented and compared against a centralised training baseline, evaluating classification accuracy, communication efficiency, and model behaviour under data that is not independently and identically distributed (non-IID).
+
+\tableofcontents
+
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+% If file los.tex begins with ``\chapter{List of Symbols}'':
+% \include{los}
+
+\cleardoublepage
+
+\mainmatter
+% By default, mainmatter has Arabic page-numbering (1,2,...).
+
+
+% Chapters may be \include files, each beginning with a line like
+%
+%	\chapter{Title of chapter}
+%
+% e.g. if two chapter files were called intro.tex and theory.tex,
+% we would say
+%
+%	\include{intro}
+%	\include{theory}
+
+\chapter{Introduction}
+  Skin diseases are among the most common health conditions worldwide \cite{hayGlobalBurdenSkin2014}, and deep learning has demonstrated strong performance in skin disease classification from images \cite{estevaDermatologistlevelClassificationSkin2017}. However, training models that generalise well requires large, diverse datasets that capture variation across patient populations, imaging conditions, and disease presentations. In practice, medical image data is distributed across health and research institutions, each holding relatively small local datasets. Privacy regulations including HIPAA and GDPR restrict the transfer and centralisation of patient data \cite{kaissisSecurePrivacypreservingFederated2020}, creating a barrier to building robust classifiers through conventional centralised training.
+
+  Federated learning addresses this by enabling multiple institutions to collaboratively train a shared model without exchanging raw data. Each participant trains on its local dataset and shares only model updates with a central server, which aggregates them into a global model. McMahan et al. introduced Federated Averaging (FedAvg), which reduces communication costs by performing multiple local training epochs before aggregation \cite{mcmahanCommunicationEfficientLearningDeep2023}. However, FedAvg lacks convergence guarantees when data across participants is non-IID, a condition that common in healthcare settings where different institutions may see different patient demographics and disease distributions. FedProx extends FedAvg by introducing a proximal term that constrains local model updates, providing convergence guarantees under heterogeneous conditions \cite{liFederatedOptimizationHeterogeneous2020}. Furthermore, federated learning alone does not fully resolve privacy concerns. Prior work has shown that shared model updates can leak sensitive information through inference attacks, and additional mechanisms may be needed \cite{kaissisSecurePrivacypreservingFederated2020}.
+
+  This project evaluates federated learning for multi-class skin disease classification in a simulated distributed healthcare environment. skin disease image datasets totalling over 200,000 images across multiple diagnostic classes will be partitioned across multiple nodes. FedAvg and FedProx will be implemented and compared against a centralised training baseline, evaluating classification accuracy, communication efficiency, and model behaviour under non-IID data distributions.
+  The remainder of this proposal is organised as follows. Chapter 2 provides background on federated learning, the challenges of statistical heterogeneity, and privacy considerations. Chapter 3 outlines the project plan, including methodology, milestones, and timeline.
+
+\chapter{Background and Literature review}
+
+\section{Skin Disease Classification with Deep Learning}
+Skin diseases are among the most prevalent health conditions globally, affecting hundreds of millions of people and contributing significantly to the global burden of disease \cite{hayGlobalBurdenSkin2014}. Accurate and timely diagnosis is critical for effective treatment, but access to dermatological expertise is limited in many regions. This has motivated research into automated classification systems that can assist clinicians by analysing images of skin conditions.
+
+Deep learning, particularly convolutional neural networks (CNNs), has demonstrated strong performance in this domain. Esteva et al. \cite{estevaDermatologistlevelClassificationSkin2017} showed that a CNN trained on a large dataset of clinical images could classify skin cancer at a level comparable to board-certified dermatologists, establishing deep learning as a viable tool for skin disease diagnosis. Since then, the field has benefited from the availability of large public datasets such as HAM10000, a collection of 10,015 dermatoscopic images spanning seven diagnostic categories \cite{tschandlHAM10000DatasetLarge2018}. These datasets have enabled accelerated progress in automated skin disease classification.
+
+Despite these advances, a key limitation remains: training models that generalise well across diverse patient populations requires large, varied datasets that capture differences in skin tone, imaging equipment, and disease presentation. In practice, such data is distributed across hospitals and associated health and research institutions, and privacy regulations prevent its centralisation. This creates a tension between the data requirements of modern deep learning and the realities of clinical data security.
+
+\section{Federated Learning}
+Federated learning offers a solution for training machine learning models across distributed data sources without centralising the data itself. McMahan et al. \cite{mcmahanCommunicationEfficientLearningDeep2023} introduced Federated Averaging (FedAvg), which frames the learning problem as minimising a global objective function across $K$ clients:
+\begin{equation}
+\min_{w} f(w) = \sum_{k=1}^{K} \frac{n_k}{n} F_k(w)
+\end{equation}
+where $w$ represents the model parameters, $Fk(w)$ is the local objective function for client $k$, $n_k$ is the number of data points held by client $k$, and $n$ is the total number of data points across all clients. Each client's contribution to the global objective is weighted by the proportion of data it holds.
+
+In each communication round, the server distributes the current global model $w^t$ to a subset of clients. Each selected client initialises its local model with $w^t$ and performs $E$ epochs of stochastic gradient descent on its local data, producing updated parameters $w_k^{t+1}$. The server then aggregates these updates by computing a weighted average:
+\begin{equation}
+w^{t+1} = \sum_{k=1}^{K} \frac{n_k}{n} w_k^{t+1}
+\end{equation}
+By performing multiple local training epochs before communication, FedAvg significantly reduces communication costs compared to approaches that require gradient updates after every training step.
+
+Li et al. \cite{liFederatedLearningChallenges2020} surveyed the key challenges facing federated learning. First, communication between nodes and the server can be expensive, particularly in settings with limited bandwidth or large models. Second, systems heterogeneity arises because participating devices may differ in computational capacity and network connectivity. Third, statistical heterogeneity occurs when the data across nodes is non-IID, which is common in real-world deployments where each institution serves a different patient population. Fourth, privacy and security remain concerns, as shared model updates can still expose information about the underlying training data. These challenges are particularly relevant in healthcare, where data heterogeneity and privacy requirements are inherent factors of the setting.
+
+\section{Handling Non-IID Data in Federated Learning}
+
+A central challenge in federated learning is that data distributions across participating nodes are often heterogeneous. When each node holds data that is non-IID, local models trained on these subsets may diverge significantly from one another. Averaging such divergent models can produce a global model that performs poorly compared to one trained on centralised data.
+
+FedAvg is particularly susceptible to this problem, as it provides no way to maintain how far local models can deviate from the global model during local training. Li et al. \cite{liFederatedOptimizationHeterogeneous2020} proposed FedProx to address this limitation. FedProx modifies the local objective function by adding a proximal term:
+\begin{equation}
+\min_{w} h_k(w; w^t) = F_k(w) + \frac{\mu}{2} | w - w^t |^2
+\end{equation}
+where $F_k(W)$ is the local loss, $W^t$ is the current global model and $\mu$ controls the strength of the penalty. This term penalises large deviations from the current global model. This modification provides convergence guarantees under heterogeneous data distributions, which FedAvg lacks. FedProx also accommodates systems heterogeneity by allowing nodes to perform variable amounts of local computation.
+
+Other approaches have been proposed to tackle non-IID issues. Karimireddy et al. \cite{karimireddySCAFFOLDStochasticControlled2021} introduced SCAFFOLD, which uses control variates to correct for the drift in local updates. This reduces the variance caused by heterogeneous data. Wang et al. \cite{wangFederatedLearningMatched2020} proposed Federated Matched Averaging (FedMA), which aligns neurons across local models before averaging. This prevents neurons in different local models from learning equivalent features in different positions. Wang et al. \cite{wangTacklingObjectiveInconsistency2020} proposed FedNova, which normalises local updates to account for differences in the number of local training steps, correcting an inconsistency in FedAvg that is amplified under heterogeneous conditions. While this project focuses on FedAvg and FedProx, these alternative approaches provide important context for understanding the breadth of strategies available for handling non-IID data in federated settings.
+
+To evaluate federated learning methods under heterogeneous conditions, a consistent experimental method is required for simulating non-IID data splits. A widely adopted approach, introduced by Hsu et al. \cite{hsuMeasuringEffectsNonIdentical2019}, is to partition data across clients using a Dirichlet distribution over class labels, parameterised by a concentration parameter $\alpha$. Lower values of $\alpha$ produce more skewed label distributions across clients, while higher values approach IID. This provides a controllable and reproducible way to study model behaviour across a wide range of heterogeneous conditions.
+\section{Privacy in Federated Learning}
+Federated learning avoids sharing raw data, but this alone does not guarantee privacy. Kaissis et al. \cite{kaissisSecurePrivacypreservingFederated2020} noted that the model updates transmitted during training can be exploited to infer information about the underlying data. Two classes of attack demonstrate this concretely. Model inversion attacks use model outputs or gradients to reconstruct approximations of training inputs \cite{fredriksonModelInversionAttacks2015}. Membership inference attacks determine whether a specific data point was in the training set by analysing the model's response to that input \cite{shokriMembershipInferenceAttacks2017}. Both have been demonstrated on deep learning models and are relevant to any setting with sensitive training data.
+
+Several defence mechanisms have been proposed to strengthen privacy in federated learning. Bonawitz et al. \cite{bonawitzPracticalSecureAggregation2017} designed a practical secure aggregation protocol using pairwise masking to protect each participant's contribution. This enables the server to compute the sum of client updates without observing any individual update. This protocol is robust to client dropout, making it suitable for real-world deployments. Differential privacy provides a complementary approach by adding calibrated noise to the data or model updates to limit the information that can be inferred about any individual training example. Dwork et al. \cite{dworkCalibratingNoiseSensitivity2006} established the formal foundations of differential privacy, while Abadi et al. \cite{abadiDeepLearningDifferential2016} introduced DP-SGD, a training procedure that clips per-example gradients and adds noise during optimisation which enables deep learning models to be trained with formal privacy guarantees. These mechanisms can be combined with federated learning to provide stronger privacy protections, though they often introduce trade-offs with model accuracy.
+
+\section{Federated Learning in Medical Imaging}
+Federated learning has attracted significant interest in medical imaging, where data is inherently distributed across institutions and subject to strict privacy requirements. Rieke et al. \cite{riekeFutureDigitalHealth2020} outlined the potential of federated learning to enable collaborative model development across hospitals without centralising patient data, identifying it as a key enabler for the future of digital health. They noted that the heterogeneity of clinical data, arising from differences in imaging equipment, protocols, and patient demographics makes the non-IID problem particularly important in this domain.
+
+Practical applications have reinforced this potential. Sheller et al. \cite{shellerFederatedLearningMedicine2020} demonstrated that federated learning could be applied to brain tumour segmentation across multiple institutions. They achieved performance comparable to centralised training while keeping patient data local. Their work provided early evidence that federated learning is viable in medical imaging tasks with complex, heterogeneous data.
+
+\section{Summary and Knowledge Gap}
+The existing literature on federated learning in medical imaging has focused predominantly on binary or few-class classification and segmentation tasks. There is limited work specifically evaluating the trade-offs between federated learning algorithms on multi-class skin disease classification under realistic non-IID conditions. In particular, the comparative performance of FedAvg and FedProx on a task with a large number of fine-grained classes, where class imbalance and label distribution skew across nodes are expected, remains underexplored.
+
+Deep learning has proven effective for skin disease classification, but training robust models requires large, diverse datasets that are typically distributed across healthcare institutions. Federated learning provides a framework for collaborative training without centralising data, but faces challenges from non-IID data distributions and privacy risks. Federated learning has been successfully applied in medical imaging, but evaluations have largely focused on simpler classification.
+
+This project addresses the gap by evaluating FedAvg and FedProx on skin disease image datasets totalling over 200,000 images across multiple diagnostic classes, partitioned across nodes to simulate realistic data heterogeneity. By comparing these approaches against a centralised baseline on classification accuracy, communication efficiency, and behaviour under non-IID distributions, this project aims to provide practical insight into the suitability of federated learning for fine-grained medical image classification.
+
+\chapter{Project Plan}
+Some sub-sections you might consider are:
+\begin{itemize}
+  \item \textbf{Project Aims} based on the literature gaps from the previous sections, what do you aim to do?
+  \item \textbf{Methodology} What methods are going to be used and why. Are they faster, more efficient, all you have access to?
+  \item \textbf{Milestones and Timelines} outline what will be done when to ultimately meet your aims. Are there any high-risk milestones you should identify which may require you to pivot your project in another direction?
+  \item \textbf{Health and Safety and Risk Assessments}
+  \item \textbf{Ethics statement} if you have human/animal data
+\end{itemize}
+
+\section{Project Aims}
+Based on the knowledge gaps identified in the preceding chapter, this project has the following aims:
+
+\begin{itemize}
+  \item Implement a centralised training baseline for multi-class skin disease classification using a dataset of approximately 20,000 images across 30 classes, establishing a benchmark against which federated approaches can be compared
+  \item Implement and evaluate two federated learning algorithms, FedAvg and FedProx, under both IID and non-IID data distributions across simulated distributed nodes
+  \item Compare federated and centralised approaches in terms of classification accuracy, communication efficiency, and model behaviour under varying degrees of data heterogeneity
+\end{itemize}
+
+\section{Methodology}
+This project follows a three-stage experimental pipeline: centralised baseline training, federated learning implementation, and comparative evaluation. All experiments will be implemented in Python using PyTorch.
+
+\subsection{Dataset}
+Two publicly available skin disease image datasets from Kaggle will be used. The first, the Skin Diseases and Cancer Comprehensive Dataset, contains approximately 13,000 images across 24 diagnostic classes \cite{SkinDiseasesCancer}. The second, a larger balanced skin disease dataset, contains approximately 262,000 images across 34 classes \cite{MassiveSkinDisease}. Together these datasets provide broad coverage of skin conditions for training and evaluation. The final dataset composition will be determined during implementation; options include using either dataset independently, merging them with a unified class mapping, or using a subsampled combination to manage compute requirements. Images will be resized to a uniform resolution and normalised to standardise input across all experiments. Standard data augmentation techniques such as random horizontal flipping, rotation, and colour jittering will be applied during training to improve generalisation. The dataset will be split into training, validation, and test sets, with the test set held centrally and kept consistent across all experiments to ensure fair comparison.
+
+\subsection{Centralised Baseline}
+A ResNet architecture will be used as the classification model across all experiments, selected for its established performance in image classification tasks \cite{heDeepResidualLearning2015}. The baseline will be trained on the full training set in a standard centralised setting, with all data aggregated on a single machine. This represents an upper bound on classification performance, corresponding to the scenario where privacy and data distribution constraints are absent. Training will use stochastic gradient descent with momentum, with learning rate, batch size, and number of epochs tuned on the validation set. To account for variability, experiments will be repeated across multiple random seeds and results reported as mean and standard deviation.
+\subsection{Federated Learning}
+The training set will be partitioned across $K$ simulated client nodes to replicate a distributed healthcare environment. Two partitioning strategies will be used. In the IID setting, data will be distributed uniformly at random across clients, ensuring each client holds a roughly representative subset. In the non-IID setting, a Dirichlet distribution with concentration parameter $\alpha$ will be used to create heterogeneous label distributions across clients, where lower values of $\alpha$ produce greater skew \cite{hsuMeasuringEffectsNonIdentical2019}. Multiple values of $\alpha$ (for example, $\alpha\in\{0.1,0.5,1.0\}$) will be tested to evaluate model behaviour under varying degrees of heterogeneity. The inherent class imbalance in the dataset will be considered when designing the partitioning, as it interacts with the label skew introduced by non-IID splits.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[]{federated_learning.png}
+  \caption{Overview of the federated learning pipeline}
+  \label{fig:fl-pipeline}
+\end{figure}
+FedAvg and FedProx will each be implemented following the procedures described in Chapter 2. Key federated hyperparameters include the number of clients $K$, the fraction of clients sampled per round $C$, the number of local epochs $E$, and the local batch size $B$. In each communication round, a fraction $C$ of clients will be selected to participate. Each selected client will train on its local data for $E$ local epochs, then send its updated model parameters to the central server for aggregation. For FedProx, the proximal term weight $\mu$ will be treated as a hyperparameter and tuned on the validation set. The same model architecture and preprocessing pipeline used in the centralised baseline will be applied to ensure that any differences in performance are attributable to the training method rather than the model itself. 
+\subsection{Evaluation}
+All approaches will be evaluated on the same held-out test set using the following metrics:
+\begin{itemize}
+  \item \textbf{Classification accuracy}: overall accuracy on the test set.
+  \item \textbf{Per-class performance}: precision, recall, and F1-score per class to assess behaviour on classes, which is particularly important given dataset imbalance.
+  \item \textbf{Communication efficiency}: the number of communication rounds required to reach a target accuracy and the total volume of parameter data transmitted between clients and server.
+  \item \textbf{Non-IID sensitivity}: accuracy as a function of the Dirichlet concentration parameter $\alpha$, measuring how each method degrades under increasing data heterogeneity.
+\end{itemize}
+
+Results from FedAvg and FedProx will be compared against each other and against the centralised baseline across all metrics. All experiments will be repeated over multiple random seeds to ensure reported differences are statistically meaningful.
+
+\section{Milestones and Timeline}
+The project follows a structured timeline across both semesters of 2026.
+
+\subsection{Semester 1}
+The first half of the year focuses on laying the research and implementation foundations. The topic definition and proposal occupy the first eight weeks. Following the proposal submission, work shifts to implementing the dataset and preprocessing. This includes designing the data partitioning for IID and non-IID splits, as well as training the centralised baseline. FedAvg and FedProx implementations begin toward the end of Semester 1, carrying into the mid-year break.
+\subsection{Semester 2}
+The mid-year break is reserved for the main experimental phase. Here, FedAvg and FedProx will be run under IID and non-IID configurations across varying degrees of heterogeneity. Experiments continue into early Semester 2, overlapping with thesis writing. Thesis writing proceeds through the middle of Semester 2, with the poster prepared ahead of its deadline in Week 12. Final thesis revision and submission complete the project.
+\subsection{High-risk Milestones}
+Two milestones carry the most risk. The centralised baseline must achieve reasonable classification performance before federated comparisons become meaningful. If the baseline performs poorly, the project will need to revisit model architecture or dataset choices. The non-IID partitioning is similarly critical. If the splits fail to produce meaningful heterogeneity, differences between FedAvg and FedProx may not be observable. Both risks are mitigated by allocating early time to the baseline and partitioning before committing to the full experimental block.
+
+\section{Risk Assessment}
+Table~\ref{tab:risks} summarises the main risks to the project and the mitigation strategies in place.
+\begin{table}[H]
+\centering
+\caption{Project risks and mitigation strategies.}
+\label{tab:risks}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabularx}{\textwidth}{|X|c|c|X|}
+    \hline
+    \textbf{Risk} & \textbf{Likelihood} & \textbf{Impact} & \textbf{Mitigation} \\ \hline
+    Centralised baseline underperforms, making federated comparisons uninformative & Medium & High & Allocate early time to baseline tuning. Revisit architecture or dataset choice if initial results are poor \\ \hline
+    Non-IID partitioning fails to produce meaningful heterogeneity & Low & High & Test multiple Dirichlet $\alpha$ values. Visualise label distributions across clients before running full experiments \\ \hline
+    Compute limitations restrict dataset size or number of experiments & Medium & Medium & Use a subsampled dataset for initial runs. Prioritise core experiments over ablations \\ \hline
+    Hyperparameter tuning does not yield stable results & Medium & Medium & Sweep key hyperparameters (e.g.\ learning rate, FedProx $\mu$, number of local epochs) over reasonable ranges; fall back to values reported in the original papers \\ \hline
+    Kaggle dataset quality issues (mislabelled or duplicate images) & Medium & Medium & Perform initial data inspection and cleaning; use both datasets as cross-validation if significant issues are found \\ \hline
+    Loss of work due to system failure & Low & High & Version control via Git with remote backup. Cloud backup of datasets and trained model checkpoints \\ \hline
+  \end{tabularx}
+\end{table}
+\section{Ethics}
+This project uses only publicly available skin disease image datasets obtained from Kaggle. Both datasets have been released by their authors for research and educational purposes, and contain no directly identifying patient information such as namesor dates of birth. No new patient data will be collected, and no human or animal subjects will be involved in the research. For these reasons, formal ethics approval is not required for this project.
+
+Nevertheless, several ethical considerations remain relevant. First, publicly released medical image datasets may still carry risks of re-identification. This project will treat all data as sensitive and will not attempt to link images back to individuals or external sources.
+
+Second, skin disease classifiers are known to exhibit performance disparities across skin tones, as publicly available datasets are often skewed toward lighter skin types. Any results produced by this project will be interpreted with this limitation in mind and per-class performance metrics will be reported to surface any systematic disparities that arise.
+
+Third, while this project is a simulation and does not involve real clinical deployment, the broader motivation carries downstream implications for patient privacy, model accountability, and the trustworthiness of clinical AI systems. The project is framed as a methodological evaluation rather than a clinical tool and no claims will be made about diagnostic validity.
+
+All code, experimental configurations, and results will be managed with version control to support reproducibility, and the datasets used will be properly cited so that others can verify and build upon the work.
+
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\end{document}
