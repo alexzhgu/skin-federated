@@ -16,10 +16,10 @@
 \contentsline {subsection}{\numberline {3.2.1}Dataset}{7}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Centralised Baseline}{8}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Federated Learning}{8}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Evaluation}{9}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3}Milestones and Timeline}{10}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Semester 1}{10}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Semester 2}{10}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}High-risk Milestones}{10}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Risk Assessment}{10}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Ethics}{12}{section.3.5}%
+\contentsline {subsection}{\numberline {3.2.4}Evaluation}{8}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Milestones and Timeline}{9}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Semester 1}{11}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Semester 2}{11}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}High-risk Milestones}{11}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Risk Assessment}{11}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Ethics}{13}{section.3.5}%

@@ -101,6 +101,27 @@ M.~J. Sheller, B.~Edwards, G.~A. Reina, J.~Martin, S.~Pati, A.~Kotrotsou,
   sharing patient data,'' {\em Scientific Reports}, vol.~10, p.~12598, July
   2020.
 
+\bibitem{dayanFederatedLearningPredicting2021}
+I.~Dayan, H.~R. Roth, A.~Zhong, A.~Harouni, A.~Gentili, A.~Z. Abidin, A.~Liu,
+  A.~B. Costa, B.~J. Wood, C.-S. Tsai, C.-H. Wang, C.-N. Hsu, C.~K. Lee,
+  P.~Ruan, D.~Xu, D.~Wu, E.~Huang, F.~C. Kitamura, G.~Lacey, G.~C. {de
+  Ant{\^o}nio Corradi}, G.~Nino, H.-H. Shin, H.~Obinata, H.~Ren, J.~C. Crane,
+  J.~Tetreault, J.~Guan, J.~W. Garrett, J.~D. Kaggie, J.~G. Park, K.~Dreyer,
+  K.~Juluru, K.~Kersten, M.~A. B.~C. Rockenbach, M.~G. Linguraru, M.~A. Haider,
+  M.~AbdelMaseeh, N.~Rieke, P.~F. Damasceno, P.~M.~C. {e Silva}, P.~Wang,
+  S.~Xu, S.~Kawano, S.~Sriswasdi, S.~Y. Park, T.~M. Grist, V.~Buch,
+  W.~Jantarabenjakul, W.~Wang, W.~Y. Tak, X.~Li, X.~Lin, Y.~J. Kwon,
+  A.~Quraini, A.~Feng, A.~N. Priest, B.~Turkbey, B.~Glicksberg, B.~Bizzo, B.~S.
+  Kim, C.~{Tor-D{\'i}ez}, C.-C. Lee, C.-J. Hsu, C.~Lin, C.-L. Lai, C.~P. Hess,
+  C.~Compas, D.~Bhatia, E.~K. Oermann, E.~Leibovitz, H.~Sasaki, H.~Mori,
+  I.~Yang, J.~H. Sohn, K.~N.~K. Murthy, L.-C. Fu, M.~R.~F. {de Mendon{\c c}a},
+  M.~Fralick, M.~K. Kang, M.~Adil, N.~Gangai, P.~Vateekul, P.~Elnajjar,
+  S.~Hickman, S.~Majumdar, S.~L. McLeod, S.~Reed, S.~Gr{\"a}f, S.~Harmon,
+  T.~Kodama, T.~Puthanakit, T.~Mazzulli, V.~L. {de Lavor}, Y.~Rakvongthai,
+  Y.~R. Lee, Y.~Wen, F.~J. Gilbert, M.~G. Flores, and Q.~Li, ``Federated
+  learning for predicting clinical outcomes in patients with {{COVID-19}},''
+  {\em Nature Medicine}, vol.~27, pp.~1735--1743, Oct. 2021.
+
 \bibitem{SkinDiseasesCancer}
 ``Skin {{Diseases}} + {{Cancer Comprehensive Dataset}}.''
   https://www.kaggle.com/datasets/anieetorudofia/skin-diseases-cancer-comprehensive-dataset.
