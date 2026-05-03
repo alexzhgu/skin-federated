@@ -1,0 +1,36 @@
+dataset,split,class,count
+balanced,all,Acne And Rosacea Photos,6837
+balanced,all,Actinic Keratosis Basal Cell Carcinoma And Other Malignant Lesions,6821
+balanced,all,Atopic Dermatitis Photos,7645
+balanced,all,Ba  Cellulitis,8079
+balanced,all,Ba Impetigo,8148
+balanced,all,Benign,6459
+balanced,all,Bullous Disease Photos,7695
+balanced,all,Cellulitis Impetigo And Other Bacterial Infections,7894
+balanced,all,Eczema Photos,6715
+balanced,all,Exanthems And Drug Eruptions,7750
+balanced,all,Fu Athlete Foot,8054
+balanced,all,Fu Nail Fungus,8083
+balanced,all,Fu Ringworm,8129
+balanced,all,Hair Loss Photos Alopecia And Other Hair Diseases,7955
+balanced,all,Heathy,7758
+balanced,all,Herpes Hpv And Other Stds Photos,7744
+balanced,all,Light Diseases And Disorders Of Pigmentation,7546
+balanced,all,Lupus And Other Connective Tissue Diseases,7734
+balanced,all,Malignant,6762
+balanced,all,Melanoma Skin Cancer Nevi And Moles,7680
+balanced,all,Nail Fungus And Other Nail Disease,6956
+balanced,all,Pa Cutaneous Larva Migrans,8123
+balanced,all,Poison Ivy Photos And Other Contact Dermatitis,7933
+balanced,all,Psoriasis Pictures Lichen Planus And Related Diseases,6502
+balanced,all,Rashes,7032
+balanced,all,Scabies Lyme Disease And Other Infestations And Bites,7717
+balanced,all,Seborrheic Keratoses And Other Benign Tumors,6545
+balanced,all,Systemic Disease,7500
+balanced,all,Tinea Ringworm Candidiasis And Other Fungal Infections,6634
+balanced,all,Urticaria Hives,7989
+balanced,all,Vascular Tumors,7654
+balanced,all,Vasculitis Photos,7735
+balanced,all,Vi Chickenpox,8083
+balanced,all,Vi Shingles,8082
+balanced,all,Warts Molluscum And Other Viral Infections,6901

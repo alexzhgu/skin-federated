@@ -124,11 +124,11 @@ I.~Dayan, H.~R. Roth, A.~Zhong, A.~Harouni, A.~Gentili, A.~Z. Abidin, A.~Liu,
 
 \bibitem{SkinDiseasesCancer}
 ``Skin {{Diseases}} + {{Cancer Comprehensive Dataset}}.''
-  https://www.kaggle.com/datasets/anieetorudofia/skin-diseases-cancer-comprehensive-dataset.
+  \url{https://www.kaggle.com/datasets/anieetorudofia/skin-diseases-cancer-comprehensive-dataset}.
 
 \bibitem{MassiveSkinDisease}
 ``Massive skin disease balanced dataset.''
-  https://www.kaggle.com/datasets/muhammadabdulsami/massive-skin-disease-balanced-dataset.
+  \url{https://www.kaggle.com/datasets/muhammadabdulsami/massive-skin-disease-balanced-dataset}.
 
 \bibitem{heDeepResidualLearning2015}
 K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep {{Residual Learning}} for {{Image

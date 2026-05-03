@@ -1,0 +1,25 @@
+dataset,split,class,count
+comprehensive,all,Acne,619
+comprehensive,all,Actinic_Keratosis,776
+comprehensive,all,basal cell carcinoma,397
+comprehensive,all,Benign_tumors,1144
+comprehensive,all,Bullous,526
+comprehensive,all,Candidiasis,251
+comprehensive,all,DrugEruption,561
+comprehensive,all,Eczema,1022
+comprehensive,all,Infestations_Bites,530
+comprehensive,all,Lichen,587
+comprehensive,all,Lupus,331
+comprehensive,all,melanoma,455
+comprehensive,all,Moles,372
+comprehensive,all,Normal,350
+comprehensive,all,Psoriasis,848
+comprehensive,all,Rosacea,270
+comprehensive,all,Seborrh_Keratoses,462
+comprehensive,all,squamous cell carcinoma,204
+comprehensive,all,Sun_Sunlight_Damage,337
+comprehensive,all,Tinea,947
+comprehensive,all,Vascular_Tumors,552
+comprehensive,all,Vasculitis,480
+comprehensive,all,Vitiligo,729
+comprehensive,all,Warts,608
