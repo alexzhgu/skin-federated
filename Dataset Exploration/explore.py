@@ -1,10 +1,5 @@
 """
 Phase 1: Inventory & Class Taxonomy
-
-Outputs (in ./eda_outputs/):
-    inventory_<name>.csv               per-class counts
-    class_dist_<name>.png              horizontal bar plot
-    class_taxonomy_comparison.json     normalised class overlap
 """
 
 from pathlib import Path
