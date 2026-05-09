@@ -1,0 +1,232 @@
+{
+  "test_loss": 1.4415819502330962,
+  "test_acc": 0.5763809523809523,
+  "test_macro_f1": 0.5690793082507749,
+  "best_val_acc": 0.5942857142857143,
+  "best_epoch": 10,
+  "per_class": {
+    "Acne And Rosacea Photos": {
+      "precision": 0.4666666666666667,
+      "recall": 0.4666666666666667,
+      "f1-score": 0.4666666666666667,
+      "support": 75.0
+    },
+    "Actinic Keratosis Basal Cell Carcinoma And Other Malignant Lesions": {
+      "precision": 0.3898305084745763,
+      "recall": 0.30666666666666664,
+      "f1-score": 0.34328358208955223,
+      "support": 75.0
+    },
+    "Atopic Dermatitis Photos": {
+      "precision": 0.38961038961038963,
+      "recall": 0.4,
+      "f1-score": 0.39473684210526316,
+      "support": 75.0
+    },
+    "Ba  Cellulitis": {
+      "precision": 0.825,
+      "recall": 0.88,
+      "f1-score": 0.8516129032258064,
+      "support": 75.0
+    },
+    "Ba Impetigo": {
+      "precision": 0.9605263157894737,
+      "recall": 0.9733333333333334,
+      "f1-score": 0.9668874172185431,
+      "support": 75.0
+    },
+    "Benign": {
+      "precision": 0.95,
+      "recall": 0.76,
+      "f1-score": 0.8444444444444444,
+      "support": 75.0
+    },
+    "Bullous Disease Photos": {
+      "precision": 0.5384615384615384,
+      "recall": 0.37333333333333335,
+      "f1-score": 0.4409448818897638,
+      "support": 75.0
+    },
+    "Cellulitis Impetigo And Other Bacterial Infections": {
+      "precision": 0.4444444444444444,
+      "recall": 0.32,
+      "f1-score": 0.37209302325581395,
+      "support": 75.0
+    },
+    "Eczema Photos": {
+      "precision": 0.3424657534246575,
+      "recall": 0.3333333333333333,
+      "f1-score": 0.33783783783783783,
+      "support": 75.0
+    },
+    "Exanthems And Drug Eruptions": {
+      "precision": 0.3482142857142857,
+      "recall": 0.52,
+      "f1-score": 0.41711229946524064,
+      "support": 75.0
+    },
+    "Fu Athlete Foot": {
+      "precision": 0.9859154929577465,
+      "recall": 0.9333333333333333,
+      "f1-score": 0.958904109589041,
+      "support": 75.0
+    },
+    "Fu Nail Fungus": {
+      "precision": 0.974025974025974,
+      "recall": 1.0,
+      "f1-score": 0.9868421052631579,
+      "support": 75.0
+    },
+    "Fu Ringworm": {
+      "precision": 0.9090909090909091,
+      "recall": 0.9333333333333333,
+      "f1-score": 0.9210526315789473,
+      "support": 75.0
+    },
+    "Hair Loss Photos Alopecia And Other Hair Diseases": {
+      "precision": 0.525,
+      "recall": 0.84,
+      "f1-score": 0.6461538461538462,
+      "support": 75.0
+    },
+    "Heathy": {
+      "precision": 0.9012345679012346,
+      "recall": 0.9733333333333334,
+      "f1-score": 0.9358974358974359,
+      "support": 75.0
+    },
+    "Herpes Hpv And Other Stds Photos": {
+      "precision": 0.5070422535211268,
+      "recall": 0.48,
+      "f1-score": 0.4931506849315068,
+      "support": 75.0
+    },
+    "Light Diseases And Disorders Of Pigmentation": {
+      "precision": 0.37142857142857144,
+      "recall": 0.3466666666666667,
+      "f1-score": 0.3586206896551724,
+      "support": 75.0
+    },
+    "Lupus And Other Connective Tissue Diseases": {
+      "precision": 0.35,
+      "recall": 0.28,
+      "f1-score": 0.3111111111111111,
+      "support": 75.0
+    },
+    "Malignant": {
+      "precision": 0.7848101265822784,
+      "recall": 0.8266666666666667,
+      "f1-score": 0.8051948051948052,
+      "support": 75.0
+    },
+    "Melanoma Skin Cancer Nevi And Moles": {
+      "precision": 0.527027027027027,
+      "recall": 0.52,
+      "f1-score": 0.5234899328859061,
+      "support": 75.0
+    },
+    "Nail Fungus And Other Nail Disease": {
+      "precision": 0.6547619047619048,
+      "recall": 0.7333333333333333,
+      "f1-score": 0.6918238993710691,
+      "support": 75.0
+    },
+    "Pa Cutaneous Larva Migrans": {
+      "precision": 0.9859154929577465,
+      "recall": 0.9333333333333333,
+      "f1-score": 0.958904109589041,
+      "support": 75.0
+    },
+    "Poison Ivy Photos And Other Contact Dermatitis": {
+      "precision": 0.375,
+      "recall": 0.36,
+      "f1-score": 0.3673469387755102,
+      "support": 75.0
+    },
+    "Psoriasis Pictures Lichen Planus And Related Diseases": {
+      "precision": 0.16666666666666666,
+      "recall": 0.08,
+      "f1-score": 0.10810810810810811,
+      "support": 75.0
+    },
+    "Rashes": {
+      "precision": 0.6571428571428571,
+      "recall": 0.6133333333333333,
+      "f1-score": 0.6344827586206897,
+      "support": 75.0
+    },
+    "Scabies Lyme Disease And Other Infestations And Bites": {
+      "precision": 0.3333333333333333,
+      "recall": 0.4266666666666667,
+      "f1-score": 0.3742690058479532,
+      "support": 75.0
+    },
+    "Seborrheic Keratoses And Other Benign Tumors": {
+      "precision": 0.3148148148148148,
+      "recall": 0.22666666666666666,
+      "f1-score": 0.26356589147286824,
+      "support": 75.0
+    },
+    "Systemic Disease": {
+      "precision": 0.29577464788732394,
+      "recall": 0.28,
+      "f1-score": 0.2876712328767123,
+      "support": 75.0
+    },
+    "Tinea Ringworm Candidiasis And Other Fungal Infections": {
+      "precision": 0.2962962962962963,
+      "recall": 0.21333333333333335,
+      "f1-score": 0.24806201550387597,
+      "support": 75.0
+    },
+    "Urticaria Hives": {
+      "precision": 0.5,
+      "recall": 0.6933333333333334,
+      "f1-score": 0.5810055865921788,
+      "support": 75.0
+    },
+    "Vascular Tumors": {
+      "precision": 0.34285714285714286,
+      "recall": 0.32,
+      "f1-score": 0.3310344827586207,
+      "support": 75.0
+    },
+    "Vasculitis Photos": {
+      "precision": 0.319672131147541,
+      "recall": 0.52,
+      "f1-score": 0.39593908629441626,
+      "support": 75.0
+    },
+    "Vi Chickenpox": {
+      "precision": 0.9864864864864865,
+      "recall": 0.9733333333333334,
+      "f1-score": 0.9798657718120806,
+      "support": 75.0
+    },
+    "Vi Shingles": {
+      "precision": 0.9367088607594937,
+      "recall": 0.9866666666666667,
+      "f1-score": 0.961038961038961,
+      "support": 75.0
+    },
+    "Warts Molluscum And Other Viral Infections": {
+      "precision": 0.37142857142857144,
+      "recall": 0.3466666666666667,
+      "f1-score": 0.3586206896551724,
+      "support": 75.0
+    },
+    "accuracy": 0.5763809523809523,
+    "macro avg": {
+      "precision": 0.572218686618888,
+      "recall": 0.5763809523809524,
+      "f1-score": 0.5690793082507749,
+      "support": 2625.0
+    },
+    "weighted avg": {
+      "precision": 0.572218686618888,
+      "recall": 0.5763809523809523,
+      "f1-score": 0.5690793082507748,
+      "support": 2625.0
+    }
+  }
+}
