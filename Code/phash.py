@@ -7,9 +7,6 @@ near-duplicate images using an orientation-canonical pHash. Reports:
   - collisions that cross train/val/test  -> split leakage
   - collisions that cross class labels     -> label noise
 
-The orientation-canonical hash (min pHash over the 8 flip/rotation variants)
-means flipped or rotated augmentation copies collide with their source, which a
-folder browse or a plain pHash both miss.
 
 Dependency: pip install imagehash
 
@@ -55,7 +52,7 @@ def canonical_phash(path, canonical=True):
     return min(phash_int(v) for v in variants)
 
 
-# module-level flag set in main(), read by the worker (picklable this way)
+# module-level flag set in main(), read by the worker
 _USE_CANONICAL = True
 
 
