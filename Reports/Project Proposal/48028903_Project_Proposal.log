@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.11)  23 APR 2026 23:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  8 AUG 2026 14:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"d:/Literature/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex"
-(d:/Literature/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex
+**"c:/Git/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex"
+(c:/Git/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2025-12-24>
+L3 programming layer <2026-01-19>
 (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
 Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
 (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/base\bk12.clo
@@ -148,7 +148,7 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 )
 ==> First Aid for varwidth.sty applied!
 ) (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
+Package: geometry 2026/03/07 v6.0 Page Geometry
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
@@ -193,7 +193,7 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@count@id=\count294
 \enitdp@description=\count295
 ) (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
@@ -213,7 +213,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 )) (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 ) (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
-Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
@@ -232,7 +232,7 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \Hy@linkcounter=\count298
 \Hy@pagecounter=\count299
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
@@ -240,23 +240,23 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count300
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4195.
-Package hyperref Info: Link nesting OFF on input line 4200.
-Package hyperref Info: Hyper index ON on input line 4203.
-Package hyperref Info: Plain pages OFF on input line 4210.
-Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Hyper figures OFF on input line 4201.
+Package hyperref Info: Link nesting OFF on input line 4206.
+Package hyperref Info: Hyper index ON on input line 4209.
+Package hyperref Info: Plain pages OFF on input line 4216.
+Package hyperref Info: Backreferencing OFF on input line 4221.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4462.
+Package hyperref Info: Bookmarks ON on input line 4468.
 \c@Hy@tempcnt=\count301
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4801.
+LaTeX Info: Redefining \url on input line 4807.
 \XeTeXLinkMargin=\dimen184
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -266,20 +266,20 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 \Fld@menulength=\count302
 \Field@Width=\dimen185
 \Fld@charsize=\dimen186
-Package hyperref Info: Hyper figures OFF on input line 6078.
-Package hyperref Info: Link nesting OFF on input line 6083.
-Package hyperref Info: Hyper index ON on input line 6086.
-Package hyperref Info: backreferencing OFF on input line 6093.
-Package hyperref Info: Link coloring OFF on input line 6098.
-Package hyperref Info: Link coloring with OCG OFF on input line 6103.
-Package hyperref Info: PDF/A mode OFF on input line 6108.
+Package hyperref Info: Hyper figures OFF on input line 6084.
+Package hyperref Info: Link nesting OFF on input line 6089.
+Package hyperref Info: Hyper index ON on input line 6092.
+Package hyperref Info: backreferencing OFF on input line 6099.
+Package hyperref Info: Link coloring OFF on input line 6104.
+Package hyperref Info: Link coloring with OCG OFF on input line 6109.
+Package hyperref Info: PDF/A mode OFF on input line 6114.
 \Hy@abspage=\count303
 \c@Item=\count304
 \c@Hfootnote=\count305
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
 \Fld@listcount=\count306
 \c@bookmark@seq@number=\count307
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
@@ -478,55 +478,145 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 216.
  (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (32.8044pt too wide) in paragraph at lines 216--235
+c:/Git/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex:234: Undefined control sequence.
+l.234 & \rotatedheading
+                       {Topic exploration}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Git/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex:235: Undefined control sequence.
+l.235 & \rotatedheading
+                       {Research question}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Git/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex:236: Undefined control sequence.
+l.236 & \rotatedheading
+                       {Literature review}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Git/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex:237: Undefined control sequence.
+l.237 & \rotatedheading
+                       {Methodological support}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Git/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex:238: Undefined control sequence.
+l.238 & \rotatedheading
+                       {Data analysis}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Git/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex:239: Undefined control sequence.
+l.239 & \rotatedheading
+                       {Visual content creation}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Git/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex:240: Undefined control sequence.
+l.240 & \rotatedheading
+                       {Written content creation}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Git/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex:241: Undefined control sequence.
+l.241 & \rotatedheading
+                       {Language translation}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Git/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex:242: Undefined control sequence.
+l.242 & \rotatedheading
+                       {Grammar/style/spelling}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Git/2026-thesis-latex/Project Proposal/48028903_Project_Proposal.tex:243: Undefined control sequence.
+l.243 & \rotatedheading
+                       {Feedback on content}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (994.79214pt too wide) in paragraph at lines 216--288
 [] 
  []
 
 [2
 
-] [3] [4
+] [3
 
 ] (48028903_Project_Proposal.toc)
 \tf@toc=\write4
 \openout4 = `48028903_Project_Proposal.toc'.
 
- [5
+ [4
 
 ] (48028903_Project_Proposal.lof)
 \tf@lof=\write5
 \openout5 = `48028903_Project_Proposal.lof'.
 
- [6
+ [5
 
 ] (48028903_Project_Proposal.lot)
 \tf@lot=\write6
 \openout6 = `48028903_Project_Proposal.lot'.
 
- [7
+ [6
 
-
-] [8
 
 ]
 Chapter 1.
 [1
 
+
 ]
 Chapter 2.
 
-Overfull \hbox (17.34839pt too wide) in paragraph at lines 276--276
+Overfull \hbox (17.34839pt too wide) in paragraph at lines 329--329
 |[]\OT1/cmr/bx/n/24.88 Background and Lit-er-a-ture re-view| 
  []
 
 
-Overfull \hbox (0.40424pt too wide) in paragraph at lines 281--282
+Overfull \hbox (0.40424pt too wide) in paragraph at lines 334--335
 []\OT1/cmr/m/n/12 Deep learn-ing, par-tic-u-larly con-vo-lu-tional neu-ral net-works (CNNs), has demon-strated
  []
 
-<federated_learning.png, id=200, 1300.86pt x 972.63374pt>
+<federated_learning.png, id=192, 1300.86pt x 972.63374pt>
 File: federated_learning.png Graphic file (type png)
 <use federated_learning.png>
-Package pdftex.def Info: federated_learning.png  used on input line 293.
+Package pdftex.def Info: federated_learning.png  used on input line 346.
 (pdftex.def)             Requested size: 390.26102pt x 291.79237pt.
 [2
 
@@ -534,7 +624,7 @@ Package pdftex.def Info: federated_learning.png  used on input line 293.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.309 
+l.362 
        <./federated_learning.png>] [4] [5] [6]
 Chapter 3.
 [7
@@ -543,70 +633,70 @@ Chapter 3.
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.378 I
+l.431 I
        n each communication round, a fraction $C = 0.5$ of $K = 10$ clients ...] [9] [10]
-<gantt.png, id=293, 2016.53375pt x 1122.1925pt>
+<gantt.png, id=285, 2016.53375pt x 1122.1925pt>
 File: gantt.png Graphic file (type png)
 <use gantt.png>
-Package pdftex.def Info: gantt.png  used on input line 436.
+Package pdftex.def Info: gantt.png  used on input line 489.
 (pdftex.def)             Requested size: 2016.52885pt x 1122.18977pt.
  [11]
-Underfull \hbox (badness 4001) in paragraph at lines 457--457
+Underfull \hbox (badness 4001) in paragraph at lines 510--510
 []|\OT1/cmr/m/n/12 Centralised base-line un-
  []
 
 
-Underfull \hbox (badness 6792) in paragraph at lines 457--457
+Underfull \hbox (badness 6792) in paragraph at lines 510--510
 []|\OT1/cmr/m/n/12 Allocate early time to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 510--510
 \OT1/cmr/m/n/12 ar-chi-tec-ture or dataset
  []
 
 
-Underfull \hbox (badness 2573) in paragraph at lines 457--457
+Underfull \hbox (badness 2573) in paragraph at lines 510--510
 \OT1/cmr/m/n/12 val-ues. Vi-su-alise la-bel
  []
 
 
-Underfull \hbox (badness 3769) in paragraph at lines 457--457
+Underfull \hbox (badness 3769) in paragraph at lines 510--510
 []|\OT1/cmr/m/n/12 Compute lim-i-ta-tions re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 510--510
 []|\OT1/cmr/m/n/12 Hyperparameter tun-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 510--510
 \OT1/cmr/m/n/12 does not yield sta-ble
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 457--457
+Underfull \hbox (badness 1199) in paragraph at lines 510--510
 []|\OT1/cmr/m/n/12 Sweep key hy-per-pa-ram-e-
  []
 
 
-Underfull \hbox (badness 3386) in paragraph at lines 457--457
+Underfull \hbox (badness 3386) in paragraph at lines 510--510
 \OT1/cmr/m/n/12 ters (e.g. learn-ing rate,
  []
 
 
-Underfull \hbox (badness 2401) in paragraph at lines 457--457
+Underfull \hbox (badness 2401) in paragraph at lines 510--510
 []|\OT1/cmr/m/n/12 Perform ini-tial data in-
  []
 
 
-Underfull \hbox (badness 3780) in paragraph at lines 457--457
+Underfull \hbox (badness 3780) in paragraph at lines 510--510
 \OT1/cmr/m/n/12 both datasets as cross-
  []
 
 
-Underfull \hbox (badness 3343) in paragraph at lines 457--457
+Underfull \hbox (badness 3343) in paragraph at lines 510--510
 []|\OT1/cmr/m/n/12 Version con-trol via Git
  []
 
@@ -614,12 +704,12 @@ Underfull \hbox (badness 3343) in paragraph at lines 457--457
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.458 \end{table}
+l.511 \end{table}
                   <./gantt.png>] [13
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.461 
+l.514 
       ] [14] (48028903_Project_Proposal.bbl [15
 
 
@@ -641,23 +731,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--132
 ) [17] (48028903_Project_Proposal.aux)
  ***********
 LaTeX2e <2025-11-01>
-L3 programming layer <2025-12-24>
+L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `48028903_Project_Proposal.out' has not changed.
 (rerunfilecheck)             Checksum: CF6C60126BE66D7E897A7B512BCBB978;3825.
  ) 
 Here is how much of TeX's memory you used:
- 13402 strings out of 467871
- 209020 string characters out of 5418376
- 640864 words of memory out of 5000000
- 41974 multiletter control sequences out of 15000+600000
- 636737 words of font info for 72 fonts, out of 8000000 for 9000
+ 13406 strings out of 467867
+ 208972 string characters out of 5418334
+ 643903 words of memory out of 5000000
+ 41983 multiletter control sequences out of 15000+600000
+ 637382 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,84p,1481b,551s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,84p,1474b,551s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\alexz\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on 48028903_Project_Proposal.pdf (25 pages, 377897 bytes).
+Output written on 48028903_Project_Proposal.pdf (23 pages, 377105 bytes).
 PDF statistics:
- 402 PDF objects out of 1000 (max. 8388607)
- 90 named destinations out of 1000 (max. 500000)
+ 393 PDF objects out of 1000 (max. 8388607)
+ 88 named destinations out of 1000 (max. 500000)
  216 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,237 @@
+\begin{thebibliography}{22}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Hay et~al.(2014)Hay, Johns, Williams, Bolliger, Dellavalle, Margolis,
+  Marks, Naldi, Weinstock, Wulf, Michaud, J~L~Murray, and
+  Naghavi]{hayGlobalBurdenSkin2014}
+Roderick~J. Hay, Nicole~E. Johns, Hywel~C. Williams, Ian~W. Bolliger, Robert~P.
+  Dellavalle, David~J. Margolis, Robin Marks, Luigi Naldi, Martin~A. Weinstock,
+  Sarah~K. Wulf, Catherine Michaud, Christopher J~L~Murray, and Mohsen Naghavi.
+\newblock The global burden of skin disease in 2010: An analysis of the
+  prevalence and impact of skin conditions.
+\newblock \emph{The Journal of Investigative Dermatology}, 134\penalty0
+  (6):\penalty0 1527--1534, June 2014.
+\newblock ISSN 1523-1747.
+\newblock \doi{10.1038/jid.2013.446}.
+
+\bibitem[Esteva et~al.(2017)Esteva, Kuprel, Novoa, Ko, Swetter, Blau, and
+  Thrun]{estevaDermatologistlevelClassificationSkin2017}
+Andre Esteva, Brett Kuprel, Roberto~A. Novoa, Justin Ko, Susan~M. Swetter,
+  Helen~M. Blau, and Sebastian Thrun.
+\newblock Dermatologist-level classification of skin cancer with deep neural
+  networks.
+\newblock \emph{Nature}, 542\penalty0 (7639):\penalty0 115--118, February 2017.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/nature21056}.
+
+\bibitem[Kaissis et~al.(2020)Kaissis, Makowski, R{\"u}ckert, and
+  Braren]{kaissisSecurePrivacypreservingFederated2020}
+Georgios~A. Kaissis, Marcus~R. Makowski, Daniel R{\"u}ckert, and Rickmer~F.
+  Braren.
+\newblock Secure, privacy-preserving and federated machine learning in medical
+  imaging.
+\newblock \emph{Nature Machine Intelligence}, 2\penalty0 (6):\penalty0
+  305--311, June 2020.
+\newblock ISSN 2522-5839.
+\newblock \doi{10.1038/s42256-020-0186-1}.
+
+\bibitem[McMahan et~al.(2023)McMahan, Moore, Ramage, Hampson, and
+  y~Arcas]{mcmahanCommunicationEfficientLearningDeep2023}
+H.~Brendan McMahan, Eider Moore, Daniel Ramage, Seth Hampson, and
+  Blaise~Ag{\"u}era y~Arcas.
+\newblock Communication-{{Efficient Learning}} of {{Deep Networks}} from
+  {{Decentralized Data}}, January 2023.
+
+\bibitem[Li et~al.(2020{\natexlab{a}})Li, Sahu, Zaheer, Sanjabi, Talwalkar, and
+  Smith]{liFederatedOptimizationHeterogeneous2020}
+Tian Li, Anit~Kumar Sahu, Manzil Zaheer, Maziar Sanjabi, Ameet Talwalkar, and
+  Virginia Smith.
+\newblock Federated {{Optimization}} in {{Heterogeneous Networks}}, April
+  2020{\natexlab{a}}.
+
+\bibitem[Tschandl et~al.(2018)Tschandl, Rosendahl, and
+  Kittler]{tschandlHAM10000DatasetLarge2018}
+Philipp Tschandl, Cliff Rosendahl, and Harald Kittler.
+\newblock The {{HAM10000}} dataset, a large collection of multi-source
+  dermatoscopic images of common pigmented skin lesions.
+\newblock \emph{Scientific Data}, 5\penalty0 (1):\penalty0 180161, August 2018.
+\newblock ISSN 2052-4463.
+\newblock \doi{10.1038/sdata.2018.161}.
+
+\bibitem[Li et~al.(2020{\natexlab{b}})Li, Sahu, Talwalkar, and
+  Smith]{liFederatedLearningChallenges2020}
+Tian Li, Anit~Kumar Sahu, Ameet Talwalkar, and Virginia Smith.
+\newblock Federated {{Learning}}: {{Challenges}}, {{Methods}}, and {{Future
+  Directions}}.
+\newblock \emph{IEEE Signal Processing Magazine}, 37\penalty0 (3):\penalty0
+  50--60, May 2020{\natexlab{b}}.
+\newblock ISSN 1558-0792.
+\newblock \doi{10.1109/MSP.2020.2975749}.
+
+\bibitem[Karimireddy et~al.(2021)Karimireddy, Kale, Mohri, Reddi, Stich, and
+  Suresh]{karimireddySCAFFOLDStochasticControlled2021}
+Sai~Praneeth Karimireddy, Satyen Kale, Mehryar Mohri, Sashank~J. Reddi,
+  Sebastian~U. Stich, and Ananda~Theertha Suresh.
+\newblock {{SCAFFOLD}}: {{Stochastic Controlled Averaging}} for {{Federated
+  Learning}}, April 2021.
+
+\bibitem[Wang et~al.(2020{\natexlab{a}})Wang, Yurochkin, Sun, Papailiopoulos,
+  and Khazaeni]{wangFederatedLearningMatched2020}
+Hongyi Wang, Mikhail Yurochkin, Yuekai Sun, Dimitris Papailiopoulos, and
+  Yasaman Khazaeni.
+\newblock Federated {{Learning}} with {{Matched Averaging}}, February
+  2020{\natexlab{a}}.
+
+\bibitem[Wang et~al.(2020{\natexlab{b}})Wang, Liu, Liang, Joshi, and
+  Poor]{wangTacklingObjectiveInconsistency2020}
+Jianyu Wang, Qinghua Liu, Hao Liang, Gauri Joshi, and H.~Vincent Poor.
+\newblock Tackling the {{Objective Inconsistency Problem}} in {{Heterogeneous
+  Federated Optimization}}, July 2020{\natexlab{b}}.
+
+\bibitem[Hsu et~al.(2019)Hsu, Qi, and
+  Brown]{hsuMeasuringEffectsNonIdentical2019}
+Tzu-Ming~Harry Hsu, Hang Qi, and Matthew Brown.
+\newblock Measuring the {{Effects}} of {{Non-Identical Data Distribution}} for
+  {{Federated Visual Classification}}, September 2019.
+
+\bibitem[Fredrikson et~al.(2015)Fredrikson, Jha, and
+  Ristenpart]{fredriksonModelInversionAttacks2015}
+Matt Fredrikson, Somesh Jha, and Thomas Ristenpart.
+\newblock Model {{Inversion Attacks}} that {{Exploit Confidence Information}}
+  and {{Basic Countermeasures}}.
+\newblock In \emph{Proceedings of the 22nd {{ACM SIGSAC Conference}} on
+  {{Computer}} and {{Communications Security}}}, {{CCS}} '15, pages 1322--1333,
+  New York, NY, USA, October 2015. Association for Computing Machinery.
+\newblock ISBN 978-1-4503-3832-5.
+\newblock \doi{10.1145/2810103.2813677}.
+
+\bibitem[Shokri et~al.(2017)Shokri, Stronati, Song, and
+  Shmatikov]{shokriMembershipInferenceAttacks2017}
+Reza Shokri, Marco Stronati, Congzheng Song, and Vitaly Shmatikov.
+\newblock Membership {{Inference Attacks Against Machine Learning Models}}.
+\newblock In \emph{2017 {{IEEE Symposium}} on {{Security}} and {{Privacy}}
+  ({{SP}})}, pages 3--18, May 2017.
+\newblock \doi{10.1109/SP.2017.41}.
+
+\bibitem[Bonawitz et~al.(2017)Bonawitz, Ivanov, Kreuter, Marcedone, McMahan,
+  Patel, Ramage, Segal, and Seth]{bonawitzPracticalSecureAggregation2017}
+Keith Bonawitz, Vladimir Ivanov, Ben Kreuter, Antonio Marcedone, H.~Brendan
+  McMahan, Sarvar Patel, Daniel Ramage, Aaron Segal, and Karn Seth.
+\newblock Practical {{Secure Aggregation}} for {{Privacy-Preserving Machine
+  Learning}}.
+\newblock In \emph{Proceedings of the 2017 {{ACM SIGSAC Conference}} on
+  {{Computer}} and {{Communications Security}}}, {{CCS}} '17, pages 1175--1191,
+  New York, NY, USA, October 2017. Association for Computing Machinery.
+\newblock ISBN 978-1-4503-4946-8.
+\newblock \doi{10.1145/3133956.3133982}.
+
+\bibitem[Dwork et~al.(2006)Dwork, McSherry, Nissim, and
+  Smith]{dworkCalibratingNoiseSensitivity2006}
+Cynthia Dwork, Frank McSherry, Kobbi Nissim, and Adam Smith.
+\newblock Calibrating {{Noise}} to {{Sensitivity}} in {{Private Data
+  Analysis}}.
+\newblock In Shai Halevi and Tal Rabin, editors, \emph{Theory of
+  {{Cryptography}}}, pages 265--284, Berlin, Heidelberg, 2006. Springer.
+\newblock ISBN 978-3-540-32732-5.
+\newblock \doi{10.1007/11681878_14}.
+
+\bibitem[Abadi et~al.(2016)Abadi, Chu, Goodfellow, McMahan, Mironov, Talwar,
+  and Zhang]{abadiDeepLearningDifferential2016}
+Mart{\'i}n Abadi, Andy Chu, Ian Goodfellow, H.~Brendan McMahan, Ilya Mironov,
+  Kunal Talwar, and Li~Zhang.
+\newblock Deep {{Learning}} with {{Differential Privacy}}.
+\newblock In \emph{Proceedings of the 2016 {{ACM SIGSAC Conference}} on
+  {{Computer}} and {{Communications Security}}}, pages 308--318, October 2016.
+\newblock \doi{10.1145/2976749.2978318}.
+
+\bibitem[Rieke et~al.(2020)Rieke, Hancox, Li, Milletar{\`i}, Roth, Albarqouni,
+  Bakas, Galtier, Landman, {Maier-Hein}, Ourselin, Sheller, Summers, Trask, Xu,
+  Baust, and Cardoso]{riekeFutureDigitalHealth2020}
+Nicola Rieke, Jonny Hancox, Wenqi Li, Fausto Milletar{\`i}, Holger~R. Roth,
+  Shadi Albarqouni, Spyridon Bakas, Mathieu~N. Galtier, Bennett~A. Landman,
+  Klaus {Maier-Hein}, S{\'e}bastien Ourselin, Micah Sheller, Ronald~M. Summers,
+  Andrew Trask, Daguang Xu, Maximilian Baust, and M.~Jorge Cardoso.
+\newblock The future of digital health with federated learning.
+\newblock \emph{npj Digital Medicine}, 3\penalty0 (1):\penalty0 119, September
+  2020.
+\newblock ISSN 2398-6352.
+\newblock \doi{10.1038/s41746-020-00323-1}.
+
+\bibitem[Sheller et~al.(2020)Sheller, Edwards, Reina, Martin, Pati, Kotrotsou,
+  Milchenko, Xu, Marcus, Colen, and
+  Bakas]{shellerFederatedLearningMedicine2020}
+Micah~J. Sheller, Brandon Edwards, G.~Anthony Reina, Jason Martin, Sarthak
+  Pati, Aikaterini Kotrotsou, Mikhail Milchenko, Weilin Xu, Daniel Marcus,
+  Rivka~R. Colen, and Spyridon Bakas.
+\newblock Federated learning in medicine: Facilitating multi-institutional
+  collaborations without sharing patient data.
+\newblock \emph{Scientific Reports}, 10\penalty0 (1):\penalty0 12598, July
+  2020.
+\newblock ISSN 2045-2322.
+\newblock \doi{10.1038/s41598-020-69250-1}.
+
+\bibitem[Dayan et~al.(2021)Dayan, Roth, Zhong, Harouni, Gentili, Abidin, Liu,
+  Costa, Wood, Tsai, Wang, Hsu, Lee, Ruan, Xu, Wu, Huang, Kitamura, Lacey, {de
+  Ant{\^o}nio Corradi}, Nino, Shin, Obinata, Ren, Crane, Tetreault, Guan,
+  Garrett, Kaggie, Park, Dreyer, Juluru, Kersten, Rockenbach, Linguraru,
+  Haider, AbdelMaseeh, Rieke, Damasceno, {e Silva}, Wang, Xu, Kawano,
+  Sriswasdi, Park, Grist, Buch, Jantarabenjakul, Wang, Tak, Li, Lin, Kwon,
+  Quraini, Feng, Priest, Turkbey, Glicksberg, Bizzo, Kim, {Tor-D{\'i}ez}, Lee,
+  Hsu, Lin, Lai, Hess, Compas, Bhatia, Oermann, Leibovitz, Sasaki, Mori, Yang,
+  Sohn, Murthy, Fu, {de Mendon{\c c}a}, Fralick, Kang, Adil, Gangai, Vateekul,
+  Elnajjar, Hickman, Majumdar, McLeod, Reed, Gr{\"a}f, Harmon, Kodama,
+  Puthanakit, Mazzulli, {de Lavor}, Rakvongthai, Lee, Wen, Gilbert, Flores, and
+  Li]{dayanFederatedLearningPredicting2021}
+Ittai Dayan, Holger~R. Roth, Aoxiao Zhong, Ahmed Harouni, Amilcare Gentili,
+  Anas~Z. Abidin, Andrew Liu, Anthony~Beardsworth Costa, Bradford~J. Wood,
+  Chien-Sung Tsai, Chih-Hung Wang, Chun-Nan Hsu, C.~K. Lee, Peiying Ruan,
+  Daguang Xu, Dufan Wu, Eddie Huang, Felipe~Campos Kitamura, Griffin Lacey,
+  Gustavo~C{\'e}sar {de Ant{\^o}nio Corradi}, Gustavo Nino, Hao-Hsin Shin,
+  Hirofumi Obinata, Hui Ren, Jason~C. Crane, Jesse Tetreault, Jiahui Guan,
+  John~W. Garrett, Joshua~D. Kaggie, Jung~Gil Park, Keith Dreyer, Krishna
+  Juluru, Kristopher Kersten, Marcio Aloisio Bezerra~Cavalcanti Rockenbach,
+  Marius~George Linguraru, Masoom~A. Haider, Meena AbdelMaseeh, Nicola Rieke,
+  Pablo~F. Damasceno, Pedro Mario~Cruz {e Silva}, Pochuan Wang, Sheng Xu,
+  Shuichi Kawano, Sira Sriswasdi, Soo~Young Park, Thomas~M. Grist, Varun Buch,
+  Watsamon Jantarabenjakul, Weichung Wang, Won~Young Tak, Xiang Li, Xihong Lin,
+  Young~Joon Kwon, Abood Quraini, Andrew Feng, Andrew~N. Priest, Baris Turkbey,
+  Benjamin Glicksberg, Bernardo Bizzo, Byung~Seok Kim, Carlos {Tor-D{\'i}ez},
+  Chia-Cheng Lee, Chia-Jung Hsu, Chin Lin, Chiu-Ling Lai, Christopher~P. Hess,
+  Colin Compas, Deepeksha Bhatia, Eric~K. Oermann, Evan Leibovitz, Hisashi
+  Sasaki, Hitoshi Mori, Isaac Yang, Jae~Ho Sohn, Krishna Nand~Keshava Murthy,
+  Li-Chen Fu, Matheus Ribeiro~Furtado {de Mendon{\c c}a}, Mike Fralick, Min~Kyu
+  Kang, Mohammad Adil, Natalie Gangai, Peerapon Vateekul, Pierre Elnajjar,
+  Sarah Hickman, Sharmila Majumdar, Shelley~L. McLeod, Sheridan Reed, Stefan
+  Gr{\"a}f, Stephanie Harmon, Tatsuya Kodama, Thanyawee Puthanakit, Tony
+  Mazzulli, Vitor~Lima {de Lavor}, Yothin Rakvongthai, Yu~Rim Lee, Yuhong Wen,
+  Fiona~J. Gilbert, Mona~G. Flores, and Quanzheng Li.
+\newblock Federated learning for predicting clinical outcomes in patients with
+  {{COVID-19}}.
+\newblock \emph{Nature Medicine}, 27\penalty0 (10):\penalty0 1735--1743,
+  October 2021.
+\newblock ISSN 1546-170X.
+\newblock \doi{10.1038/s41591-021-01506-3}.
+
+\bibitem[{Aniete Orudofia}(n.d.)]{SkinDiseasesCancer}
+{Aniete Orudofia}.
+\newblock Skin {{Diseases}} + {{Cancer Comprehensive Dataset}}.
+\newblock
+  \url{https://www.kaggle.com/datasets/anieetorudofia/skin-diseases-cancer-comprehensive-dataset},
+  n.d.
+
+\bibitem[{Muhammad Abdul Sami}(n.d.)]{MassiveSkinDisease}
+{Muhammad Abdul Sami}.
+\newblock Massive skin disease balanced dataset.
+\newblock
+  \url{https://www.kaggle.com/datasets/muhammadabdulsami/massive-skin-disease-balanced-dataset},
+  n.d.
+
+\bibitem[He et~al.(2015)He, Zhang, Ren, and Sun]{heDeepResidualLearning2015}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep {{Residual Learning}} for {{Image Recognition}}, December 2015.
+
+\end{thebibliography}
