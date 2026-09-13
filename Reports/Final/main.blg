@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: unsrtnat.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--empty journal in konecVnyFEDERATEDLEARNINGSTRATEGIES
+Warning--empty year in konecVnyFEDERATEDLEARNINGSTRATEGIES
+Warning--empty year in konecVnyFEDERATEDLEARNINGSTRATEGIES
+Warning--empty year in SkinDiseasesCancer
+Warning--empty year in MassiveSkinDisease
+You've used 25 entries,
+            2481 wiz_defined-function locations,
+            746 strings with 14548 characters,
+and the built_in function-call counts, 14098 in all, are:
+= -- 853
+> -- 1475
+< -- 5
++ -- 520
+- -- 468
+* -- 1458
+:= -- 2483
+add.period$ -- 90
+call.type$ -- 25
+change.case$ -- 50
+chr.to.int$ -- 23
+cite$ -- 32
+duplicate$ -- 479
+empty$ -- 913
+format.name$ -- 491
+if$ -- 2791
+int.to.chr$ -- 3
+int.to.str$ -- 26
+missing$ -- 14
+newline$ -- 145
+num.names$ -- 71
+pop$ -- 244
+preamble$ -- 1
+purify$ -- 25
+quote$ -- 0
+skip$ -- 295
+stack$ -- 0
+substring$ -- 388
+swap$ -- 121
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 175
+warning$ -- 5
+while$ -- 75
+width$ -- 0
+write$ -- 349
+(There were 5 warnings)

@@ -1,0 +1,39 @@
+\contentsline {chapter}{Declaration by Author}{iii}{}%
+\contentsline {chapter}{Use of AI Statement}{iv}{}%
+\contentsline {chapter}{Acknowledgments}{v}{}%
+\contentsline {chapter}{Abstract}{vi}{}%
+\contentsline {chapter}{List of Figures}{ix}{}%
+\contentsline {chapter}{List of Tables}{x}{}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{}%
+\contentsline {chapter}{\numberline {2}Background and Literature review}{3}{}%
+\contentsline {section}{\numberline {2.1}Skin Disease Classification with Deep Learning}{3}{}%
+\contentsline {section}{\numberline {2.2}Federated Learning}{3}{}%
+\contentsline {section}{\numberline {2.3}Handling Non-IID Data in Federated Learning}{5}{}%
+\contentsline {section}{\numberline {2.4}Privacy in Federated Learning}{6}{}%
+\contentsline {section}{\numberline {2.5}Federated Learning in Medical Imaging}{7}{}%
+\contentsline {section}{\numberline {2.6}Summary and Knowledge Gap}{7}{}%
+\contentsline {chapter}{\numberline {3}Methodology}{9}{}%
+\contentsline {section}{\numberline {3.1}Project Aims}{9}{}%
+\contentsline {section}{\numberline {3.2}Experimental Pipeline}{9}{}%
+\contentsline {subsection}{\numberline {3.2.1}Dataset}{9}{}%
+\contentsline {subsection}{\numberline {3.2.2}Centralised Baseline}{10}{}%
+\contentsline {subsection}{\numberline {3.2.3}Federated Learning}{10}{}%
+\contentsline {subsection}{\numberline {3.2.4}Evaluation}{11}{}%
+\contentsline {section}{\numberline {3.3}Ethical Considerations}{11}{}%
+\contentsline {chapter}{\numberline {4}Study 1: Centralised Baseline and IID Federated Learning}{13}{}%
+\contentsline {section}{\numberline {4.1}Aims}{13}{}%
+\contentsline {section}{\numberline {4.2}Methods}{13}{}%
+\contentsline {section}{\numberline {4.3}Results}{13}{}%
+\contentsline {section}{\numberline {4.4}Discussion}{13}{}%
+\contentsline {chapter}{\numberline {5}Study 2: Federated Learning under Non-IID Conditions}{14}{}%
+\contentsline {section}{\numberline {5.1}Aims}{14}{}%
+\contentsline {section}{\numberline {5.2}Methods}{14}{}%
+\contentsline {section}{\numberline {5.3}Results}{14}{}%
+\contentsline {section}{\numberline {5.4}Discussion}{14}{}%
+\contentsline {chapter}{\numberline {6}General Discussion and Conclusions}{15}{}%
+\contentsline {section}{\numberline {6.1}Summary}{15}{}%
+\contentsline {section}{\numberline {6.2}Discussion and Future Work}{15}{}%
+\contentsline {section}{\numberline {6.3}Conclusions}{15}{}%
+\contentsline {chapter}{Bibliography}{17}{}%
+\contentsline {part}{Appendices}{20}{}%
+\contentsline {chapter}{\numberline {A}Program listings}{21}{}%

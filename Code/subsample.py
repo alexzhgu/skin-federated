@@ -34,7 +34,7 @@ def main():
         if col not in df.columns:
             raise SystemExit(f"manifest missing column: {col}")
 
-    # pick the N largest classes (defensible: state the criterion in the thesis)
+    # Pick the N largest classes (defensible: state the criterion in the thesis)
     keep_classes = df["class"].value_counts().head(args.classes).index.tolist()
     df = df[df["class"].isin(keep_classes)].copy()
     print(f"kept {len(keep_classes)} classes, {len(df):,} images before sampling")
@@ -45,7 +45,7 @@ def main():
     out_parts = []
     for cls in keep_classes:
         sub = df[df["class"] == cls]
-        # sample within each split so the train/val/test ratio is preserved
+        # Sample within each split so the train/val/test ratio is preserved
         for split in ("train", "val", "test"):
             rows = sub[sub["split"] == split]
             frac = len(rows) / len(sub) if len(sub) else 0

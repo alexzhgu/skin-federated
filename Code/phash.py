@@ -28,7 +28,7 @@ import imagehash
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 HASH_SIZE = 8            # 8x8 DCT -> 64-bit hash
-CANONICAL = True         # toggled off by --fast via _worker's closure below
+CANONICAL = True
 
 
 def phash_int(img, hash_size=HASH_SIZE):
@@ -51,8 +51,6 @@ def canonical_phash(path, canonical=True):
         variants.append(base.transpose(Image.FLIP_LEFT_RIGHT))
     return min(phash_int(v) for v in variants)
 
-
-# module-level flag set in main(), read by the worker
 _USE_CANONICAL = True
 
 
@@ -145,7 +143,7 @@ def main():
     print(f"  groups crossing split: {len(cross_split_groups):,}   <-- LEAKAGE")
     print(f"  groups crossing class: {cross_class_groups:,}   <-- label noise")
 
-    # write the leaking groups out for inspection
+    # Write the leaking groups out for inspection
     if cross_split_groups:
         rows = []
         for gid, idx in enumerate(cross_split_groups):

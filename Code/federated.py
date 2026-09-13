@@ -95,7 +95,13 @@ def partition_dirichlet(labels, num_clients, alpha, seed):
 # Model
 def build_model(num_classes, pretrained=True):
     weights = models.ResNet18_Weights.IMAGENET1K_V1 if pretrained else None
+
     model = models.resnet18(weights=weights)
+
+    for block in [model.conv1, model.bn1, model.layer1, model.layer2]:
+        for p in block.parameters():
+            p.requires_grad = False
+
     model.fc = nn.Linear(model.fc.in_features, num_classes)
     return model
 # Local training (FedProx when mu > 0, otherwise plain FedAvg local step)
@@ -309,6 +315,8 @@ def main():
         tag += f"_a{args.alpha}"
     if args.algo == "fedprox":
         tag += f"_mu{args.mu}"
+    if not args.pretrained:
+        tag += "_scratch"
     tag += f"_c{args.clients}"
     tag += f"_seed{args.seed}"
     with open(os.path.join(args.out_dir, f"{tag}_log.csv"), "w", newline="") as f:
