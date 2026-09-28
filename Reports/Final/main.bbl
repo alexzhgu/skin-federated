@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -111,10 +111,30 @@ Tzu-Ming~Harry Hsu, Hang Qi, and Matthew Brown.
 \newblock Measuring the {{Effects}} of {{Non-Identical Data Distribution}} for
   {{Federated Visual Classification}}, September 2019.
 
-\bibitem[Li et~al.(2021)Li, Diao, Chen, and He]{liFederatedLearningNonIID2021}
+\bibitem[Li et~al.(2021{\natexlab{a}})Li, Diao, Chen, and
+  He]{liFederatedLearningNonIID2021}
 Qinbin Li, Yiqun Diao, Quan Chen, and Bingsheng He.
 \newblock Federated {{Learning}} on {{Non-IID Data Silos}}: {{An Experimental
-  Study}}, October 2021.
+  Study}}, October 2021{\natexlab{a}}.
+
+\bibitem[Nguyen et~al.(2022)Nguyen, Wang, Malik, Sanjabi, and
+  Rabbat]{nguyenWhereBeginImpact2022}
+John Nguyen, Jianyu Wang, Kshitiz Malik, Maziar Sanjabi, and Michael Rabbat.
+\newblock Where to {{Begin}}? {{On}} the {{Impact}} of {{Pre-Training}} and
+  {{Initialization}} in {{Federated Learning}}.
+\newblock https://arxiv.org/abs/2206.15387v3, June 2022.
+
+\bibitem[Chen et~al.(2023)Chen, Tu, Li, Shen, and
+  Chao]{chenImportanceApplicabilityPreTraining2023}
+Hong-You Chen, Cheng-Hao Tu, Ziwei Li, Han-Wei Shen, and Wei-Lun Chao.
+\newblock On the {{Importance}} and {{Applicability}} of {{Pre-Training}} for
+  {{Federated Learning}}, March 2023.
+
+\bibitem[Li et~al.(2021{\natexlab{b}})Li, Jiang, Zhang, Kamp, and
+  Dou]{liFedBNFederatedLearning2021}
+Xiaoxiao Li, Meirui Jiang, Xiaofei Zhang, Michael Kamp, and Qi~Dou.
+\newblock {{FedBN}}: {{Federated Learning}} on {{Non-IID Features}} via {{Local
+  Batch Normalization}}, May 2021{\natexlab{b}}.
 
 \bibitem[Fredrikson et~al.(2015)Fredrikson, Jha, and
   Ristenpart]{fredriksonModelInversionAttacks2015}
@@ -233,6 +253,20 @@ Ittai Dayan, Holger~R. Roth, Aoxiao Zhong, Ahmed Harouni, Amilcare Gentili,
   October 2021.
 \newblock ISSN 1546-170X.
 \newblock \doi{10.1038/s41591-021-01506-3}.
+
+\bibitem[du~Terrail et~al.(2023)du~Terrail, Ayed, Cyffers, Grimberg, He, Loeb,
+  Mangold, Marchand, Marfoq, Mushtaq, Muzellec, Philippenko, Silva,
+  Tele{\'n}czuk, Albarqouni, Avestimehr, Bellet, Dieuleveut, Jaggi,
+  Karimireddy, Lorenzi, Neglia, Tommasi, and
+  Andreux]{terrailFLambyDatasetsBenchmarks2023}
+Jean~Ogier du~Terrail, Samy-Safwan Ayed, Edwige Cyffers, Felix Grimberg,
+  Chaoyang He, Regis Loeb, Paul Mangold, Tanguy Marchand, Othmane Marfoq, Erum
+  Mushtaq, Boris Muzellec, Constantin Philippenko, Santiago Silva, Maria
+  Tele{\'n}czuk, Shadi Albarqouni, Salman Avestimehr, Aur{\'e}lien Bellet,
+  Aymeric Dieuleveut, Martin Jaggi, Sai~Praneeth Karimireddy, Marco Lorenzi,
+  Giovanni Neglia, Marc Tommasi, and Mathieu Andreux.
+\newblock {{FLamby}}: {{Datasets}} and {{Benchmarks}} for {{Cross-Silo
+  Federated Learning}} in {{Realistic Healthcare Settings}}, May 2023.
 
 \bibitem[Ski()]{SkinDiseasesCancer}
 Skin {{Diseases}} + {{Cancer Comprehensive Dataset}}.

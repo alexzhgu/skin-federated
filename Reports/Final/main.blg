@@ -10,45 +10,45 @@ Warning--empty year in konecVnyFEDERATEDLEARNINGSTRATEGIES
 Warning--empty year in konecVnyFEDERATEDLEARNINGSTRATEGIES
 Warning--empty year in SkinDiseasesCancer
 Warning--empty year in MassiveSkinDisease
-You've used 25 entries,
+You've used 29 entries,
             2481 wiz_defined-function locations,
-            746 strings with 14548 characters,
-and the built_in function-call counts, 14098 in all, are:
-= -- 853
-> -- 1475
+            771 strings with 16146 characters,
+and the built_in function-call counts, 16039 in all, are:
+= -- 940
+> -- 1721
 < -- 5
-+ -- 520
-- -- 468
-* -- 1458
-:= -- 2483
-add.period$ -- 90
-call.type$ -- 25
-change.case$ -- 50
-chr.to.int$ -- 23
-cite$ -- 32
-duplicate$ -- 479
-empty$ -- 913
-format.name$ -- 491
-if$ -- 2791
-int.to.chr$ -- 3
-int.to.str$ -- 26
++ -- 607
+- -- 546
+* -- 1662
+:= -- 2840
+add.period$ -- 99
+call.type$ -- 29
+change.case$ -- 58
+chr.to.int$ -- 26
+cite$ -- 36
+duplicate$ -- 535
+empty$ -- 1033
+format.name$ -- 573
+if$ -- 3162
+int.to.chr$ -- 4
+int.to.str$ -- 30
 missing$ -- 14
-newline$ -- 145
-num.names$ -- 71
-pop$ -- 244
+newline$ -- 162
+num.names$ -- 83
+pop$ -- 295
 preamble$ -- 1
-purify$ -- 25
+purify$ -- 29
 quote$ -- 0
-skip$ -- 295
+skip$ -- 331
 stack$ -- 0
-substring$ -- 388
-swap$ -- 121
+substring$ -- 396
+swap$ -- 135
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 175
+type$ -- 203
 warning$ -- 5
-while$ -- 75
+while$ -- 83
 width$ -- 0
-write$ -- 349
+write$ -- 391
 (There were 5 warnings)
