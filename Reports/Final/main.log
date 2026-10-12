@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  26 SEP 2026 11:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  3 OCT 2026 15:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -439,7 +439,7 @@ Overfull \hbox (21.97739pt too wide) in paragraph at lines 116--199
 
  [10
 
-]
+{C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
 Chapter 1.
 [1
 
@@ -447,58 +447,83 @@ Chapter 1.
 
 ] [2]
 Chapter 2.
-<federated_learning.png, id=47, 1300.86pt x 972.63374pt>
+<federated_learning.png, id=50, 1300.86pt x 972.63374pt>
 File: federated_learning.png Graphic file (type png)
 <use federated_learning.png>
 Package pdftex.def Info: federated_learning.png  used on input line 248.
 (pdftex.def)             Requested size: 390.26102pt x 291.79237pt.
 [3
 
-{C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}] [4 <./federated_learning.png>] [5{C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] [6] [7] [8] [9]
+{C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}] [4 <./federated_learning.png>] [5] [6] [7] [8] [9]
 Chapter 3.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 317.
 (C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [10
 
-{C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}] [11] [12] [13]
+{C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 335.
+
+Overfull \hbox (27.16444pt too wide) in paragraph at lines 335--354
+ [][] 
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 356.
+(C:\Users\alexz\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Underfull \vbox (badness 3118) has occurred while \output is active []
+
+ [11] [12] [13]
 Chapter 4.
 [14
 
-]
+] (baseline_perclass.tex) [15]
+Overfull \hbox (41.36581pt too wide) in paragraph at lines 446--453
+ [][] 
+ []
+
+<curves_iid_c10.png, id=100, 397.485pt x 289.08pt>
+File: curves_iid_c10.png Graphic file (type png)
+<use curves_iid_c10.png>
+Package pdftex.def Info: curves_iid_c10.png  used on input line 457.
+(pdftex.def)             Requested size: 318.66948pt x 231.76715pt.
+
+Overfull \hbox (34.65807pt too wide) has occurred while \output is active
+\T1/lmr/m/n/12 16 \T1/lmr/m/sl/12 CHAPTER 4.  STUDY 1: CENTRALISED BASELINE AND IID FEDERATED LEARNING
+ []
+
+[16 <./curves_iid_c10.png>] [17]
 Chapter 5.
-[15
+[18
 
 ]
 Chapter 6.
-[16
+[19
+
+] [20
 
 ] (main.bbl
 Underfull \hbox (badness 1152) in paragraph at lines 44--48
 []\T1/lmr/m/n/12 (+20) H. Bren-dan McMa-han, Ei-der Moore, Daniel Ra-m-age, Seth Hamp-son, and
  []
 
-[17
+[21
 
-
-] [18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 272--275
-[]\T1/lmr/m/n/12 (+20) Skin Dis-eases + Can-cer Com-pre-hen-sive Dataset.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 272--275
-\T1/lmr/m/n/12 (+20) https://www.kaggle.com/datasets/anieetorudofia/skin-diseases-cancer-
- []
-
-
-Overfull \hbox (94.27592pt too wide) in paragraph at lines 277--280
+] [22] [23]
+Overfull \hbox (94.27592pt too wide) in paragraph at lines 272--275
 []\T1/lmr/m/n/12 (-20) Massive skin dis-ease bal-anced dataset.  https://www.kaggle.com/datasets/muhammadabdulsami/massive-
  []
 
-) [20] [21]
+) [24] [25]
 Appendix A.
-[22
+[26
 
 ] (main.aux)
  ***********
@@ -507,17 +532,17 @@ L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 7426 strings out of 467867
- 118866 string characters out of 5418334
- 562434 words of memory out of 5000000
- 35999 multiletter control sequences out of 15000+600000
- 694173 words of font info for 165 fonts, out of 8000000 for 9000
+ 7515 strings out of 467867
+ 120379 string characters out of 5418334
+ 565494 words of memory out of 5000000
+ 36066 multiletter control sequences out of 15000+600000
+ 701996 words of font info for 178 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,15n,65p,1496b,381s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (32 pages, 312934 bytes).
+ 57i,15n,65p,1698b,381s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/alexz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on main.pdf (36 pages, 411551 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
+ 196 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36875 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 41488 words of extra memory for PDF output out of 42996 (max. 10000000)
 

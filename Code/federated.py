@@ -95,13 +95,7 @@ def partition_dirichlet(labels, num_clients, alpha, seed):
 # Model
 def build_model(num_classes, pretrained=True):
     weights = models.ResNet18_Weights.IMAGENET1K_V1 if pretrained else None
-
     model = models.resnet18(weights=weights)
-
-    for block in [model.conv1, model.bn1, model.layer1, model.layer2]:
-        for p in block.parameters():
-            p.requires_grad = False
-
     model.fc = nn.Linear(model.fc.in_features, num_classes)
     return model
 # Local training (FedProx when mu > 0, otherwise plain FedAvg local step)
@@ -172,9 +166,9 @@ def run_federated(args, train_idx, val_idx, test_idx, paths, labels, classes,
         local_parts = partition_dirichlet(
             train_labels, args.clients, args.alpha, args.seed
         )
-    # Map back to absolute indices into paths/labels
+    # map back to absolute indices into paths/labels
     client_indices = [train_idx[np.array(part, dtype=int)] for part in local_parts]
-    # Skip clients too small to form a usable batch
+    # skip clients too small to form a usable batch
     client_indices = [c for c in client_indices if len(c) >= 2]
     num_clients = len(client_indices)
     client_sizes = [len(c) for c in client_indices]
@@ -190,7 +184,7 @@ def run_federated(args, train_idx, val_idx, test_idx, paths, labels, classes,
             num_workers=args.workers, pin_memory=True, drop_last=drop_last,
             persistent_workers=args.workers > 0,
         ))
-    # Central val / test loaders
+    # central val / test loaders
     val_loader = DataLoader(
         ManifestDataset(paths[val_idx], labels[val_idx], eval_tf),
         batch_size=args.batch_size * 2, shuffle=False,
@@ -231,7 +225,7 @@ def run_federated(args, train_idx, val_idx, test_idx, paths, labels, classes,
             continue
         new_state = aggregate(client_states, client_counts)
         global_model.load_state_dict(new_state)
-        # Comms this round: each participant downloads + uploads one model
+        # comms this round: each participant downloads + uploads one model
         cumulative_gb += len(client_states) * 2 * state_bytes / 1e9
         if rnd % args.eval_every == 0 or rnd == args.rounds:
             acc, macro_f1, _, _ = evaluate(global_model, val_loader, device)
@@ -247,7 +241,7 @@ def run_federated(args, train_idx, val_idx, test_idx, paths, labels, classes,
                 "round": rnd, "val_acc": acc, "val_macro_f1": macro_f1,
                 "cumulative_gb": cumulative_gb,
             })
-    # Final test
+    # final test
     global_model.load_state_dict(best_state)
     test_acc, test_f1, targets, preds = evaluate(global_model, test_loader, device)
     print(f"\nTEST acc {test_acc:.4f} | macro_f1 {test_f1:.4f} "
@@ -273,19 +267,19 @@ def parse_args():
     p.add_argument("--partition", choices=["iid", "dirichlet"], default="iid")
     p.add_argument("--alpha", type=float, default=0.5)
     p.add_argument("--mu", type=float, default=0.1)
-    # Federated hyperparameters
+    # federated hyperparameters
     p.add_argument("--clients", type=int, default=10)
     p.add_argument("--frac", type=float, default=0.5)
     p.add_argument("--rounds", type=int, default=100)
     p.add_argument("--local-epochs", type=int, default=5)
-    # Optimisation
+    # optimisation
     p.add_argument("--lr", type=float, default=0.01)
     p.add_argument("--momentum", type=float, default=0.9)
     p.add_argument("--batch-size", type=int, default=32)
     p.add_argument("--img-size", type=int, default=224)
     p.add_argument("--pretrained", action="store_true", default=True)
     p.add_argument("--no-pretrained", dest="pretrained", action="store_false")
-    # Split / eval
+    # split / eval
     p.add_argument("--target-acc", type=float, default=0.90)
     p.add_argument("--eval-every", type=int, default=2)
     p.add_argument("--workers", type=int, default=4)

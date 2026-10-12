@@ -7,6 +7,9 @@ near-duplicate images using an orientation-canonical pHash. Reports:
   - collisions that cross train/val/test  -> split leakage
   - collisions that cross class labels     -> label noise
 
+The orientation-canonical hash (min pHash over the 8 flip/rotation variants)
+means flipped or rotated augmentation copies collide with their source, which a
+folder browse or a plain pHash both miss.
 
 Dependency: pip install imagehash
 
@@ -28,7 +31,7 @@ import imagehash
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 HASH_SIZE = 8            # 8x8 DCT -> 64-bit hash
-CANONICAL = True
+CANONICAL = True         # toggled off by --fast via _worker's closure below
 
 
 def phash_int(img, hash_size=HASH_SIZE):
@@ -51,6 +54,8 @@ def canonical_phash(path, canonical=True):
         variants.append(base.transpose(Image.FLIP_LEFT_RIGHT))
     return min(phash_int(v) for v in variants)
 
+
+# module-level flag set in main(), read by the worker (picklable this way)
 _USE_CANONICAL = True
 
 
@@ -143,7 +148,7 @@ def main():
     print(f"  groups crossing split: {len(cross_split_groups):,}   <-- LEAKAGE")
     print(f"  groups crossing class: {cross_class_groups:,}   <-- label noise")
 
-    # Write the leaking groups out for inspection
+    # write the leaking groups out for inspection
     if cross_split_groups:
         rows = []
         for gid, idx in enumerate(cross_split_groups):

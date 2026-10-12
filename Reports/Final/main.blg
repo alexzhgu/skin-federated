@@ -8,47 +8,46 @@ Database file #1: references.bib
 Warning--empty journal in konecVnyFEDERATEDLEARNINGSTRATEGIES
 Warning--empty year in konecVnyFEDERATEDLEARNINGSTRATEGIES
 Warning--empty year in konecVnyFEDERATEDLEARNINGSTRATEGIES
-Warning--empty year in SkinDiseasesCancer
 Warning--empty year in MassiveSkinDisease
-You've used 29 entries,
+You've used 27 entries,
             2481 wiz_defined-function locations,
-            771 strings with 16146 characters,
-and the built_in function-call counts, 16039 in all, are:
-= -- 940
-> -- 1721
+            761 strings with 15762 characters,
+and the built_in function-call counts, 15496 in all, are:
+= -- 900
+> -- 1694
 < -- 5
-+ -- 607
-- -- 546
-* -- 1662
-:= -- 2840
-add.period$ -- 99
-call.type$ -- 29
-change.case$ -- 58
-chr.to.int$ -- 26
-cite$ -- 36
-duplicate$ -- 535
-empty$ -- 1033
-format.name$ -- 573
-if$ -- 3162
++ -- 595
+- -- 538
+* -- 1625
+:= -- 2766
+add.period$ -- 95
+call.type$ -- 27
+change.case$ -- 54
+chr.to.int$ -- 24
+cite$ -- 32
+duplicate$ -- 507
+empty$ -- 971
+format.name$ -- 564
+if$ -- 3041
 int.to.chr$ -- 4
-int.to.str$ -- 30
+int.to.str$ -- 28
 missing$ -- 14
-newline$ -- 162
-num.names$ -- 83
-pop$ -- 295
+newline$ -- 154
+num.names$ -- 80
+pop$ -- 268
 preamble$ -- 1
-purify$ -- 29
+purify$ -- 27
 quote$ -- 0
-skip$ -- 331
+skip$ -- 310
 stack$ -- 0
-substring$ -- 396
-swap$ -- 135
+substring$ -- 391
+swap$ -- 130
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 203
-warning$ -- 5
-while$ -- 83
+type$ -- 189
+warning$ -- 4
+while$ -- 81
 width$ -- 0
-write$ -- 391
-(There were 5 warnings)
+write$ -- 372
+(There were 4 warnings)

@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -52,6 +52,12 @@ Tian Li, Anit~Kumar Sahu, Manzil Zaheer, Maziar Sanjabi, Ameet Talwalkar, and
   Virginia Smith.
 \newblock Federated {{Optimization}} in {{Heterogeneous Networks}}, April
   2020{\natexlab{a}}.
+
+\bibitem[Li et~al.(2021{\natexlab{a}})Li, Diao, Chen, and
+  He]{liFederatedLearningNonIID2021}
+Qinbin Li, Yiqun Diao, Quan Chen, and Bingsheng He.
+\newblock Federated {{Learning}} on {{Non-IID Data Silos}}: {{An Experimental
+  Study}}, October 2021{\natexlab{a}}.
 
 \bibitem[Tschandl et~al.(2018)Tschandl, Rosendahl, and
   Kittler]{tschandlHAM10000DatasetLarge2018}
@@ -110,12 +116,6 @@ Jianyu Wang, Qinghua Liu, Hao Liang, Gauri Joshi, and H.~Vincent Poor.
 Tzu-Ming~Harry Hsu, Hang Qi, and Matthew Brown.
 \newblock Measuring the {{Effects}} of {{Non-Identical Data Distribution}} for
   {{Federated Visual Classification}}, September 2019.
-
-\bibitem[Li et~al.(2021{\natexlab{a}})Li, Diao, Chen, and
-  He]{liFederatedLearningNonIID2021}
-Qinbin Li, Yiqun Diao, Quan Chen, and Bingsheng He.
-\newblock Federated {{Learning}} on {{Non-IID Data Silos}}: {{An Experimental
-  Study}}, October 2021{\natexlab{a}}.
 
 \bibitem[Nguyen et~al.(2022)Nguyen, Wang, Malik, Sanjabi, and
   Rabbat]{nguyenWhereBeginImpact2022}
@@ -268,18 +268,9 @@ Jean~Ogier du~Terrail, Samy-Safwan Ayed, Edwige Cyffers, Felix Grimberg,
 \newblock {{FLamby}}: {{Datasets}} and {{Benchmarks}} for {{Cross-Silo
   Federated Learning}} in {{Realistic Healthcare Settings}}, May 2023.
 
-\bibitem[Ski()]{SkinDiseasesCancer}
-Skin {{Diseases}} + {{Cancer Comprehensive Dataset}}.
-\newblock
-  https://www.kaggle.com/datasets/anieetorudofia/skin-diseases-cancer-comprehensive-dataset.
-
 \bibitem[Mas()]{MassiveSkinDisease}
 Massive skin disease balanced dataset.
 \newblock
   https://www.kaggle.com/datasets/muhammadabdulsami/massive-skin-disease-balanced-dataset.
-
-\bibitem[He et~al.(2015)He, Zhang, Ren, and Sun]{heDeepResidualLearning2015}
-Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
-\newblock Deep {{Residual Learning}} for {{Image Recognition}}, December 2015.
 
 \end{thebibliography}

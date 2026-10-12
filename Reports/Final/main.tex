@@ -222,7 +222,7 @@ Skin disease classification using deep learning has shown strong potential but t
 \chapter{Introduction}
   Skin diseases are among the most common health conditions worldwide \cite{hayGlobalBurdenSkin2014} and deep learning has demonstrated strong performance in skin disease classification from images \cite{estevaDermatologistlevelClassificationSkin2017}. However, training models that generalise well requires diverse data across patient demographics and imaging setups. In practice this data sits in separate hospitals and research groups, each with a relatively small local dataset. Privacy regulations including the Health Insurance Portability and Accountability Act (HIPAA) and the General Data Protection Regulation (GDPR) restrict the centralisation of patient data \cite{kaissisSecurePrivacypreservingFederated2020}, preventing the ability to build robust classifiers through conventional centralised training.
 
-  Federated learning addresses this by enabling multiple institutions to collaboratively train a shared model without exchanging raw data. Each participant trains on its local dataset and shares only model updates with a central server, which aggregates them into a global model. McMahan et al. introduced Federated Averaging (FedAvg), which reduces communication costs by performing multiple local training epochs before aggregation \cite{mcmahanCommunicationEfficientLearningDeep2023}. However, FedAvg lacks convergence guarantees when data across participants is not independently and identically distributed (non-IID), a condition that is common in healthcare settings where different institutions may see different patient demographics and disease distributions. FedProx extends FedAvg by introducing a proximal term that constrains local model updates, providing convergence guarantees under heterogeneous conditions \cite{liFederatedOptimizationHeterogeneous2020}. Furthermore, federated learning alone does not fully resolve privacy concerns. Prior work has shown that shared model updates can leak sensitive information, and additional mechanisms may be needed \cite{kaissisSecurePrivacypreservingFederated2020}.
+  Federated learning addresses this by enabling multiple institutions to collaboratively train a shared model without exchanging raw data. Each participant trains on its local dataset and shares only model updates with a central server, which aggregates them into a global model. McMahan et al. introduced Federated Averaging (FedAvg), which reduces communication costs by performing multiple local training epochs before aggregation \cite{mcmahanCommunicationEfficientLearningDeep2023}. However, FedAvg lacks convergence guarantees when data across participants is not independently and identically distributed (non-IID), a condition that is common in healthcare settings where different institutions may see different patient demographics and disease distributions. FedProx extends FedAvg by introducing a proximal term that constrains local model updates, providing convergence guarantees under heterogeneous conditions \cite{liFederatedOptimizationHeterogeneous2020}. These guarantees have not translated into consistent empirical gains, and benchmark comparisons have found FedProx matching FedAvg in many settings \cite{liFederatedLearningNonIID2021}. Furthermore, federated learning alone does not fully resolve privacy concerns. Prior work has shown that shared model updates can leak sensitive information, and additional mechanisms may be needed \cite{kaissisSecurePrivacypreservingFederated2020}.
 
   This project evaluates federated learning for multi-class skin disease classification in a simulated distributed healthcare environment. A working dataset of approximately 20,000 images across 30 diagnostic classes, drawn from publicly available skin disease image collections, will be partitioned across multiple nodes. FedAvg and FedProx will be implemented and compared against a centralised training baseline, evaluating classification accuracy and communication efficiency under non-IID data distributions.
 
@@ -258,12 +258,12 @@ By performing multiple local training epochs before communication, FedAvg signif
 
 Li et al. \cite{liFederatedLearningChallenges2020} surveyed the main challenges. 1) Communication costs are high when bandwidth is limited or models are large. 2) Participating devices vary in compute and connectivity. 3) Data across nodes is usually non-IID. 4) Shared updates can still leak information about training data.
 
-Communication cost is the first of these challenges and has attracted its own line of work. Kone\v{c}n\'y et al. \cite{konecVnyFEDERATEDLEARNINGSTRATEGIES} proposed two ways to reduce communication cost: structured updates, which learn each client update directly in a restricted low-rank or random-mask space, and sketched updates, which compute a full update and then compress it through quantisation, random rotation and subsampling before transmission. Sattler et al. \cite{sattlerRobustCommunicationEfficientFederated2019} observed that earlier compression schemes either compressed only the updates or degraded under non-IID data and proposed sparse ternary compression, which combines top-$k$ sparsification, ternarisation and Golomb encoding of the updates with a mechanism for compressing the downloading as well. A simpler reduction applies whenever a pre-trained backbone is partially frozen: parameters that do not change during local training carry no information and need not be transmitted. Each of these methods trades a small amount of accuracy or convergence speed for a reduction in bytes per round, and the appropriate trade-off depends on the bandwidth available to participating institutions.
+Communication cost is the first of these challenges and has attracted its own line of work. Kone\v{c}n\'y et al. \cite{konecVnyFEDERATEDLEARNINGSTRATEGIES} proposed two ways to reduce communication cost: structured updates, which learn each client update directly in a restricted low-rank or random-mask space, and sketched updates, which compute a full update and then compress it through quantisation, random rotation and subsampling before transmission. Sattler et al. \cite{sattlerRobustCommunicationEfficientFederated2019} observed that earlier compression schemes either ompressed only the client-to-server direction or degraded under non-IID data and proposed sparse ternary compression, which combines top-$k$ sparsification, ternarisation and Golomb encoding of the updates with a mechanism for compressing the downloading as well. Each of these methods trades a small amount of accuracy or convergence speed for a reduction in bytes per round, and the appropriate trade-off depends on the bandwidth available to participating institutions.
 \section{Handling Non-IID Data in Federated Learning}
 
 Data distributions across participating nodes are rarely uniform. When each node holds data that is non-IID, local models trained on these subsets may diverge significantly from one another. Averaging such divergent models can produce a global model that performs poorly compared to one trained on centralised data.
  
-The mechanism behind this degradation is client drift \cite{karimireddySCAFFOLDStochasticControlled2021}. During the $E$ local epochs of each round, a client's model moves toward the minimiser of its own local objective $F_k$ rather than the global objective $f$. When the local label distribution differs from the global one, these two minimisers are far apart and the local update accumulates a bias in the direction of the local optimum. Drift grows with the number of local steps, the learning rate and the degree of label skew and shrinks when many clients are averaged per round or when the starting point is already close to a good solution for every client. The methods reviewed below differ in how they act on drift.
+The mechanism behind this degradation is client drift \cite{karimireddySCAFFOLDStochasticControlled2021}. During the $E$ local epochs of each round, a client's model moves toward the minimiser of its own local objective $F_k$ rather than the global objective $f$. When the local label distribution differs from the global one, these two minimisers are far apart and the local update accumulates a bias in the direction of the local optimum. Drift grows with the number of local steps, the learning rate and the degree of label skew and shrinks when many clients are averaged per round. The methods reviewed below differ in how they act on drift.
  
 FedAvg provides no mechanism to limit drift. Li et al. \cite{liFederatedOptimizationHeterogeneous2020} proposed FedProx, which penalises it directly by adding a proximal term to the local objective:
 \begin{equation}
@@ -276,13 +276,13 @@ Other approaches have been proposed to tackle non-IID issues. Karimireddy et al.
 
 To evaluate federated learning methods under heterogeneous conditions, a consistent experimental method is required for simulating non-IID data splits. A widely adopted approach, introduced by Hsu et al. \cite{hsuMeasuringEffectsNonIdentical2019}, is to partition data across clients using a Dirichlet distribution over class labels, parameterised by a concentration parameter $\alpha$. Lower values of $\alpha$ produce more skewed label distributions across clients while higher values approach IID. This provides a controllable and reproducible way to study model behaviour across a wide range of heterogeneous conditions.
 
-The theoretical case for drift correction is stronger than evidence suggestes. Li et al. \cite{liFederatedLearningNonIID2021} benchmarked FedAvg, FedProx, SCAFFOLD and FedNova on nine datasets under label skew, feature skew and quantity skew partitions and found that no algorithm consistently outperformed the others, with the newer methods beating FedAvg by a clear margin in only a few settings. FedProx tracked FedAvg closely through training in many cases. Having tuned $\mu$ over $\{0.001, 0.01, 0.1, 1\}$, they found the best value was always small, so the proximal term had little effect and the two methods reached similar accuracy at a similar speed. They also found that the number of local epochs had a large effect on accuracy and that its optimal value was sensitive to the partition. Their results suggest that the advantage of a drift-correction method depends on whether the experimental setting produces enough drift for the correction to matter.
+The theoretical case for drift correction is stronger than evidence suggests. Li et al. \cite{liFederatedLearningNonIID2021} benchmarked FedAvg, FedProx, SCAFFOLD and FedNova on nine datasets under label skew, feature skew and quantity skew partitions and found that no algorithm consistently outperformed the others, with the newer methods beating FedAvg by a clear margin in only a few settings. FedProx tracked FedAvg closely through training in many cases. Having tuned $\mu$ over $\{0.001, 0.01, 0.1, 1\}$, they found the best value was always small, so the proximal term had little effect and the two methods reached similar accuracy at a similar speed. They also found that the number of local epochs had a large effect on accuracy and that its optimal value was sensitive to the partition. Their results suggest that the advantage of a drift-correction method depends on whether the experimental setting produces enough drift for the correction to matter.
 
 \section{Initialisation and Pre-training in Federated Learning}
 
 Most federated learning studies initialise from random weights, whereas centralised image classification almost always starts from weights pre-trained on a large dataset such as ImageNet. Nguyen et al. \cite{nguyenWhereBeginImpact2022} compared the two on four federated benchmarks and found that pre-training reduced the rounds needed to reach a target error, produced models up to 40\% more accurate, and reduced the effect of both data and system heterogeneity; they recommend that federated optimisation methods be evaluated from both initialisations. Chen et al. \cite{chenImportanceApplicabilityPreTraining2023} reached a similar conclusion across several visual recognition benchmarks, with pre-training closing most of the gap between FedAvg and centralised training and giving its largest gains under the most severe non-IID conditions. They attribute this to global models converging to the same loss basin regardless of the client data distribution, which makes aggregation more stable. They note that pre-training does not appear to reduce local drift itself. Instead, what changes is that averaging drifted models still lands in a good region.
 
-This bears directly on method comparison. Drift-correction methods were designed for heterogenous data and pre-training removes most of the degradation by making aggregation tolerant of drift. Gains reported from random initialisation may therefore not appear when clients fine-tune a shared pre-trained backbone, as is standard in medical imaging.
+This bears directly on method comparison. Drift-correction methods were designed for heterogeneous data and pre-training removes most of the degradation by making aggregation tolerant of drift. Gains reported from random initialisation may therefore not appear when clients fine-tune a shared pre-trained backbone, as is standard in medical imaging.
 
 A second factor specific to convolutional backbones is batch normalisation. ResNet layers carry running statistics estimated from local batches, and Li et al. \cite{liFedBNFederatedLearning2021} showed under feature shift that keeping these layers local and averaging only the remaining parameters (FedBN) outperformed both FedAvg and FedProx.
 
@@ -314,16 +314,48 @@ This project addresses these gaps by evaluating FedAvg and FedProx on a 30-class
 \section{Project Aims}
 Based on the knowledge gaps identified in the preceding chapter, this project has the following aims:
 \begin{itemize}
-  \item Train a centralised ResNet classifier on 20,000 images across 30 classes to establish an upper-bound benchmark
+  \item Train a centralised ResNet-18 classifier on a 30-class skin disease dataset of approximately 20,000 clinical photographs to establish an upper-bound benchmark
   \item Run FedAvg and FedProx on the same data, partitioned into IID and Dirichlet non-IID splits across simulated clients
-  \item Report how each federated method degrades from the centralised baseline as heterogeneity increases, and what it costs in communication rounds
+  \item Report how each federated method degrades from the centralised baseline as heterogeneity increases, and what it costs in communication
 \end{itemize}
 
 \section{Experimental Pipeline}
-This project follows a three-stage experimental pipeline: centralised baseline training, federated learning implementation, and comparative evaluation. All experiments will be implemented in Python using PyTorch.
+The project followed a three-stage pipeline: centralised baseline training, federated training under IID and non-IID partitions and comparative evaluation on a shared held-out test set. All experiments were implemented in Python with PyTorch and run on a single NVIDIA A100 GPU per job.
 
 \subsection{Dataset}
-Two publicly available skin disease image datasets from Kaggle will be used. The first, the Skin Diseases and Cancer Comprehensive Dataset, contains approximately 13,000 images across 24 diagnostic classes \cite{SkinDiseasesCancer}. The second, a larger balanced skin disease dataset, contains approximately 262,000 images across 34 classes \cite{MassiveSkinDisease}. Table~\ref{tab:datasets} summarises the two datasets. The final dataset composition will be determined during implementation; options include using either dataset independently, merging them with a unified class mapping, or using a subsampled combination to manage compute requirements. Images will be resized to a uniform resolution and normalised to standardise input across all experiments. Standard data augmentation techniques such as random horizontal flipping, rotation, and colour jittering will be applied during training to improve generalisation. The dataset will be split into training, validation, and test sets, with the test set held centrally and kept consistent across all experiments to ensure fair comparison.
+The Massive Skin Disease Balanced Dataset \cite{MassiveSkinDisease} was used as the data source. It is a public Kaggle collection of approximately 262,000 clinical photographs across 34 classes, assembled from several earlier dermatology datasets and balanced by augmenting the smaller classes with flipped, rotated and otherwise transformed copies of their images.
+
+To keep training time manageable across the full experimental grid, a working subset was drawn as follows. The 30 largest classes were retained and 666 images were sampled from each, stratified by the dataset's own train, validation and test assignment so that the split ratio was preserved per class. This produced 19,980 images: 13,980 for training, 3,000 for validation and 3,000 for testing. The test set was held centrally and kept fixed across every experiment. Table~\ref{tab:classes} lists the 30 classes.
+
+\begin{table}[H]
+  \centering
+  \caption{The 30 classes in the working dataset, 666 images each.}
+  \label{tab:classes}
+  \small
+  \begin{tabular}{ll}
+    \hline
+    Acne and rosacea & Light diseases and pigmentation disorders \\
+    Actinic keratosis, BCC and other malignant lesions & Lupus and other connective tissue diseases \\
+    Atopic dermatitis & Malignant \\
+    Bacterial: cellulitis & Melanoma, nevi and moles \\
+    Bacterial: impetigo & Nail fungus and other nail disease \\
+    Bullous disease & Parasitic: cutaneous larva migrans \\
+    Cellulitis, impetigo and other bacterial infections & Poison ivy and other contact dermatitis \\
+    Exanthems and drug eruptions & Rashes \\
+    Fungal: athlete's foot & Scabies, Lyme disease and other infestations \\
+    Fungal: nail fungus & Systemic disease \\
+    Fungal: ringworm & Urticaria \\
+    Hair loss and alopecia & Vascular tumours \\
+    Healthy & Vasculitis \\
+    Herpes, HPV and other STDs & Viral: chickenpox \\
+    Warts, molluscum and other viral infections & Viral: shingles \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Two properties of this dataset require explanation. First, because it merges sources with different labelling schemes, several classes overlap in clinical content. For example, cellulitis and impetigo appear both as single-condition classes and inside a combined bacterial infection class, nail fungus appears twice and the malignant class overlaps with the melanoma and the actinic keratosis classes. Per-class results in Chapters 4 and 5 are examined with this in mind. Second, a large amount of images as augmented copies and the source dataset does not record which original each copy derives from. So an original and its augmentation could in principle fall on different sides of a split. A perceptual-hash check was run over the full 262,874-image split manifest before subsampling, using an 8$\times$8 DCT hash minimised over the eight flip and rotation variants of each image. It found no exact hash collisions, within or across splits. Because the working subset retains each image's original split assignment, that result carries over to it. The check is limited to exact matches under flips and rotations; augmentations involving cropping or colour change, which the \texttt{aug} prefix suggests were used, would not be detected, so some near-duplicate leakage across splits cannot be ruled out.
+
+Images were resized to 256 pixels, randomly cropped to 224, and augmented during training with horizontal flips, colour jitter of 0.1, and rotations of up to 15 degrees, then normalised with ImageNet channel statistics. Validation and test images were resized directly to 224 with no augmentation.
 
 \begin{table}[H]
   \centering
@@ -343,66 +375,98 @@ Two publicly available skin disease image datasets from Kaggle will be used. The
 \end{table}
 
 \subsection{Centralised Baseline}
-A ResNet-18 architecture pre-trained on ImageNet will be used as the primary classification model across all experiments, selected for its established performance in image classification tasks \cite{heDeepResidualLearning2015}. If compute resources permit, ResNet-50 will also be evaluated to assess the impact of model capacity on classification performance. The baseline will be trained on the full training set in a standard centralised setting, with all data aggregated on a single machine. This represents an upper bound on classification performance. Training will use stochastic gradient descent with momentum, with learning rate, batch size, and number of epochs tuned on the validation set. To account for variability, experiments will be repeated across multiple random seeds and results reported as mean and standard deviation.
+The training set was partitioned across $K$ simulated clients. In the IID setting the training indices were shuffled and split into $K$ equal shards. In the non-IID setting each class's images were divided among the clients according to proportions drawn from a Dirichlet distribution with concentration $\alpha$ \cite{hsuMeasuringEffectsNonIdentical2019}, with $\alpha \in \{0.1, 0.5, 1.0\}$. Lower $\alpha$ concentrates each class on fewer clients. Clients left with fewer than two images were dropped, which did not occur in any run. Table~\ref{tab:partition} summarises the partitions produced with $K = 10$ and seed 42.
 
-\subsection{Federated Learning}
-The training set will be partitioned across $K$ simulated client nodes to replicate a distributed healthcare environment. Two partitioning strategies will be used. In the IID setting, data will be distributed uniformly at random across clients, ensuring each client holds a roughly representative subset. In the non-IID setting, a Dirichlet distribution with concentration parameter $\alpha$ will be used to create heterogeneous label distributions across clients, where lower values of $\alpha$ produce greater skew \cite{hsuMeasuringEffectsNonIdentical2019}. Multiple values of $\alpha$ (for example, $\alpha\in\{0.1,0.5,1.0\}$) will be tested to evaluate model behaviour under varying degrees of heterogeneity. The inherent class imbalance in the dataset will be considered when designing the partitioning, as it interacts with the label skew introduced by non-IID splits.
+\begin{table}[H]
+  \centering
+  \caption{Partition statistics for $K = 10$ clients, seed 42. Empty class cells counts client--class pairs with no images, out of $10 \times 30$.}
+  \label{tab:partition}
+  \begin{tabular}{lccc}
+    \hline
+    Partition & Client size (min--max) & Classes per client (min--max) & Empty class cells \\ \hline
+    IID & 1,398--1,398 & 30--30 & 0/300 \\
+    $\alpha = 1.0$ & 1,028--1,738 & 29--30 & 2/300 \\
+    $\alpha = 0.5$ & 659--1,843 & 26--30 & 17/300 \\
+    $\alpha = 0.1$ & 288--3,667 & 8--27 & 136/300 \\ \hline
+  \end{tabular}
+\end{table}
 
-FedAvg and FedProx will each be implemented following the procedures described in Chapter 2. The same ResNet-18 architecture and preprocessing pipeline used in the centralised baseline will be applied to ensure that differences in performance are attributable to the training method rather than the model.
-
-In each communication round, a fraction $C = 0.5$ of $K = 10$ clients will be selected to participate. Each selected client will train on its local data for $E = 5$ local epochs with batch size $B = 32$, then send its updated model parameters to the central server for aggregation.
-
-For FedProx, the proximal term weight $\mu$ will be tuned over $\mu \in \{0.001, 0.01, 0.1, 1.0\}$ using the validation set. This allows assessment of its impact under different levels of regularisation.
-
-Training will run for up to $T = 100$ communication rounds. Early stopping will be applied based on validation performance.
+The three $\alpha$ values span a wide range of heterogeneity. At $\alpha = 1.0$ and $\alpha = 0.5$ every client still holds at least 26 of the 30 classes and client sizes vary by less than a factor of three, so these partitions differ from IID mainly in class proportions rather than class presence. At $\alpha = 0.1$ the largest client holds nearly 13 times as many images as the smallest, clients see between 8 and 27 classes, and 45\% of client--class pairs are empty, so most clients never encounter most classes during local training. This is the only partition in which label skew is severe, and it is where the methods are expected to separate if they separate at all.
 
 \subsection{Evaluation}
 
-All approaches will be evaluated on the same held-out test set using the following metrics.
+All models were evaluated on the same 3,000-image test set using the following metrics.
 
 \begin{itemize}
-  \item \textbf{Classification accuracy}: overall accuracy on the test set.
-  \item \textbf{Per-class performance}: precision, recall, and F1-score per class to assess behaviour on minority classes, which is particularly important given dataset imbalance.
-  \item \textbf{Communication efficiency}: the number of communication rounds required to reach a target accuracy and the total volume of parameter data transmitted between clients and server.
-  \item \textbf{Non-IID sensitivity}: accuracy as a function of the Dirichlet concentration parameter $\alpha$, measuring how each method degrades under increasing data heterogeneity.
+  \item \textbf{Classification accuracy}: overall test accuracy.
+  \item \textbf{Per-class performance}: precision, recall and F1-score per class, with macro-averaged F1 as the summary. This is reported because the class set contains clinically overlapping categories whose confusion is not visible in overall accuracy.
+  \item \textbf{Communication cost}: the total volume of parameter data transmitted, counting the full model state (11.19 million parameters plus BatchNorm buffers, 44.81 MB) once from server to client and once back for every participating client in every round, and the number of rounds required for validation accuracy to reach 0.85, computed after training from the per-round logs at two-round resolution.
+  \item \textbf{Non-IID sensitivity}: test accuracy as a function of $\alpha$ for each method.
 \end{itemize}
-Results from FedAvg and FedProx will be compared against each other and against the centralised baseline across all metrics. All experiments will be repeated over multiple random seeds to ensure reported differences are statistically meaningful.
+Results for FedAvg and FedProx are compared against each other and against the centralised baseline, as mean and standard deviation over seeds.
 
 \section{Ethical Considerations}
-This project uses only publicly available skin disease image datasets obtained from Kaggle. Both datasets have been released by their authors for research and educational purposes, and contain no directly identifying patient information such as names or dates of birth. No new patient data will be collected, and no human or animal subjects will be involved in the research. For these reasons, formal ethics approval is not required for this project.
+This project used a single publicly available skin disease image dataset obtained from Kaggle. The dataset was released by its author for research and educational purposes and contains no directly identifying patient information such as names or dates of birth. No new patient data was collected, and no human or animal subjects were involved in the research. For these reasons, formal ethics approval was not required for this project.
 
-Several ethical considerations remain relevant. Publicly released medical image datasets may still carry risks of re-identification. This project will treat all data as sensitive and will not attempt to link images back to individuals or external sources.
+Several ethical considerations remained relevant. Publicly released medical image datasets may still carry risks of re-identification. All data was treated as sensitive and no attempt was made to link images back to individuals or external sources.
 
-Skin disease classifiers are known to exhibit performance disparities across skin tones, as publicly available datasets are often skewed toward lighter skin types. Any results produced by this project will be interpreted with this limitation in mind and per-class performance metrics will be reported to surface any systematic disparities that arise.
+Skin disease classifiers are known to exhibit performance disparities across skin tones, as publicly available datasets are often skewed toward lighter skin types. Results are interpreted with this limitation in mind, and per-class performance metrics are reported to surface any systematic disparities.
 
-While this project is a simulation and does not involve real clinical deployment, the broader motivation carries downstream implications for patient privacy, model accountability, and the trustworthiness of clinical AI systems. This project is a methodological evaluation and no diagnostic claims follow from it.
+While this project was a simulation and did not involve clinical deployment, the broader motivation carries downstream implications for patient privacy, model accountability, and the trustworthiness of clinical AI systems. This project is a methodological evaluation and no diagnostic claims follow from it.
 
-All code, experimental configurations, and results will be managed with version control to support reproducibility, and the datasets used will be properly cited so that others can verify and build upon the work.
+All code, experimental configurations, and results were managed with version control to support reproducibility, and the dataset is cited so that others can verify and build upon the work.
 
 \chapter{Study 1: Centralised Baseline and IID Federated Learning}
 
 \section{Aims}
-\begin{itemize}
-  \item Establish centralised ResNet-18 baseline performance on the 30-class dataset.
-  \item Evaluate FedAvg and FedProx under IID partitioning to verify that federated training approaches the centralised upper bound when data is homogeneous.
-\end{itemize}
+This study establishes the two reference points for the rest of the thesis. The centralised baseline sets the accuracy ceiling for the architecture and dataset. The IID federated runs test whether FedAvg and FedProx reach that ceiling when every client holds a representative sample of the data. An IID partition produces no systematic client drift, so FedProx should match FedAvg here, which makes this study a consistency check on the FedProx implementation as well.
 
 \section{Methods}
-\begin{itemize}
-  \item Centralised training as described in Chapter 3, with hyperparameters tuned on the validation set.
-  \item FedAvg and FedProx with $K = 10$ clients, $C = 0.5$, $E = 5$, $B = 32$, uniform random data partitioning.
-\end{itemize}
+The baseline was trained as described in Section 3.2.2. FedAvg and FedProx ($\mu = 0.001$) were run under the IID partition with $K = 10$, $C = 0.5$, $E = 5$ and $B = 32$ for 100 rounds, with seeds 42, 43 and 44. All three models were evaluated on the shared 3,000-image test set.
 
 \section{Results}
-\begin{itemize}
-  \item To be completed: accuracy and per-class metrics for the centralised baseline.
-  \item To be completed: federated accuracy versus communication rounds under IID conditions.
-\end{itemize}
+\subsection{Centralised baseline}
+The baseline reached a test accuracy of 0.877 and macro F1 of 0.875, with the best validation checkpoint at epoch 24 of 25. The baseline was trained once, with seed 42. Table~\ref{tab:baseline-perclass} gives per-class F1 for the ten weakest and ten strongest classes. The five weakest classes are broad umbrella categories that each group several conditions: Warts Molluscum and Other Viral Infections (F1 0.600), Systemic Disease (0.681), Light Diseases and Disorders of Pigmentation (0.727), Actinic Keratosis Basal Cell Carcinoma and Other Malignant Lesions (0.765) and Lupus and Other Connective Tissue Diseases (0.766). The strongest classes are narrow single conditions, including Nail Fungus and Shingles (1.000), Athlete's Foot and Chickenpox (0.995) and Cutaneous Larva Migrans (0.990). With one exception, these are not the overlapping classes identified in Section 3.2.1: only the actinic keratosis class overlaps with another (Malignant), while the remaining four weakest classes are umbrella categories with no equivalent elsewhere in the label set. The overlapping classes themselves were separable. Nail Fungus reached F1 of 1.000 despite the presence of a second nail disease class. The most likely explanation is that overlapping classes come from different source datasets within the Kaggle collection, whose photographic style differs. This means the model can separate them on source rather than on clinical content. This is a limitation of the dataset rather than a strength of the classifier and per-class results for these classes should not be treated as evidence that the model distinguishes these.
+
+\begin{table}[H]
+  \centering
+  \caption{Per-class test F1 for the centralised baseline, ten lowest and ten highest, sorted ascending. Every class has 100 test images.}
+  \label{tab:baseline-perclass}
+  \small
+  \input{baseline_perclass.tex}
+\end{table}
+
+\subsection{IID federated learning}
+Table~\ref{tab:iid} reports FedAvg and FedProx under the IID partition. FedAvg reached 0.875 $\pm$ 0.001 test accuracy, 0.2 points below the centralised baseline. FedProx reached 0.873 $\pm$ 0.002, 0.4 points below the baseline; paired by seed, it matched FedAvg on one seed and was lower by 0.14 and 0.20 points on the other two (mean difference $-0.11 \pm 0.10$ points). Figure~\ref{fig:iid-curves} shows validation accuracy by round. Both methods passed 0.85 validation accuracy by round 22, FedAvg after 19.3 $\pm$ 1.2 rounds and FedProx after 20.0 $\pm$ 2.0, and both plateaued, defined as reaching within 0.5 points of the peak seed-mean validation accuracy, by round 36. The best checkpoint occurred between rounds 60 and 74 for FedAvg and between rounds 48 and 88 for FedProx.
+
+\begin{table}[H]
+  \centering
+  \caption{Test performance under IID partitioning, mean $\pm$ std over three seeds. Rounds to 0.85 is measured on validation accuracy.}
+  \label{tab:iid}
+  \begin{tabular}{lcccc}
+    \hline
+    Method & Accuracy & Macro F1 & Rounds to 0.85 & Communication (GB) \\ \hline
+    Centralised & 0.877 & 0.875 & -- & -- \\
+    FedAvg & 0.875 $\pm$ 0.001 & 0.873 $\pm$ 0.001 & 19.3 $\pm$ 1.2 & 44.8 \\
+    FedProx ($\mu = 0.001$) & 0.873 $\pm$ 0.002 & 0.872 $\pm$ 0.002 & 20.0 $\pm$ 2.0 & 44.8 \\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\linewidth]{curves_iid_c10.png}
+  \caption{Validation accuracy per communication round under IID partitioning}
+  \label{fig:iid-curves}
+\end{figure}
 
 \section{Discussion}
-\begin{itemize}
-  \item To be completed: gap between federated and centralised performance under IID conditions.
-\end{itemize}
+Under IID partitioning, federated training recovered the centralised baseline to within seed variation. FedAvg's 0.2-point gap and FedProx's 0.4-point gap are of the same order as the spread across seed, and the paired difference between the two methods ($-0.11 \pm 0.10$ points) is not distinguishable from zero with three seeds. This is consistent with Sheller et al. \cite{shellerFederatedLearningMedicine2020}, who reported federated models reaching 99\% of centralised quality on homogeneous institutional data. The cost of federation in this setting is communication alone: reaching 0.85 validation accuracy took about 20 rounds and 9 GB of transfer and the full 100-round budget cost 44.8 GB.
+
+FedAvg and FedProx were indistinguishable, as expected. With representative client data the local minimisers coincide with the global one, so the proximal gradient $\mu(w - w^t)$ stays near zero throughout local training and FedProx reduces to FedAvg. This confirms that the implementation adds no overhead or bias at small $\mu$, so any separation between the methods in Chapter 5 can be attributed to heterogeneity rather than to the methods' behaviour on homogeneous data.
+
+Two features of the IID curves carry forward. Both methods reached within 0.5 points of their peak by round 36 and then improved slowly, so the 100-round budget was generous for this partition. The best checkpoint nonetheless fell in the second half of training for every seed, so the late improvement show is real instead of just noise. Chapter 5 examines how both features change as $\alpha$ decreases.
+
+The per-class results constrain what the test set can measure. Because the strongest and weakest classes separate cleanly by source collection, overall accuracy on this dataset is partly a measure of how well a model identifies image provenance and the classes with near-perfect F1 contribute a fixed ceiling that every method reaches. The comparisons in Chapter 5 are unaffected, since every method is scored on the same images, but the absolute accuracies reported in this thesis should not be read as estimates of clinical diagnostic performance. The baseline was trained with a single seed, so its 0.877 carries no error bar. The federated IID spread of 0.001 to 0.002 suggests the baseline's own seed variation is of similar size.
 
 \chapter{Study 2: Federated Learning under Non-IID Conditions}
 
