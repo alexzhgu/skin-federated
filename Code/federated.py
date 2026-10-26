@@ -209,9 +209,15 @@ def run_federated(args, train_idx, val_idx, test_idx, paths, labels, classes,
     rng = np.random.default_rng(args.seed)
     log_rows = []
     mu = args.mu if args.algo == "fedprox" else 0.0
+    # trainable parameter names, used to measure client drift (BN buffers excluded)
+    param_keys = [n for n, _ in global_model.named_parameters()]
     for rnd in range(1, args.rounds + 1):
         m = max(1, int(args.frac * num_clients))
         selected = rng.choice(num_clients, size=m, replace=False).tolist()
+        # snapshot of the global model this round, for drift measurement
+        g_state = {k: v.detach().cpu().float()
+                   for k, v in global_model.state_dict().items()}
+        round_drifts = []
         client_states, client_counts = [], []
         for cid in selected:
             local_model.load_state_dict(global_model.state_dict())
@@ -219,6 +225,10 @@ def run_federated(args, train_idx, val_idx, test_idx, paths, labels, classes,
                 local_model, client_loaders[cid], device, args.local_epochs,
                 args.lr, args.momentum, mu, scaler,
             )
+            # L2 distance between returned local parameters and the global model
+            drift = torch.sqrt(sum(((state[k].float() - g_state[k]) ** 2).sum()
+                                   for k in param_keys)).item()
+            round_drifts.append(drift)
             client_states.append(state)
             client_counts.append(client_sizes[cid])
         if not client_states:
@@ -235,11 +245,12 @@ def run_federated(args, train_idx, val_idx, test_idx, paths, labels, classes,
                 best_val_acc = acc
                 best_state = copy.deepcopy(global_model.state_dict())
                 best_round = rnd
+            drift_mean = float(np.mean(round_drifts))
             print(f"round {rnd:3d} | val acc {acc:.4f} | macro_f1 {macro_f1:.4f} "
-                  f"| comms {cumulative_gb:.2f} GB")
+                  f"| comms {cumulative_gb:.2f} GB | drift {drift_mean:.4f}")
             log_rows.append({
                 "round": rnd, "val_acc": acc, "val_macro_f1": macro_f1,
-                "cumulative_gb": cumulative_gb,
+                "cumulative_gb": cumulative_gb, "drift_mean": drift_mean,
             })
     # final test
     global_model.load_state_dict(best_state)
@@ -280,7 +291,7 @@ def parse_args():
     p.add_argument("--pretrained", action="store_true", default=True)
     p.add_argument("--no-pretrained", dest="pretrained", action="store_false")
     # split / eval
-    p.add_argument("--target-acc", type=float, default=0.90)
+    p.add_argument("--target-acc", type=float, default=0.85)
     p.add_argument("--eval-every", type=int, default=2)
     p.add_argument("--workers", type=int, default=4)
     p.add_argument("--seed", type=int, default=42)
@@ -315,7 +326,7 @@ def main():
     tag += f"_seed{args.seed}"
     with open(os.path.join(args.out_dir, f"{tag}_log.csv"), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["round", "val_acc", "val_macro_f1",
-                                          "cumulative_gb"])
+                                          "cumulative_gb", "drift_mean"])
         w.writeheader()
         w.writerows(result["log_rows"])
     with open(os.path.join(args.out_dir, f"{tag}_report.txt"), "w") as f:

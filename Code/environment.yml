@@ -1,0 +1,7 @@
+name: baseline
+channels:
+  - defaults
+dependencies:
+  - python
+  - imagehash
+prefix: /home/Student/s4802890/miniconda3/envs/baseline

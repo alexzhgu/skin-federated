@@ -1,24 +1,29 @@
 """
 Aggregate federated run outputs into a results table and figures.
 
-Reads fed_runs/*_report.txt and fed_runs/*_log.csv, parses the run
-configuration from the filename tag, and writes tables and figures.
+Reads *_report.txt and *_log.csv from one or more run folders, parses the run
+configuration from the filename tag, and writes tables and figures. When the
+same configuration and seed appear in more than one folder, the later folder wins.
 
 Outputs (in ./results/):
     summary.csv              one row per run
-    grid.csv                 mean/std per (algo, partition, mu) cell
+    grid.csv                 mean/std per (algo, partition, mu, clients) cell
     paired.csv               per-seed FedAvg vs FedProx differences
     fig_accuracy_vs_alpha.png
-    fig_curves.png
-    fig_accuracy_vs_comms.png
+    fig_curves.png           val curves per round, one panel per partition (K = 10)
+    fig_accuracy_vs_comms.png  val curves per GB, one panel per partition (K = 10)
+    fig_accuracy_vs_nodes.png  test acc vs client count at alpha = 0.1
+    panels/curves_<cond>_c<K>.png, panels/comms_<cond>_c<K>.png
+                             one figure per partition and client count
 
 Usage:
-    python aggregate.py
-    python aggregate.py --fed-dir fed_runs --baseline runs/20260712_101500
+    python aggregate.py --fed-dir fed_runs post_analysis \
+        --baseline runs/<seed42_dir> runs/<seed43_dir> runs/<seed44_dir>
 """
 
 from pathlib import Path
 import argparse
+import json
 import re
 
 import numpy as np
@@ -29,6 +34,7 @@ import matplotlib.pyplot as plt
 
 # fedavg_dirichlet_a0.1_c10_seed42  /  fedprox_iid_mu0.001_c50_seed42
 # _c is optional: runs predating the client-count tag default to 10.
+# Tags with extra parts (e.g. _scratch) do not match and are skipped.
 TAG_RE = re.compile(
     r"^(?P<algo>fedavg|fedprox)"
     r"_(?P<partition>iid|dirichlet)"
@@ -39,6 +45,9 @@ TAG_RE = re.compile(
 )
 
 IID_ALPHA = 10.0
+COLOURS = {None: "tab:blue", 0.001: "tab:orange", 0.01: "tab:green",
+           0.1: "tab:red", 1.0: "tab:purple"}
+DPI = 200
 
 
 def parse_tag(tag):
@@ -54,6 +63,14 @@ def parse_tag(tag):
         "clients": int(d["clients"]) if d["clients"] else 10,
         "seed": int(d["seed"]),
     }
+
+
+def method_label(algo, mu):
+    return "FedAvg" if algo == "fedavg" else rf"FedProx ($\mu$ = {mu:g})"
+
+
+def colour(algo, mu):
+    return COLOURS[None] if algo == "fedavg" else COLOURS.get(float(mu), "tab:gray")
 
 
 def read_report(path):
@@ -72,39 +89,50 @@ def read_report(path):
     return out
 
 
-def collect(fed_dir: Path):
-    rows, curves = [], {}
-    for report in sorted(fed_dir.glob("*_report.txt")):
-        tag = report.name[: -len("_report.txt")]
-        cfg = parse_tag(tag)
-        if cfg is None:
-            print(f"  skipping unparseable tag: {tag}")
-            continue
-        rec = {"tag": tag, **cfg, **read_report(report)}
+def config_key(cfg):
+    return (cfg["algo"], cfg["partition"],
+            None if np.isnan(cfg["alpha"]) else cfg["alpha"],
+            None if np.isnan(cfg["mu"]) else cfg["mu"],
+            cfg["clients"], cfg["seed"])
 
-        log = fed_dir / f"{tag}_log.csv"
-        if log.exists():
-            curve = pd.read_csv(log)
-            curves[tag] = curve
-            rec["final_val_acc"] = curve["val_acc"].iloc[-1]
-            rec["best_val_acc"] = curve["val_acc"].max()
-            rec["best_round"] = int(curve.loc[curve["val_acc"].idxmax(), "round"])
-            rec["rounds_run"] = int(curve["round"].iloc[-1])
-        rows.append(rec)
 
+def collect(fed_dirs):
+    found = {}
+    for fed_dir in fed_dirs:
+        reports = sorted(fed_dir.glob("*_report.txt"))
+        print(f"  {fed_dir}: {len(reports)} reports")
+        for report in reports:
+            tag = report.name[: -len("_report.txt")]
+            cfg = parse_tag(tag)
+            if cfg is None:
+                print(f"    skipping unparseable tag: {tag}")
+                continue
+            rec = {"tag": tag, "source": str(fed_dir), **cfg, **read_report(report)}
+            curve = None
+            log = fed_dir / f"{tag}_log.csv"
+            if log.exists():
+                curve = pd.read_csv(log)
+                rec["final_val_acc"] = curve["val_acc"].iloc[-1]
+                rec["best_val_acc"] = curve["val_acc"].max()
+                rec["best_round"] = int(curve.loc[curve["val_acc"].idxmax(), "round"])
+                rec["rounds_run"] = int(curve["round"].iloc[-1])
+            key = config_key(cfg)
+            if key in found:
+                print(f"    {tag}: replaces {found[key][0]['tag']} from {found[key][0]['source']}")
+            found[key] = (rec, curve)
+
+    rows = [rec for rec, _ in found.values()]
+    curves = {rec["tag"]: curve for rec, curve in found.values() if curve is not None}
     df = pd.DataFrame(rows)
     if len(df):
         df["alpha_plot"] = df["alpha"].fillna(IID_ALPHA)
-        df["label"] = df.apply(
-            lambda r: f"{r['algo']}"
-            + (f" mu={r['mu']:g}" if not np.isnan(r["mu"]) else ""), axis=1
-        )
     return df, curves
 
 
 def build_grid(df):
     g = (df.groupby(["algo", "mu", "partition", "alpha_plot", "clients"], dropna=False)
            .agg(n=("test_acc", "size"),
+                seeds=("seed", lambda s: " ".join(str(x) for x in sorted(s))),
                 acc_mean=("test_acc", "mean"),
                 acc_std=("test_acc", "std"),
                 f1_mean=("test_macro_f1", "mean"),
@@ -132,131 +160,189 @@ def build_paired(df):
                    "test_acc_avg", "test_acc_prox", "acc_diff", "f1_diff"]]
 
 
-def fig_accuracy_vs_alpha(grid, baseline_acc, out_path, clients=10):
+def fig_accuracy_vs_alpha(grid, baseline, out_path, clients=10):
     grid = grid[grid["clients"] == clients]
-    fig, ax = plt.subplots(figsize=(7, 4.5))
+    alphas = sorted(grid["alpha_plot"].unique())
+    pos = {a: i for i, a in enumerate(alphas)}
+    fig, ax = plt.subplots(figsize=(6.5, 4))
+    if baseline is not None:
+        m, s, n = baseline
+        ax.axhline(m, ls="--", c="k", lw=1,
+                   label=rf"Centralised ({m:.3f} $\pm$ {s:.3f})")
+        if n > 1:
+            ax.axhspan(m - s, m + s, color="k", alpha=0.08)
+    offset = 0.0
     for (algo, mu), sub in grid.groupby(["algo", "mu"], dropna=False):
         sub = sub.sort_values("alpha_plot")
-        label = algo + (f" (mu={mu:g})" if not np.isnan(mu) else "")
-        ax.errorbar(sub["alpha_plot"], sub["acc_mean"],
-                    yerr=sub["acc_std"].fillna(0),
-                    marker="o", capsize=3, label=label)
-    if baseline_acc is not None:
-        ax.axhline(baseline_acc, ls="--", c="k", lw=1,
-                   label=f"centralised ({baseline_acc:.3f})")
-    ax.set_xscale("log")
-    ticks = sorted(grid["alpha_plot"].unique())
-    ax.set_xticks(ticks)
-    ax.set_xticklabels([("IID" if t == IID_ALPHA else f"{t:g}") for t in ticks])
-    ax.set_xlabel("Dirichlet concentration parameter alpha")
+        yerr = sub["acc_std"].fillna(0)
+        style = dict(marker="o", capsize=3, color=colour(algo, mu),
+                     label=method_label(algo, mu))
+        if len(sub) > 1:
+            ax.errorbar(sub["alpha_plot"].map(pos), sub["acc_mean"], yerr=yerr, **style)
+        else:
+            offset += 0.12
+            ax.errorbar(sub["alpha_plot"].map(pos) + offset, sub["acc_mean"],
+                        yerr=yerr, ls="none", **style)
+    ax.set_xticks(list(pos.values()))
+    ax.set_xticklabels(["IID" if a == IID_ALPHA else f"{a:g}" for a in alphas])
+    ax.set_xlabel(r"Dirichlet concentration $\alpha$")
     ax.set_ylabel("Test accuracy")
-    ax.set_title("Accuracy vs data heterogeneity (mean +/- std over seeds)")
     ax.grid(alpha=0.3)
-    ax.legend(fontsize=8)
+    ax.legend(fontsize=8, loc="lower right")
     plt.tight_layout()
-    plt.savefig(out_path, dpi=150)
+    plt.savefig(out_path, dpi=DPI)
     plt.close()
 
 
 def fig_accuracy_vs_nodes(grid, out_path, alpha=0.1):
-    sub = grid[(grid["alpha_plot"] == alpha) & (grid["clients"].notna())]
+    sub = grid[grid["alpha_plot"] == alpha]
     if sub["clients"].nunique() < 2:
         return False
-    fig, ax = plt.subplots(figsize=(7, 4.5))
+    fig, ax = plt.subplots(figsize=(6.5, 4))
     for (algo, mu), g in sub.groupby(["algo", "mu"], dropna=False):
+        if g["clients"].nunique() < 2:
+            continue
         g = g.sort_values("clients")
-        label = algo + (f" (mu={mu:g})" if not np.isnan(mu) else "")
         ax.errorbar(g["clients"], g["acc_mean"], yerr=g["acc_std"].fillna(0),
-                    marker="o", capsize=3, label=label)
-    ax.set_xlabel("Number of clients")
+                    marker="o", capsize=3, color=colour(algo, mu),
+                    label=method_label(algo, mu))
+    ax.set_xlabel("Number of clients $K$")
     ax.set_ylabel("Test accuracy")
-    ax.set_title(f"Accuracy vs client count (alpha = {alpha:g}, mean +/- std over seeds)")
     ax.grid(alpha=0.3)
     ax.legend(fontsize=8)
     plt.tight_layout()
-    plt.savefig(out_path, dpi=150)
+    plt.savefig(out_path, dpi=DPI)
     plt.close()
     return True
 
 
-def fig_curves(df, curves, out_path):
+def cond_title(alpha, clients):
+    cond = "IID" if alpha == IID_ALPHA else rf"$\alpha$ = {alpha:g}"
+    return f"{cond}, K = {int(clients)}"
+
+
+def cond_file(alpha, clients):
+    cond = "iid" if alpha == IID_ALPHA else f"a{alpha:g}"
+    return f"{cond}_c{int(clients)}"
+
+
+def seed_mean_curve(grp, curves):
+    """Mean and std of val_acc over seeds, indexed by round, with cumulative GB."""
+    series = [curves[t].set_index("round") for t in grp["tag"] if t in curves]
+    if not series:
+        return None
+    acc = pd.concat([s["val_acc"] for s in series], axis=1)
+    gb = series[0]["cumulative_gb"].reindex(acc.index)
+    return acc.mean(axis=1), acc.std(axis=1).fillna(0), gb, len(series)
+
+
+def curve_ylim(df, curves):
+    lo, hi = 1.0, 0.0
+    for _, grp in df.groupby(["algo", "mu", "alpha_plot", "clients"], dropna=False):
+        res = seed_mean_curve(grp, curves)
+        if res is None:
+            continue
+        mean, std, _, _ = res
+        lo, hi = min(lo, (mean - std).min()), max(hi, (mean + std).max())
+    return max(0.0, lo - 0.02), min(1.0, hi + 0.02)
+
+
+def draw_panel(ax, sub, curves, xaxis):
+    for (algo, mu), grp in sub.groupby(["algo", "mu"], dropna=False):
+        res = seed_mean_curve(grp, curves)
+        if res is None:
+            continue
+        mean, std, gb, n = res
+        x = mean.index if xaxis == "round" else gb.values
+        c = colour(algo, mu)
+        ax.plot(x, mean.values, color=c, lw=1.4,
+                label=f"{method_label(algo, mu)}, {n} seed{'s' if n > 1 else ''}")
+        if n > 1:
+            ax.fill_between(x, mean - std, mean + std, color=c, alpha=0.15)
+    ax.set_xlabel("Communication round" if xaxis == "round"
+                  else "Estimated cumulative payload (GB)")
+    ax.grid(alpha=0.3)
+
+
+def fig_combined(df, curves, out_path, xaxis, ylim, clients=10):
+    """One panel per partition at a fixed client count."""
+    df = df[df["clients"] == clients]
     partitions = sorted(df["alpha_plot"].unique())
     fig, axes = plt.subplots(1, len(partitions), figsize=(4 * len(partitions), 3.8),
                              sharey=True, squeeze=False)
     for ax, a in zip(axes[0], partitions):
-        sub = df[df["alpha_plot"] == a]
-        for label, grp in sub.groupby("label"):
-            aligned = []
-            for tag in grp["tag"]:
-                if tag in curves:
-                    c = curves[tag]
-                    aligned.append(c.set_index("round")["val_acc"])
-            if not aligned:
-                continue
-            stacked = pd.concat(aligned, axis=1)
-            mean, std = stacked.mean(axis=1), stacked.std(axis=1).fillna(0)
-            ax.plot(mean.index, mean.values, label=label, lw=1.4)
-            ax.fill_between(mean.index, mean - std, mean + std, alpha=0.15)
-        ax.set_title("IID" if a == IID_ALPHA else f"alpha = {a:g}", fontsize=10)
-        ax.set_xlabel("Communication round")
-        ax.grid(alpha=0.3)
+        draw_panel(ax, df[df["alpha_plot"] == a], curves, xaxis)
+        ax.set_title(cond_title(a, clients), fontsize=10)
+        ax.set_ylim(*ylim)
     axes[0][0].set_ylabel("Validation accuracy")
     axes[0][-1].legend(fontsize=8)
     plt.tight_layout()
-    plt.savefig(out_path, dpi=150)
+    plt.savefig(out_path, dpi=DPI)
     plt.close()
 
 
-def fig_accuracy_vs_comms(df, curves, out_path):
-    partitions = sorted(df["alpha_plot"].unique())
-    fig, axes = plt.subplots(1, len(partitions), figsize=(4 * len(partitions), 3.8),
-                             sharey=True, squeeze=False)
-    for ax, a in zip(axes[0], partitions):
-        sub = df[df["alpha_plot"] == a]
-        for label, grp in sub.groupby("label"):
-            tag = grp["tag"].iloc[0]  # one representative seed
-            if tag not in curves:
-                continue
-            c = curves[tag]
-            ax.plot(c["cumulative_gb"], c["val_acc"], label=label, lw=1.4)
-        ax.set_title("IID" if a == IID_ALPHA else f"alpha = {a:g}", fontsize=10)
-        ax.set_xlabel("Cumulative communication (GB)")
-        ax.grid(alpha=0.3)
-    axes[0][0].set_ylabel("Validation accuracy")
-    axes[0][-1].legend(fontsize=8)
-    plt.tight_layout()
-    plt.savefig(out_path, dpi=150)
-    plt.close()
+def fig_panels(df, curves, out_dir, ylim):
+    """One figure per (partition, client count), for rounds and for GB."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    written = []
+    for (a, k), sub in df.groupby(["alpha_plot", "clients"]):
+        for xaxis, prefix in (("round", "curves"), ("gb", "comms")):
+            fig, ax = plt.subplots(figsize=(6.5, 4))
+            draw_panel(ax, sub, curves, xaxis)
+            ax.set_ylabel("Validation accuracy")
+            ax.set_ylim(*ylim)
+            ax.legend(fontsize=8, loc="lower right")
+            plt.tight_layout()
+            path = out_dir / f"{prefix}_{cond_file(a, k)}.png"
+            plt.savefig(path, dpi=DPI)
+            plt.close()
+            written.append(path.name)
+    return written
+
+
+def load_baseline(dirs):
+    accs = []
+    for b in dirs:
+        bpath = Path(b) / "test_results.json"
+        if bpath.exists():
+            acc = json.load(open(bpath))["test_acc"]
+            accs.append(acc)
+            print(f"  baseline {b}: {acc:.4f}")
+        else:
+            print(f"  baseline not found at {bpath}")
+    if not accs:
+        return None
+    sd = float(np.std(accs, ddof=1)) if len(accs) > 1 else 0.0
+    return float(np.mean(accs)), sd, len(accs)
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--fed-dir", default="fed_runs")
-    ap.add_argument("--baseline", default=None,
-                    help="baseline run dir containing test_results.json")
+    ap.add_argument("--fed-dir", nargs="+", default=["fed_runs"],
+                    help="one or more run folders; later folders win on duplicates")
+    ap.add_argument("--baseline", nargs="+", default=None,
+                    help="baseline run dirs, each containing test_results.json")
     ap.add_argument("--out-dir", default="results")
     args = ap.parse_args()
 
-    fed_dir = Path(args.fed_dir)
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    df, curves = collect(fed_dir)
+    print("reading runs")
+    df, curves = collect([Path(d) for d in args.fed_dir])
     if df.empty:
-        raise SystemExit(f"no parseable runs found in {fed_dir}")
+        raise SystemExit(f"no parseable runs found in {args.fed_dir}")
     print(f"parsed {len(df)} runs, {len(curves)} with curves")
 
-    baseline_acc = None
+    baseline = None
     if args.baseline:
-        import json
-        bpath = Path(args.baseline) / "test_results.json"
-        if bpath.exists():
-            baseline_acc = json.load(open(bpath))["test_acc"]
-            print(f"baseline test acc: {baseline_acc:.4f}")
-        else:
-            print(f"  baseline not found at {bpath}")
+        print("\nreading baseline")
+        baseline = load_baseline(args.baseline)
+        if baseline is not None:
+            m, s, n = baseline
+            print(f"  centralised mean {m:.4f} +/- {s:.4f} (n={n})")
 
-    df.sort_values(["algo", "mu", "alpha_plot", "seed"]).to_csv(
+    df.sort_values(["algo", "mu", "alpha_plot", "clients", "seed"]).to_csv(
         out_dir / "summary.csv", index=False)
 
     grid = build_grid(df)
@@ -265,29 +351,32 @@ def main():
     for _, r in grid.iterrows():
         cond = "IID" if r["alpha_plot"] == IID_ALPHA else f"a={r['alpha_plot']:g}"
         mu = f" mu={r['mu']:g}" if not np.isnan(r["mu"]) else ""
-        nc = f"c{int(r['clients'])}" if not pd.isna(r["clients"]) else "c?"
         std = 0.0 if np.isnan(r["acc_std"]) else r["acc_std"]
         flag = "  <-- single seed" if r["n"] < 2 else ""
-        print(f"  {r['algo']:<8}{mu:<12} {cond:<8} {nc:<5} "
-              f"acc {r['acc_mean']:.4f} +/- {std:.4f}  (n={int(r['n'])}){flag}")
+        print(f"  {r['algo']:<8}{mu:<12} {cond:<8} c{int(r['clients']):<4} "
+              f"acc {r['acc_mean']:.4f} +/- {std:.4f}  seeds [{r['seeds']}]{flag}")
 
     paired = build_paired(df)
     if not paired.empty:
         paired.to_csv(out_dir / "paired.csv", index=False)
-        print("\n=== fedprox - fedavg, paired by seed ===")
+        print("\n=== fedprox - fedavg, paired by seed (points) ===")
         for (part, a, mu, nc), sub in paired.groupby(
                 ["partition", "alpha_plot", "mu", "clients"]):
             cond = "IID" if a == IID_ALPHA else f"a={a:g}"
-            d = sub["acc_diff"]
-            print(f"  {cond:<8} c{int(nc):<4} mu={mu:<8g} mean diff {d.mean():+.4f} "
-                  f"(std {d.std() if len(d) > 1 else 0:.4f}, n={len(d)})")
+            d = sub["acc_diff"] * 100
+            sd = d.std() if len(d) > 1 else 0.0
+            print(f"  {cond:<8} c{int(nc):<4} mu={mu:<8g} mean {d.mean():+.2f} "
+                  f"+/- {sd:.2f}, ahead on {(d > 0).sum()} of {len(d)}")
 
-    fig_accuracy_vs_alpha(grid, baseline_acc, out_dir / "fig_accuracy_vs_alpha.png")
-    fig_curves(df, curves, out_dir / "fig_curves.png")
-    fig_accuracy_vs_comms(df, curves, out_dir / "fig_accuracy_vs_comms.png")
+    fig_accuracy_vs_alpha(grid, baseline, out_dir / "fig_accuracy_vs_alpha.png")
+    ylim = curve_ylim(df, curves)
+    fig_combined(df, curves, out_dir / "fig_curves.png", "round", ylim)
+    fig_combined(df, curves, out_dir / "fig_accuracy_vs_comms.png", "gb", ylim)
+    panels = fig_panels(df, curves, out_dir / "panels", ylim)
+    print(f"\nwrote {len(panels)} single-panel figures to {out_dir / 'panels'}")
     if fig_accuracy_vs_nodes(grid, out_dir / "fig_accuracy_vs_nodes.png"):
         print("wrote node-sweep figure")
-    print(f"\nwrote tables and figures to {out_dir.resolve()}")
+    print(f"wrote tables and figures to {out_dir.resolve()}")
 
 
 if __name__ == "__main__":
